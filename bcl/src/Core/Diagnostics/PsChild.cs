@@ -3,9 +3,7 @@ using System.Text;
 
 using GnomeStack.Extra.IO;
 using GnomeStack.Extra.Strings;
-
-using PsExit = GnomeStack.Result<int, System.Exception>;
-using PsResult = GnomeStack.Result<GnomeStack.Diagnostics.PsOutput, System.Exception>;
+using GnomeStack.Std;
 
 namespace GnomeStack.Diagnostics;
 
@@ -438,7 +436,7 @@ public sealed class PsChild : IDisposable
         if (this.process.HasExited)
         {
             this.exitTime = this.process.ExitTime;
-            return Result.Ok(this.process.ExitCode);
+            return this.process.ExitCode;
         }
 
         this.process.WaitForExit();

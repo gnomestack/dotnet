@@ -4,7 +4,7 @@ using System.Text;
 
 using GnomeStack.Extra.Strings;
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public static partial class Env
 {

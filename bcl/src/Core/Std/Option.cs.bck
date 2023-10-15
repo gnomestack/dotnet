@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public enum OptionState
 {

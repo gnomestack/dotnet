@@ -1,4 +1,4 @@
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 #if DFX_CORE
 public

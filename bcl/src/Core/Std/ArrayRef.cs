@@ -1,7 +1,7 @@
 using System.Buffers;
 using System.Diagnostics.CodeAnalysis;
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 /// <summary>
 /// Provides methods for working with arrays that use the <see langword="ref"/> keyword

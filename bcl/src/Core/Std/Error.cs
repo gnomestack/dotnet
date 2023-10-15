@@ -1,4 +1,4 @@
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public class Error : IError
 {

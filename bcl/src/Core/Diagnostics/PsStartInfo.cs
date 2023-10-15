@@ -2,9 +2,7 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Text;
 
-using GnomeStack.Diagnostics;
-
-namespace GnomeStack;
+namespace GnomeStack.Diagnostics;
 
 public class PsStartInfo
 {

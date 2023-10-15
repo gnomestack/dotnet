@@ -7,9 +7,7 @@ using System.Text;
 
 using GnomeStack.Diagnostics;
 
-using PsResult = GnomeStack.Result<GnomeStack.Diagnostics.PsOutput, System.Exception>;
-
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 /// <summary>
 ///  A wrapper around <see cref="Process"/> that provides a fluent API and provides
@@ -405,7 +403,7 @@ public sealed partial class Ps
     ///  Executes, waits, and returns the process output.
     /// </summary>
     /// <returns>The process output.</returns>
-    public Result<PsOutput, Error> Output()
+    public PsOutput Output()
     {
         List<string>? stdOut = null;
         List<string>? stdError = null;

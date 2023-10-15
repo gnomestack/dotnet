@@ -1,5 +1,3 @@
-using GnomeStack;
-
 namespace Tests;
 
 // ReSharper disable once InconsistentNaming

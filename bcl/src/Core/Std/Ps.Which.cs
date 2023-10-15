@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 using GnomeStack.Extra.Strings;
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public partial class Ps
 {

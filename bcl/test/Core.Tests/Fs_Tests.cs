@@ -1,15 +1,13 @@
-﻿using GnomeStack;
-
-namespace Tests;
+﻿namespace Tests;
 
 public partial class Fs_Tests
 {
     [IntegrationTest]
     public void Verify_Attr(IAssert assert)
     {
-        var GnomeStackDir = CreateTestDir();
-        var textFile = Path.Combine(GnomeStackDir, "alpha", "test.txt");
-        var attrs = Fs.Attr(GnomeStackDir);
+        var gnomeStackDir = CreateTestDir();
+        var textFile = Path.Combine(gnomeStackDir, "alpha", "test.txt");
+        var attrs = Fs.Attr(gnomeStackDir);
         assert.True(attrs.HasFlag(FileAttributes.Directory));
 
         attrs = Fs.Attr(textFile);
@@ -19,26 +17,26 @@ public partial class Fs_Tests
     [IntegrationTest]
     public void Verify_Stat(IAssert assert)
     {
-        var GnomeStackDir = CreateTestDir();
-        var fsi = Fs.Stat(GnomeStackDir);
+        var gnomeStackDir = CreateTestDir();
+        var fsi = Fs.Stat(gnomeStackDir);
         assert.True(fsi is DirectoryInfo);
     }
 
     [IntegrationTest]
     public void Verify_IsDirectory(IAssert assert)
     {
-        var GnomeStackDir = CreateTestDir();
-        var textFile = Path.Combine(GnomeStackDir, "alpha", "test.txt");
-        assert.True(Fs.IsDirectory(GnomeStackDir));
+        var gnomeStackDir = CreateTestDir();
+        var textFile = Path.Combine(gnomeStackDir, "alpha", "test.txt");
+        assert.True(Fs.IsDirectory(gnomeStackDir));
         assert.False(Fs.IsDirectory(textFile));
     }
 
     [IntegrationTest]
     public void Verify_IsFile(IAssert assert)
     {
-        var GnomeStackDir = CreateTestDir();
-        var textFile = Path.Combine(GnomeStackDir, "alpha", "test.txt");
-        assert.False(Fs.IsFile(GnomeStackDir));
+        var gnomeStackDir = CreateTestDir();
+        var textFile = Path.Combine(gnomeStackDir, "alpha", "test.txt");
+        assert.False(Fs.IsFile(gnomeStackDir));
         assert.True(Fs.IsFile(textFile));
     }
 
@@ -63,7 +61,7 @@ public partial class Fs_Tests
     public void Verify_CopyDirectory(IAssert assert)
     {
         var tmp = Path.GetTempPath();
-        var GnomeStackDir = CreateTestDir();
+        var gnomeStackDir = CreateTestDir();
         var dst = Path.Combine(tmp, "dst");
         if (Fs.DirectoryExists(dst))
             Fs.RemoveDirectory(dst, true);
@@ -71,7 +69,7 @@ public partial class Fs_Tests
         try
         {
             assert.False(Fs.DirectoryExists(dst));
-            Fs.CopyDirectory(GnomeStackDir, dst, true);
+            Fs.CopyDirectory(gnomeStackDir, dst, true);
 
             assert.True(Fs.DirectoryExists(dst));
             assert.True(Fs.DirectoryExists(Path.Combine(dst, "alpha")));
@@ -89,8 +87,8 @@ public partial class Fs_Tests
     [IntegrationTest]
     public void Verify_Open(IAssert assert)
     {
-        var GnomeStackDir = CreateTestDir();
-        var textFile = Path.Combine(GnomeStackDir, "alpha", "test.txt");
+        var gnomeStackDir = CreateTestDir();
+        var textFile = Path.Combine(gnomeStackDir, "alpha", "test.txt");
         using var stream = Fs.OpenFile(textFile);
         assert.True(stream.CanRead);
         assert.True(stream.Length > 0);

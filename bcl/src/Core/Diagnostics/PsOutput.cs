@@ -60,6 +60,7 @@ public readonly struct PsOutput
         }
     }
 
+/*
     public Result<PsOutput, ProcessException> ToResult(Func<int, bool>? validate = null)
     {
         if (validate is null)
@@ -75,4 +76,5 @@ public readonly struct PsOutput
 
         return Result.Err<PsOutput, ProcessException>(new ProcessException(this.ExitCode, this.FileName));
     }
+    */
 }

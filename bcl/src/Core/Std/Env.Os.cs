@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using GnomeStack.Extra.Strings;
 #endif
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public static partial class Env
 {

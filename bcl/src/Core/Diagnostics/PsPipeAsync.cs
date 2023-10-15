@@ -1,3 +1,5 @@
+using GnomeStack.Std;
+
 namespace GnomeStack.Diagnostics;
 
 public class PsPipeAsync

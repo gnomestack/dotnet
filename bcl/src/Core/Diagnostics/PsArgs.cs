@@ -3,10 +3,9 @@ using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-using GnomeStack.Diagnostics;
 using GnomeStack.Text;
 
-namespace GnomeStack;
+namespace GnomeStack.Diagnostics;
 
 public partial class PsArgs : List<string>
 {
