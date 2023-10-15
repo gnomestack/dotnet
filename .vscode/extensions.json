@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csdevkit",
+        "Fudge.auto-using",
+        "mads-hartmann.bash-ide-vscode",
+        "ms-dotnettools.csharp",
+        "tintoy.msbuild-project-tools",
+        "christian-kohler.path-intellisense",
+        "yzhang.markdown-all-in-one",
+        "redhat.vscode-yaml",
+        "denoland.vscode-deno"
+    ]
+}

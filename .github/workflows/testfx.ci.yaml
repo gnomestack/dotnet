@@ -1,0 +1,16 @@
+name: "TestFx CI"
+
+on: 
+  push:
+    paths: 
+      - 'testfx/**'
+      - '.github/workflows/testfx.ci.yaml'
+      - '.github/workflows/multi-target-lib.yaml'
+
+jobs:
+  ci:
+    uses: ./.github/workflows/multi-target-lib.yaml
+    with:
+        project-dir: "testfx"
+        project-name: "testfx"
+    secrets: inherit

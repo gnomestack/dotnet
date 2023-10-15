@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+  <PropertyGroup>
+    <BaseRepoUrl>https://github.com/gnomestack/dotnet</BaseRepoUrl>
+    <BaseTreeUrl>https://github.com/gnomestack/dotnet</BaseTreeUrl>
+  </PropertyGroup> 
+  <PropertyGroup>
+    <Company>GnomeStack</Company>
+    <Copyright>©️ 2010-2023 GnomeStack</Copyright>
+    <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl> 
+    <RepositoryType>git</RepositoryType> 
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>BowTiedGnome</Authors>
+    <PackageIcon>icon.png</PackageIcon>
+    <ProjectUrl>https://gnomestack.net</ProjectUrl>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>7</AnalysisLevel>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+    <LangVersion>preview</LangVersion>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <MinVerSkip Condition="'$(Configuration)' == 'Debug'">true</MinVerSkip>
+  </PropertyGroup>
+
+  <!-- Warnings that should be enabled for releasing to the web -->
+  <PropertyGroup>
+    <NoWarn>1591;1057</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CoreFx>net7.0</CoreFx>
+   
+    <CoreTestFx>$(CoreFx)</CoreTestFx>
+
+    <CoreLibFx>net6.0;$(CoreFx)</CoreLibFx>
+    <CoreLibTestFx>$(CoreLibFx)</CoreLibTestFx>
+
+    <NetFx>net472</NetFx>
+    <NetTestFx>$(NetFx)</NetTestFx>
+  
+    <NetStandard>netstandard2.0</NetStandard>
+
+    <SourceGeneratorFx>netstandard2.0</SourceGeneratorFx>
+    <SourceGeneratorTestFx>netstandard2.0</SourceGeneratorTestFx>
+
+    <LibFx>netstandard2.0;net6.0;net7.0</LibFx>
+    <LibTestFx>net472;net7.0</LibTestFx>
+    
+    <!-- for cases when netstandard2.0 is not supported, but functionality is supported in net472 or greater -->
+    <NetCoreLibFx>$(NetFx);net6.0;$(CoreFx)</NetCoreLibFx>
+    <NetCoreLibTestFx>$(CoreFx);$(NetFx)</NetCoreLibTestFx>
+
+    <Windows>false</Windows>
+    <Linux>false</Linux>
+    <MacOs>false</MacOs>
+    <InternalDir>$(MSBuildThisFileDirectory)internal</InternalDir>
+    <ArtifactsDir>$(MSBuildThisFileDirectory).artifacts</ArtifactsDir>
+    <BaseOutputPath>$(ArtifactsDir)/bin/$(MsBuildProjectName)</BaseOutputPath>
+    <IconPath>$(MSBuildThisFileDirectory)assets/icon.png</IconPath>
+    <NetLegacy>false</NetLegacy>
+    <NetFramework>false</NetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="">
+    <CollectCoverage>true</CollectCoverage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="($(TargetFramework.StartsWith('net4')) OR  $(TargetFramework.StartsWith('netstandard2.0')) OR $(TargetFramework.StartsWith('netstandard1')))">
+    <DefineConstants>$(DefineConstants);NETLEGACY</DefineConstants>
+    <NetLegacy>true</NetLegacy>
+  </PropertyGroup>
+    
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <NetFramework>true</NetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+    <Windows>true</Windows>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+    <DefineConstants>$(DefineConstants);DARWIN</DefineConstants>
+      <MacOs>true</MacOs>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+    <DefineConstants>$(DefineConstants);LINUX</DefineConstants>
+    <Linux>true</Linux> 
+  </PropertyGroup>
+    
+  <!--
+  <ItemGroup Condition="$(MSBuildProjectFile.Contains('Tests'))">
+    <PackageReference Include="altcover" PrivateAssets="all"/>
+  </ItemGroup>
+    -->
+
+
+
+  <ItemGroup>
+    <PackageReference Include="ReflectionAnalyzers" PrivateAssets="all" />
+    <PackageReference Include="SecurityCodeScan.VS2019"  PrivateAssets="all"/>
+    <PackageReference Include="StyleCop.Analyzers"  PrivateAssets="all"/>
+    <PackageReference Include="SonarAnalyzer.CSharp" PrivateAssets="all"/>
+    <PackageReference Include="Text.Analyzers"  PrivateAssets="all"/>
+    <PackageReference Include="AsyncFixer" PrivateAssets="all"/>
+    <!-- <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="*" PrivateAssets="all" /> -->
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers"  PrivateAssets="all"/>
+    <PackageReference Include="Roslynator.Analyzers"   PrivateAssets="all"/>
+    <PackageReference Include="MinVer"  PrivateAssets="all"/>
+
+    <!--     
+      disabling for now due to shallow clone issues
+      <PackageReference Include="Nerdbank.GitVersioning"
+                  PrivateAssets="all" />
+                  -->
+
+  </ItemGroup>
+</Project>
