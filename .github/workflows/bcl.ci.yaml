@@ -1,10 +1,10 @@
-name: "Test Fx Integration"
+name: "BCL Fx Integration"
 
 on: 
   push:
     paths: 
-      - 'testfx/**'
-      - '.github/workflows/testfx.cd.yaml'
+      - 'bcl/**'
+      - '.github/workflows/bcl.cd.yaml'
       - '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
       - '*'
@@ -12,9 +12,9 @@ on:
       - 'main'
 
 jobs:
-  testfx-cd:
+  bcl-cd:
     uses: ./.github/workflows/multi-target-lib-ci.yaml
     with:
-        project-dir: "testfx"
-        project-name: "testfx"
+        project-dir: "bcl"
+        project-name: "bcl"
     secrets: inherit

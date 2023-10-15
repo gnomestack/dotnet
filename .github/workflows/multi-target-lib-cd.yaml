@@ -33,7 +33,7 @@ env:
   NUGET_API_KEY: ${{ secrets.NUGET_ORG_API_KEY }}
   
 
-name: Multi Target Library CI/CD
+name: Multi Target Library CD
 jobs:
   build: 
     strategy:
@@ -120,5 +120,3 @@ jobs:
       run: qtr nuget:publish
       if: ${{ startsWith(github.ref, env.TAG_REF) }}
       working-directory: ${{ env.PROJECT_DIR }}
-
-    # TODO: nuget publish

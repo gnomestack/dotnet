@@ -2,11 +2,13 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
     <PropertyGroup>
-        <IsTrimmable Condition="$(TargetFramework.StartsWith('net6')) OR $(TargetFramework.StartsWith('net7')) OR $(TargetFramework.StartsWith('net8'))">true</IsTrimmable>
-        <Version>0.1.0</Version>
+        <IsTrimmable>false</IsTrimmable>
+        <Version>$(PackageVersion)</Version>
         <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl>
-        <ProjectUrl>$(BaseTreeUrl)/bcl/README.md</ProjectUrl>
         <SrcDir>$(MSBuildThisFileDirectory)/src</SrcDir>
-        <TestDir>$(MSBuildThisFileDirectory)/test</TestDir>
+        <TestDir>$(MSBuildThisFileDirectory)/src</TestDir>
+        <MinVerDefaultPreReleaseIdentifiers 
+            Condition="$(MinVerDefaultPreReleaseIdentifiers) == ''">build</MinVerDefaultPreReleaseIdentifiers>
+        <MinVerTagPrefix>bcl-</MinVerTagPrefix>
     </PropertyGroup>
 </Project>
