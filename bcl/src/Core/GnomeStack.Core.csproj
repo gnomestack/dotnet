@@ -36,6 +36,7 @@
 
   <ItemGroup Condition="$(NetLegacy) == 'true'">
     <PackageReference Include="System.Memory" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" />
     <PackageReference Include="Microsoft.Bcl.HashCode" />
   </ItemGroup>
 
