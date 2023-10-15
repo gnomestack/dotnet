@@ -5,7 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{359E2C0D-7FB7-478C-806C-EBA56DABD1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bearz.Core", "src\Core\Bearz.Core.csproj", "{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Core", "src\Core\GnomeStack.Core.csproj", "{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{46BAB321-1F15-4C65-BD5A-00D8A08E4208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Core.Tests", "test\Core.Tests\GnomeStack.Core.Tests.csproj", "{F3647517-2E87-4995-BBCD-84EF5BF1AB52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,8 +24,13 @@ Global
 		{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3647517-2E87-4995-BBCD-84EF5BF1AB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3647517-2E87-4995-BBCD-84EF5BF1AB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3647517-2E87-4995-BBCD-84EF5BF1AB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3647517-2E87-4995-BBCD-84EF5BF1AB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{09403FA0-BF8B-40C2-9CDE-F9B99D9765CF} = {359E2C0D-7FB7-478C-806C-EBA56DABD1EA}
+		{F3647517-2E87-4995-BBCD-84EF5BF1AB52} = {46BAB321-1F15-4C65-BD5A-00D8A08E4208}
 	EndGlobalSection
 EndGlobal

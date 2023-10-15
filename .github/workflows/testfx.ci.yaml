@@ -4,8 +4,8 @@ on:
   push:
     paths: 
       - 'testfx/**'
-      - '.github/workflows/testfx.cd.yaml'
-      - '.github/workflows/multi-target-lib-ci.yaml'
+      #- '.github/workflows/testfx.cd.yaml'
+      #- '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
       - '*'
     branches-ignore:

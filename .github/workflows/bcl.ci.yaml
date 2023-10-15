@@ -4,8 +4,8 @@ on:
   push:
     paths: 
       - 'bcl/**'
-      - '.github/workflows/bcl.cd.yaml'
-      - '.github/workflows/multi-target-lib-ci.yaml'
+      #- '.github/workflows/bcl.cd.yaml'
+      #- '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
       - '*'
     branches-ignore:
