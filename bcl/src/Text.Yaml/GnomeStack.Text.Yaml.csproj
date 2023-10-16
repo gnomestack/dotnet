@@ -30,4 +30,18 @@
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(InternalDir)/Polyfill/Range.cs" Link="Polyfill/Range.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/IO.cs" Link="Polyfill/IO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SrcDir)/Core/*.csproj" />
+  </ItemGroup>
 </Project>
