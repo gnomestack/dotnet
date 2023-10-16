@@ -16,7 +16,7 @@ public static partial class Fs
         => File.GetAttributes(path);
 
     /// <summary>
-    /// Matches the given directory against the include and exclude glob patterns.
+    /// Matches the glob the given directory against the include and exclude glob patterns.
     /// </summary>
     /// <param name="directory">The root directory.</param>
     /// <param name="include">The patterns used to include files.</param>

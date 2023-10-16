@@ -12,13 +12,17 @@ public static class Result
         where TValue : notnull
         => Ok<TValue, TError>(await task);
 
-    public static Result<TValue, Error> NoError<TValue>(TValue value)
+    public static Result<TValue, Error> OkNoError<TValue>(TValue value)
         where TValue : notnull
         => new(ResultState.Ok, value, default!);
 
-    public static Result<TValue, Exception> NoException<TValue>(TValue value)
+    public static Result<TValue, Exception> OkNoException<TValue>(TValue value)
         where TValue : notnull
         => new(ResultState.Ok, value, default!);
+
+    public static Result<Nil, TException> None<TException>(TException error)
+        where TException : Exception
+        => new(ResultState.Err, default!, error);
 
     public static Result<TValue, TError> Error<TValue, TError>(TError error)
         where TError : notnull
@@ -32,19 +36,6 @@ public static class Result
     public static Result<TValue, Exception> Error<TValue>(Exception error)
         where TValue : notnull
         => new(ResultState.Err, default!, error);
-
-    public static Result<TValue, Error> TryError<TValue>(Func<TValue> func)
-        where TValue : notnull
-    {
-        try
-        {
-            return func();
-        }
-        catch (Exception ex)
-        {
-            return GnomeStack.Functional.Error.Convert(ex);
-        }
-    }
 
     public static Result<TValue, TException> Try<TValue, TException>(Func<TValue> func)
         where TException : Exception
@@ -60,6 +51,19 @@ public static class Result
         }
     }
 
+    public static Result<TValue, Exception> Try<TValue>(Func<TValue> func)
+        where TValue : notnull
+    {
+        try
+        {
+            return func();
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
     public static Result<Nil, TException> Try<TException>(Action action)
         where TException : Exception
     {
@@ -69,6 +73,19 @@ public static class Result
             return default;
         }
         catch (TException ex)
+        {
+            return ex;
+        }
+    }
+
+    public static Result<Nil, Exception> Try(Action action)
+    {
+        try
+        {
+            action();
+            return default;
+        }
+        catch (Exception ex)
         {
             return ex;
         }
