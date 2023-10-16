@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
 
-namespace Bearz.Text.Json;
+namespace GnomeStack.Text.Json;
 
 [SuppressMessage("AsyncUsage", "AsyncFixer01:Unnecessary async/await usage")]
 public class DefaultJsonSerializer : IJsonSerializer

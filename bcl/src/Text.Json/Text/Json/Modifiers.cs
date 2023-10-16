@@ -4,7 +4,7 @@ using System.Text.Json.Serialization.Metadata;
 using GnomeStack.Extra.Strings;
 using GnomeStack.Text.Serialization;
 
-namespace Bearz.Text.Json;
+namespace GnomeStack.Text.Json;
 
 public static class Modifiers
 {

@@ -1,4 +1,4 @@
-namespace Bearz.Extra.Json;
+namespace GnomeStack.Extra.Json;
 
 public static class JsonExtensions
 {

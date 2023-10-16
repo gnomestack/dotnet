@@ -1,4 +1,4 @@
-namespace Bearz.Text.Json;
+namespace GnomeStack.Text.Json;
 
 public interface IJsonSerializer
 {

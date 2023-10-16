@@ -1,8 +1,8 @@
 using System.Text.Json;
 
-using Bearz.Text.Json;
+using GnomeStack.Text.Json;
 
-namespace Bearz.Std;
+namespace GnomeStack.Std;
 
 public static class Json
 {
