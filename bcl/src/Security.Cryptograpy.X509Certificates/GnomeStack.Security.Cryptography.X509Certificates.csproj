@@ -23,7 +23,7 @@
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="LICENSE.md" Pack="true" PackagePath="\" />
-       <None Include="$(IconPath)" Pack="true" PackagePath="\" />
+    <None Include="$(IconPath)" Pack="true" PackagePath="\" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(NetLegacy)' == 'true'">
