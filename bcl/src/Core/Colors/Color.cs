@@ -1,4 +1,4 @@
-namespace GnomeStack.ColorSpaces;
+namespace GnomeStack.Colors;
 
 public readonly struct Color : IEquatable<Color>
 {
@@ -8,26 +8,6 @@ public readonly struct Color : IEquatable<Color>
         this.G = color.G;
         this.B = color.B;
         this.A = color.A;
-    }
-
-    public Color(HexCode hex)
-    {
-        if (hex.HasAlpha)
-        {
-            var (r, g, b, a) = hex.ToRgba();
-            this.R = r;
-            this.G = g;
-            this.B = b;
-            this.A = a;
-        }
-        else
-        {
-            var (r, g, b) = hex.ToRgb();
-            this.R = r;
-            this.G = g;
-            this.B = b;
-            this.A = Alpha.Opaque;
-        }
     }
 
     public Color(byte r, byte g, byte b)
