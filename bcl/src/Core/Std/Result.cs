@@ -90,4 +90,60 @@ public static class Result
             return ex;
         }
     }
+
+    public static async Task<Result<TValue, TException>> TryAsync<TValue, TException>(Func<Task<TValue>> func)
+        where TException : Exception
+        where TValue : notnull
+    {
+        try
+        {
+            return await func();
+        }
+        catch (TException ex)
+        {
+            return ex;
+        }
+    }
+
+    public static async Task<Result<TValue, TException>> TryAsync<TValue, TException>(
+        Func<CancellationToken, Task<TValue>> func,
+        CancellationToken cancellationToken)
+        where TException : Exception
+        where TValue : notnull
+    {
+        try
+        {
+            return await func(cancellationToken);
+        }
+        catch (TException ex)
+        {
+            return ex;
+        }
+    }
+
+    public static async Task<Result<TValue, Exception>> TryAsync<TValue>(Func<Task<TValue>> func)
+        where TValue : notnull
+    {
+        try
+        {
+            return await func();
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
+    public static async Task<Result<TValue, Exception>> TryAsync<TValue>(Func<CancellationToken, Task<TValue>> func, CancellationToken cancellationToken)
+        where TValue : notnull
+    {
+        try
+        {
+            return await func(cancellationToken).NoCap();
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
 }

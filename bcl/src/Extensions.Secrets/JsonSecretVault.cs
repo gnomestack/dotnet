@@ -97,7 +97,7 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
             if (string.IsNullOrWhiteSpace(dir))
                 throw new InvalidOperationException("LOCALAPPDATA is not set");
 
-            return Path.Combine(dir, "GnomeStack", "secrets", "vault.json");
+            return Path.Combine(dir, "gnome-stack", "secrets", "vault.json");
         }
         else
         {
@@ -105,7 +105,7 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
             if (string.IsNullOrWhiteSpace(dir))
                 throw new InvalidOperationException("HOME is not set");
 
-            return Path.Combine(dir, ".config", "GnomeStack", "secrets", "vault.json");
+            return Path.Combine(dir, ".config", "gnome-stack", "secrets", "vault.json");
         }
     }
 

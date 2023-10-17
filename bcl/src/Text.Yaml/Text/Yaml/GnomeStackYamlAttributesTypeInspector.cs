@@ -1,5 +1,6 @@
 using GnomeStack.Text.Serialization;
 
+using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.TypeInspectors;
 
@@ -60,6 +61,35 @@ public sealed class GnomeStackYamlAttributesTypeInspector : TypeInspectorSkeleto
 
                 if (serializationAttr.Name is not null)
                     descriptor.Name = serializationAttr.Name;
+
+                if (serializationAttr.StringStyle != StringStyle.Default)
+                {
+                    switch (serializationAttr.StringStyle)
+                    {
+                        case StringStyle.Folded:
+                            descriptor.ScalarStyle = ScalarStyle.Folded;
+                            break;
+
+                        case StringStyle.Literal:
+                            descriptor.ScalarStyle = ScalarStyle.Literal;
+                            break;
+
+                        case StringStyle.SingleQuoted:
+                            descriptor.ScalarStyle = ScalarStyle.SingleQuoted;
+                            break;
+
+                        case StringStyle.DoubleQuoted:
+                            descriptor.ScalarStyle = ScalarStyle.DoubleQuoted;
+                            break;
+
+                        case StringStyle.Plain:
+                            descriptor.ScalarStyle = ScalarStyle.Plain;
+                            break;
+
+                        case StringStyle.Default:
+                            break;
+                    }
+                }
             }
 
             list.Add(descriptor);

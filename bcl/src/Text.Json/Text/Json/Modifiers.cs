@@ -12,23 +12,32 @@ public static class Modifiers
     {
         foreach (var prop in info.Properties)
         {
-            var propType = prop.PropertyType;
-            var attr = propType.GetCustomAttribute<IgnoreAttribute>();
-            if (attr is not null)
+            var attrProvider = prop.AttributeProvider;
+            if (attrProvider is null)
+                continue;
+
+            var ignoreAttrs = attrProvider.GetCustomAttributes(typeof(IgnoreAttribute), true)
+                .Cast<IgnoreAttribute>()
+                .ToArray();
+
+            if (ignoreAttrs.Length > 0)
             {
                 prop.ShouldSerialize = (_, _) => false;
                 continue;
             }
 
-            var serializationAttr = propType.GetCustomAttribute<SerializationAttribute>();
-            if (serializationAttr is not null)
-            {
+            var serializeAttrs = attrProvider.GetCustomAttributes(typeof(SerializationAttribute), true)
+                .Cast<SerializationAttribute>()
+                .ToArray();
 
-                if (!serializationAttr.Name.IsNullOrWhiteSpace())
-                    prop.Name = serializationAttr.Name;
+            if (serializeAttrs.Length > 0)
+            {
+                var attr = serializeAttrs[0];
+                if (!attr.Name.IsNullOrWhiteSpace())
+                    prop.Name = attr.Name;
 
                 if (prop.Order > 0)
-                    prop.Order = serializationAttr.Order;
+                    prop.Order = attr.Order;
             }
         }
     }

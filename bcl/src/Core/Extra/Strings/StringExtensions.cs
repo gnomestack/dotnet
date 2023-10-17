@@ -1,5 +1,6 @@
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 using GnomeStack.Text;
 
@@ -255,6 +256,12 @@ public partial class StringExtensions
         }
 
         return StringBuilderCache.GetStringAndRelease(builder);
+    }
+
+    public static Stream AsStream(this string value, Encoding? encoding = null)
+    {
+        encoding ??= Encoding.UTF8;
+        return new MemoryStream(encoding.GetBytes(value));
     }
 
     internal static bool IsHexString(this string value)

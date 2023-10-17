@@ -8,6 +8,9 @@ The `GnomeStack.Std` namespace is the "Stardard" namespace where key classes
 are, most of which are static classes that can be imported like a module or
 use like a normal C# static class.
 
+The `GnomeStack.Std` makes it easier for C# scripting or a more functional 
+approach to programming in C#.
+
 ```csharp
 using static GnomeStack.Std.Fs;
 

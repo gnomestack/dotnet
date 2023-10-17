@@ -97,7 +97,7 @@ public class DefaultYamlSerializer : IYamlSerializer
     }
 
     // ReSharper disable once ReturnTypeCanBeNotNullable
-    public T? Deserialize<T>(ReadOnlySpan<char> yaml)
+    public T Deserialize<T>(ReadOnlySpan<char> yaml)
     {
 #if NETLEGACY
         var rental = System.Buffers.ArrayPool<char>.Shared.Rent(yaml.Length);
@@ -109,6 +109,9 @@ public class DefaultYamlSerializer : IYamlSerializer
         return this.Deserializer.Deserialize<T>(yaml.ToString());
 #endif
     }
+
+    public T Deserialize<T>(string yaml)
+        => this.Deserializer.Deserialize<T>(yaml);
 
     public object? Deserialize(ReadOnlySpan<char> yaml, Type type)
     {
@@ -123,8 +126,11 @@ public class DefaultYamlSerializer : IYamlSerializer
 #endif
     }
 
+    public object? Deserialize(string yaml, Type type)
+        => this.Deserializer.Deserialize(yaml, type);
+
     // ReSharper disable once ReturnTypeCanBeNotNullable
-    public T? Deserialize<T>(Stream stream)
+    public T Deserialize<T>(Stream stream)
     {
         using var reader = new StreamReader(stream, Encoding.UTF8, false, 4096, true);
         return this.Deserializer.Deserialize<T>(reader);
@@ -136,9 +142,9 @@ public class DefaultYamlSerializer : IYamlSerializer
         return this.Deserializer.Deserialize(reader, type);
     }
 
-    public Task<T?> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+    public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
     {
-        var task = new Task<T?>(() => this.Deserialize<T>(stream), cancellationToken);
+        var task = new Task<T>(() => this.Deserialize<T>(stream), cancellationToken);
         task.Start();
         return task;
     }
@@ -150,9 +156,9 @@ public class DefaultYamlSerializer : IYamlSerializer
         return task;
     }
 
-    public Task<T?> DeserializeAsync<T>(string yaml, CancellationToken cancellationToken = default)
+    public Task<T> DeserializeAsync<T>(string yaml, CancellationToken cancellationToken = default)
     {
-        var task = new Task<T?>(() => this.Deserialize<T>(yaml), cancellationToken);
+        var task = new Task<T>(() => this.Deserialize<T>(yaml), cancellationToken);
         task.Start();
         return task;
     }
@@ -163,10 +169,4 @@ public class DefaultYamlSerializer : IYamlSerializer
         task.Start();
         return task;
     }
-
-    private T Deserialize<T>(string yaml)
-        => this.Deserializer.Deserialize<T>(yaml);
-
-    private object? Deserialize(string yaml, Type type)
-        => this.Deserializer.Deserialize(yaml, type);
 }

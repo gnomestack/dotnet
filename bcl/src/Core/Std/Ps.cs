@@ -6,6 +6,7 @@ using System.Runtime.Versioning;
 using System.Text;
 
 using GnomeStack.Diagnostics;
+using GnomeStack.Functional;
 
 namespace GnomeStack.Std;
 
@@ -425,6 +426,35 @@ public sealed partial class Ps
         return new PsOutput(this.FileName, ec, stdOut, stdError, child.StartTime, child.ExitTime);
     }
 
+    public Result<PsOutput, Exception> OutputResult()
+    {
+        try
+        {
+            List<string>? stdOut = null;
+            List<string>? stdError = null;
+
+            if (this.StartInfo.StdOut == Stdio.Piped)
+            {
+                stdOut = new List<string>();
+                this.StartInfo.Capture(stdOut);
+            }
+
+            if (this.StartInfo.StdErr == Stdio.Piped)
+            {
+                stdError = new List<string>();
+                this.StartInfo.CaptureError(stdError);
+            }
+
+            using var child = new PsChild(this.FileName, this.StartInfo);
+            var ec = child.Wait();
+            return new PsOutput(this.FileName, ec, stdOut, stdError, child.StartTime, child.ExitTime);
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
+    }
+
     /// <summary>
     /// Executes, waits, and returns the process output.
     /// </summary>
@@ -451,6 +481,41 @@ public sealed partial class Ps
         var ec = await child.WaitAsync(cancellationToken).ConfigureAwait(false);
 
         return new PsOutput(this.FileName, ec, stdOut, stdError, child.StartTime, child.ExitTime);
+    }
+
+    /// <summary>
+    /// Executes, waits, and returns the process output.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The process output.</returns>
+    public async Task<Result<PsOutput, Exception>> OutputResultAsync(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            List<string>? stdOut = null;
+            List<string>? stdError = null;
+
+            if (this.StartInfo.StdOut == Stdio.Piped)
+            {
+                stdOut = new List<string>();
+                this.StartInfo.Capture(stdOut);
+            }
+
+            if (this.StartInfo.StdErr == Stdio.Piped)
+            {
+                stdError = new List<string>();
+                this.StartInfo.CaptureError(stdError);
+            }
+
+            using var child = new PsChild(this.FileName, this.StartInfo);
+            var ec = await child.WaitAsync(cancellationToken).ConfigureAwait(false);
+
+            return new PsOutput(this.FileName, ec, stdOut, stdError, child.StartTime, child.ExitTime);
+        }
+        catch (Exception ex)
+        {
+            return ex;
+        }
     }
 
     public PsPipe Pipe(PsCommand ps, PsStartInfo? startInfo = null)

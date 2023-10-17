@@ -32,25 +32,28 @@ public static class Json
     public static Task<string> StringifyJsonAsync(object? value, Type type, CancellationToken cancellationToken = default)
         => JsonSerializerProvider.SerializeAsync(value, type, cancellationToken);
 
-    public static T? Parse<T>(ReadOnlySpan<char> json)
+    public static T Parse<T>(string json)
+        => JsonSerializerProvider.Deserialize<T>(json);
+
+    public static T Parse<T>(ReadOnlySpan<char> json)
         => JsonSerializerProvider.Deserialize<T>(json);
 
     public static object? Parse(ReadOnlySpan<char> json, Type type)
         => JsonSerializerProvider.Deserialize(json, type);
 
-    public static T? Parse<T>(Stream stream)
+    public static T Parse<T>(Stream stream)
         => JsonSerializerProvider.Deserialize<T>(stream);
 
     public static object? Parse(Stream stream, Type type)
         => JsonSerializerProvider.Deserialize(stream, type);
 
-    public static Task<T?> ParseAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+    public static Task<T> ParseAsync<T>(Stream stream, CancellationToken cancellationToken = default)
         => JsonSerializerProvider.DeserializeAsync<T>(stream, cancellationToken);
 
     public static Task<object?> ParseAsync(Stream stream, Type type, CancellationToken cancellationToken = default)
         => JsonSerializerProvider.DeserializeAsync(stream, type, cancellationToken);
 
-    public static Task<T?> ParseAsync<T>(string json, CancellationToken cancellationToken = default)
+    public static Task<T> ParseAsync<T>(string json, CancellationToken cancellationToken = default)
         => JsonSerializerProvider.DeserializeAsync<T>(json, cancellationToken);
 
     public static Task<object?> ParseAsync(string json, Type type, CancellationToken cancellationToken = default)

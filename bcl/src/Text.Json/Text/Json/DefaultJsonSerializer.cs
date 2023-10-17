@@ -101,27 +101,37 @@ public class DefaultJsonSerializer : IJsonSerializer
 #endif
     }
 
-    public T? Deserialize<T>(ReadOnlySpan<char> json)
-        => JsonSerializer.Deserialize<T>(json, this.Options);
+    public T Deserialize<T>(string json)
+        => JsonSerializer.Deserialize<T>(json, this.Options) ?? Activator.CreateInstance<T>();
+
+    public T Deserialize<T>(ReadOnlySpan<char> json)
+        => JsonSerializer.Deserialize<T>(json, this.Options) ?? Activator.CreateInstance<T>();
+
+    public object? Deserialize(string json, Type type)
+        => JsonSerializer.Deserialize(json, type, this.Options);
 
     public object? Deserialize(ReadOnlySpan<char> json, Type type)
         => JsonSerializer.Deserialize(json, type, this.Options);
 
-    public T? Deserialize<T>(Stream stream)
-        => JsonSerializer.Deserialize<T>(stream, this.Options);
+    public T Deserialize<T>(Stream stream)
+        => JsonSerializer.Deserialize<T>(stream, this.Options) ?? Activator.CreateInstance<T>();
 
     public object? Deserialize(Stream stream, Type type)
         => JsonSerializer.Deserialize(stream, type, this.Options);
 
-    public async Task<T?> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
-        => await JsonSerializer.DeserializeAsync<T>(stream, this.Options, cancellationToken)
+    public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+    {
+        var result = await JsonSerializer.DeserializeAsync<T>(stream, this.Options, cancellationToken)
             .ConfigureAwait(false);
+
+        return result ?? Activator.CreateInstance<T>();
+    }
 
     public async Task<object?> DeserializeAsync(Stream stream, Type type, CancellationToken cancellationToken = default)
         => await JsonSerializer.DeserializeAsync(stream, type, this.Options, cancellationToken)
             .ConfigureAwait(false);
 
-    public async Task<T?> DeserializeAsync<T>(string json, CancellationToken cancellationToken = default)
+    public async Task<T> DeserializeAsync<T>(string json, CancellationToken cancellationToken = default)
     {
         using var ms = new MemoryStream();
 #if NETLEGACY
@@ -133,8 +143,10 @@ public class DefaultJsonSerializer : IJsonSerializer
             .ConfigureAwait(false);
         ms.Position = 0;
 
-        return await JsonSerializer.DeserializeAsync<T>(ms, this.Options, cancellationToken)
+        var result = await JsonSerializer.DeserializeAsync<T>(ms, this.Options, cancellationToken)
             .ConfigureAwait(false);
+
+        return result ?? Activator.CreateInstance<T>();
     }
 
     public async Task<object?> DeserializeAsync(string json, Type type, CancellationToken cancellationToken = default)

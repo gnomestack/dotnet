@@ -18,19 +18,23 @@ public interface IYamlSerializer
 
     Task<string> SerializeAsync(object? value, Type type, CancellationToken cancellationToken = default);
 
-    T? Deserialize<T>(ReadOnlySpan<char> yaml);
+    T Deserialize<T>(string yaml);
+
+    T Deserialize<T>(ReadOnlySpan<char> yaml);
+
+    object? Deserialize(string yaml, Type type);
 
     object? Deserialize(ReadOnlySpan<char> yaml, Type type);
 
-    T? Deserialize<T>(Stream stream);
+    T Deserialize<T>(Stream stream);
 
     object? Deserialize(Stream stream, Type type);
 
-    Task<T?> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default);
+    Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default);
 
     Task<object?> DeserializeAsync(Stream stream, Type type, CancellationToken cancellationToken = default);
 
-    Task<T?> DeserializeAsync<T>(string yaml, CancellationToken cancellationToken = default);
+    Task<T> DeserializeAsync<T>(string yaml, CancellationToken cancellationToken = default);
 
     Task<object?> DeserializeAsync(string yaml, Type type, CancellationToken cancellationToken = default);
 }

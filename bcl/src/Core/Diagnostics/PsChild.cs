@@ -3,6 +3,7 @@ using System.Text;
 
 using GnomeStack.Extra.IO;
 using GnomeStack.Extra.Strings;
+using GnomeStack.Functional;
 using GnomeStack.Std;
 
 namespace GnomeStack.Diagnostics;
@@ -444,6 +445,9 @@ public sealed class PsChild : IDisposable
         return this.process.ExitCode;
     }
 
+    public Result<PsOutput, Exception> WaitForResult()
+        => Result.Try(this.WaitForOutput);
+
     public PsOutput WaitForOutput()
     {
         if (this.process.HasExited)
@@ -507,6 +511,9 @@ public sealed class PsChild : IDisposable
             .ConfigureAwait(false);
         return this.process.ExitCode;
     }
+
+    public Task<Result<PsOutput, Exception>> WaitForResultAsync(CancellationToken cancellationToken = default)
+        => Result.TryAsync(this.WaitForOutputAsync, cancellationToken);
 
     public async Task<PsOutput> WaitForOutputAsync(CancellationToken cancellationToken)
     {
