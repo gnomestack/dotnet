@@ -1,0 +1,5 @@
+# GnomeStack.Library
+
+{{ description }}
+
+{{ license }}

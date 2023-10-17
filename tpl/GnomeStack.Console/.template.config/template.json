@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Bearz.Dev",
+    "classifications": [
+        "Bearz",
+        "Console"
+    ],
+    "description": "Generates a C# console project that uses a property to define target frameworks",
+    "identity": "Bearz.Console",
+    "name": "Bearz Class Library",
+    "shortName": "bearz-console",
+    "sourceName": "Bearz.Console",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}
