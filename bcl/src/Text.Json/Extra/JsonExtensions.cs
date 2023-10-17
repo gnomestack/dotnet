@@ -14,7 +14,7 @@ public static class JsonExtensions
     public static object? FromJson(this Stream value, Type type)
         => Std.Json.JsonSerializerProvider.Deserialize(value, type);
 
-    public static Task<T?> FromJsonAsync<T>(this string value, CancellationToken cancellationToken = default)
+    public static Task<T> FromJsonAsync<T>(this string value, CancellationToken cancellationToken = default)
         => Std.Json.JsonSerializerProvider.DeserializeAsync<T>(value, cancellationToken);
 
     public static Task<object?> FromJsonAsync(this string value, Type type, CancellationToken cancellationToken = default)
@@ -26,7 +26,7 @@ public static class JsonExtensions
     public static object? ReadJson(this Stream stream, Type type)
         => Std.Json.JsonSerializerProvider.Deserialize(stream, type);
 
-    public static Task<T?> ReadJsonAsync<T>(this Stream stream, CancellationToken cancellationToken = default)
+    public static Task<T> ReadJsonAsync<T>(this Stream stream, CancellationToken cancellationToken = default)
         => Std.Json.JsonSerializerProvider.DeserializeAsync<T>(stream, cancellationToken);
 
     public static Task<object?> ReadJsonAsync(this Stream stream, Type type, CancellationToken cancellationToken = default)

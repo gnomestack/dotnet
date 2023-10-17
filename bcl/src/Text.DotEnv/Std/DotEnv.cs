@@ -2,11 +2,16 @@ using GnomeStack.Text.DotEnv;
 using GnomeStack.Text.DotEnv.Document;
 using GnomeStack.Text.DotEnv.Serialization;
 
-namespace GnomeStack;
+namespace GnomeStack.Std;
 
 public static class DotEnv
 {
     private static IDotEnvSerializer DotEnvSerializerProvider { get; set; } = new DefaultDotEnvSerializer();
+
+    public static void Load(DotEnvLoadOptions options)
+    {
+        DotEnvLoader.Load(options);
+    }
 
     public static void SetSerializer(IDotEnvSerializer serializer)
         => DotEnvSerializerProvider = serializer;
@@ -34,6 +39,9 @@ public static class DotEnv
 
     public static Task<string> StringifyAsync(object? value, [Dam(Dat.PublicProperties)] Type type, CancellationToken cancellationToken = default)
         => DotEnvSerializerProvider.SerializeAsync(value, type, cancellationToken);
+
+    public static EnvDocument ParseDocument(DotEnvLoadOptions options)
+        => DotEnvLoader.Parse(options);
 
     public static EnvDocument ParseDocument(ReadOnlySpan<char> contents)
         => DotEnvSerializerProvider.Deserialize<EnvDocument>(contents) ?? new EnvDocument();

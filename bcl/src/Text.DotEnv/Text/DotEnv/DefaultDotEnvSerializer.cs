@@ -3,8 +3,9 @@ using System.Text;
 using System.Xml;
 
 using GnomeStack.Extra.Strings;
+using GnomeStack.Text.DotEnv.Serialization;
 
-namespace GnomeStack.Text.DotEnv.Serialization;
+namespace GnomeStack.Text.DotEnv;
 
 public class DefaultDotEnvSerializer : IDotEnvSerializer
 {

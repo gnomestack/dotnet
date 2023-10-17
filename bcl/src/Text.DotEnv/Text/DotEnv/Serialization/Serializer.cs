@@ -14,7 +14,7 @@ using GnomeStack.Text.Serialization;
 
 namespace GnomeStack.Text.DotEnv.Serialization;
 
-public static class Serializer
+internal static class Serializer
 {
     public static string Serialize<[Dam(Dat.PublicProperties)] T>(T obj, DotEnvSerializerOptions? options = null)
     {
@@ -60,15 +60,16 @@ public static class Serializer
 
         if (type.IsGenericType)
         {
-            if (type.IsAssignableFrom(typeof(IEnumerable<KeyValuePair<string, string?>>)))
+            if (typeof(IEnumerable<KeyValuePair<string, string>>).IsAssignableFrom(type))
             {
                 SerializeDictionary((IEnumerable<KeyValuePair<string, string?>>)obj, writer, options);
                 return;
             }
 
-            if (type.IsAssignableFrom(typeof(IEnumerable<KeyValuePair<string, object?>>)))
+            if (typeof(IEnumerable<KeyValuePair<string, object>>).IsAssignableFrom(type))
             {
                 SerializeDictionary((IEnumerable<KeyValuePair<string, object?>>)obj, writer, options);
+                return;
             }
         }
 
@@ -117,14 +118,18 @@ public static class Serializer
         }
 
         list.Sort((x, y) => x.Order.CompareTo(y.Order));
+        var first = true;
         foreach (var item in list)
         {
+            if (!first)
+                writer.WriteLine();
+            else
+                first = false;
             writer.Write(item.Name);
             writer.Write('=');
             writer.Write('"');
             writer.Write(item.Value);
             writer.Write('"');
-            writer.WriteLine();
         }
     }
 
@@ -133,14 +138,19 @@ public static class Serializer
         TextWriter writer,
         DotEnvSerializerOptions? options = null)
     {
+        var first = true;
         foreach (var item in dictionary)
         {
+            if (!first)
+                writer.WriteLine();
+            else
+                first = false;
+
             writer.Write(item.Key);
             writer.Write('=');
             writer.Write('"');
             writer.Write(item.Value);
             writer.Write('"');
-            writer.WriteLine();
         }
     }
 
@@ -149,14 +159,23 @@ public static class Serializer
         TextWriter writer,
         DotEnvSerializerOptions? options = null)
     {
+        bool first = true;
         foreach (var item in dictionary)
         {
+            if (!first)
+            {
+                writer.WriteLine();
+            }
+            else
+            {
+                first = false;
+            }
+
             writer.Write(item.Key);
             writer.Write('=');
             writer.Write('"');
             writer.Write(item.Value);
             writer.Write('"');
-            writer.WriteLine();
         }
     }
 
@@ -165,21 +184,31 @@ public static class Serializer
         TextWriter writer,
         DotEnvSerializerOptions? options = null)
     {
+        var first = true;
         foreach (var item in document)
         {
             switch (item)
             {
                 case EnvComment comment:
-                    writer.WriteLine(comment.RawValue);
+                    if (first)
+                        first = false;
+                    else
+                        writer.WriteLine();
+                    writer.Write("# ");
+                    writer.Write(comment.RawValue);
                     break;
 
                 case EnvNameValuePair pair:
+                    if (first)
+                        first = false;
+                    else
+                        writer.WriteLine();
+                    var quote = pair.Value.Contains("\"") ? '\'' : '"';
                     writer.Write(pair.Name);
                     writer.Write('=');
-                    writer.Write('"');
+                    writer.Write(quote);
                     writer.Write(pair.Value);
-                    writer.Write('"');
-                    writer.WriteLine();
+                    writer.Write(quote);
                     break;
 
                 case EnvEmptyLine _:

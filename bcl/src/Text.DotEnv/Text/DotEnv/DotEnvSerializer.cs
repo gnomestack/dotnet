@@ -2,13 +2,21 @@
 using System.Collections.Specialized;
 using System.Text;
 
+using GnomeStack.Collections.Generic;
 using GnomeStack.Text.DotEnv.Document;
+using GnomeStack.Text.DotEnv.Serialization;
 using GnomeStack.Text.DotEnv.Tokens;
 
 namespace GnomeStack.Text.DotEnv;
 
 public static class DotEnvSerializer
 {
+    public static string Serialize<T>(T value, DotEnvSerializerOptions? options = null)
+        => Serializer.Serialize(value, typeof(T), options);
+
+    public static void Serialize<T>(Stream stream, T value, DotEnvSerializerOptions? options = null)
+        => Serializer.Serialize(stream, value, options);
+
     public static T? Deserialize<T>(TextReader reader, DotEnvSerializerOptions? options = null)
         => (T?)Deserialize(reader, typeof(T), options);
 
@@ -35,6 +43,7 @@ public static class DotEnvSerializer
         if (type == typeof(EnvDocument) || type == typeof(Dictionary<string, string>) ||
             type == typeof(ConcurrentDictionary<string, string>) ||
             type == typeof(OrderedDictionary) ||
+            type == typeof(OrderedDictionary<string, string>) ||
             type == typeof(IDictionary<string, string>) || type == typeof(IReadOnlyDictionary<string, string>))
         {
             var doc = DeserializeDocument(reader, options);
@@ -53,12 +62,21 @@ public static class DotEnvSerializer
                 return ordered;
             }
 
+            if (type == typeof(OrderedDictionary<string, string>))
+            {
+                var ordered = new OrderedDictionary<string, string>();
+                foreach (var (name, value) in doc.AsNameValuePairEnumerator())
+                    ordered.Add(name, value);
+
+                return ordered;
+            }
+
             if (type == typeof(Dictionary<string, string>) || type == typeof(IDictionary<string, string>) ||
                 type == typeof(IReadOnlyDictionary<string, string>))
                 return new Dictionary<string, string>(doc);
         }
 
-        throw new NotSupportedException($"The type is {type.FullName} not supported.");
+        throw new NotSupportedException($"Deserialization of type {type.FullName} not supported.");
     }
 
     public static EnvDocument DeserializeDocument(string value, DotEnvSerializerOptions? options = null)
