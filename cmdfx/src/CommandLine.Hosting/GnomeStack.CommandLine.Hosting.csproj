@@ -6,13 +6,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.CommandLine.Hosting</RootNamespace>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>CommandLine Hosting GnomeStack Minimal</PackageTags>
     <Description>
-      Extensions for System.CommandLine.Hosting with a CommandLineApplicatoinBuilder
+      Provides System.CommandLine.Hosting with a CommandLineApplicationBuilder
       similar to Microsoft.Extensions.Hosting.HostApplicationBuilder.
     </Description>
     <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))</PackageReleaseNotes>
@@ -20,6 +21,8 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="$(IconPath)" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>

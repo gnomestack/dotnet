@@ -1,0 +1,20 @@
+name: "CMD Fx Delivery"
+
+on: 
+  push:
+    paths: 
+      - 'cmdfx/**'
+      #- '.github/workflows/cmdfx.cd.yaml'
+      #- '.github/workflows/multi-target-lib-cd.yaml'
+    tags: 
+      - 'cmdfx-*'
+    branches:
+      - 'main'
+
+jobs:
+  cmdfx-cd:
+    uses: ./.github/workflows/multi-target-lib-cd.yaml
+    with:
+        project-dir: "cmdfx"
+        project-name: "cmdfx"
+    secrets: inherit

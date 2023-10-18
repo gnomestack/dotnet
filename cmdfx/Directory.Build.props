@@ -9,6 +9,6 @@
         <TestDir>$(MSBuildThisFileDirectory)/src</TestDir>
         <MinVerDefaultPreReleaseIdentifiers 
             Condition="$(MinVerDefaultPreReleaseIdentifiers) == ''">build</MinVerDefaultPreReleaseIdentifiers>
-        <MinVerTagPrefix>bcl-</MinVerTagPrefix>
+        <MinVerTagPrefix>cmdfx-</MinVerTagPrefix>
     </PropertyGroup>
 </Project>

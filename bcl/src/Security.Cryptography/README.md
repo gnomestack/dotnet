@@ -9,7 +9,6 @@ the hash. A unique nonce and salt value is created to every encrypt call.
 
 The AesGcmEncryptionProvider uses the GCM mode of AES and is authenticated by the algorithm itself.
 
-
 ## Usage
 
 ```csharp

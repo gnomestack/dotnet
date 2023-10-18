@@ -6,5 +6,6 @@
         "./.eng/tasks",
         "./bcl/.quasar",
         "./testfx/.quasar",
+        "./cmdfx/.quasar",
     ]
 }
