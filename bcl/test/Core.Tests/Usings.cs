@@ -1,2 +1,2 @@
-global using GnomeStack.Std;
+global using GnomeStack.Standard;
 global using Xunit;

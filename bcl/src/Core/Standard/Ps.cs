@@ -8,7 +8,7 @@ using System.Text;
 using GnomeStack.Diagnostics;
 using GnomeStack.Functional;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 /// <summary>
 ///  A wrapper around <see cref="Process"/> that provides a fluent API and provides

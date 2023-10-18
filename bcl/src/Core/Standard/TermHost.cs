@@ -2,7 +2,7 @@ using GnomeStack.Ansi;
 using GnomeStack.Colors;
 using GnomeStack.Diagnostics;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 /// <summary>
 ///  Represents the terminal host for standard output and error streams.

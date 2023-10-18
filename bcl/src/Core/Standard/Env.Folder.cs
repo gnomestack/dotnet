@@ -1,6 +1,6 @@
 using System;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public enum KnownDirectoryOption
 {

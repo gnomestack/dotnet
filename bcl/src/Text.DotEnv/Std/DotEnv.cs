@@ -2,7 +2,7 @@ using GnomeStack.Text.DotEnv;
 using GnomeStack.Text.DotEnv.Document;
 using GnomeStack.Text.DotEnv.Serialization;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static class DotEnv
 {

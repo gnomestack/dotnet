@@ -1,5 +1,5 @@
 using GnomeStack.Collections.Generic;
-using GnomeStack.Std;
+using GnomeStack.Standard;
 using GnomeStack.Text.DotEnv;
 using GnomeStack.Text.DotEnv.Document;
 

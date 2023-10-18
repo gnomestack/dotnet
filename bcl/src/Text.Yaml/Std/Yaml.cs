@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using GnomeStack.Text.Yaml;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static class Yaml
 {

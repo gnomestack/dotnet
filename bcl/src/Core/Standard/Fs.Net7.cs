@@ -4,7 +4,7 @@ using Microsoft.Win32.SafeHandles;
 
 #if NET7_0_OR_GREATER
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static partial class Fs
 {

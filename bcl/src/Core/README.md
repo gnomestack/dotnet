@@ -4,15 +4,20 @@ Provides extended functionality for the .NET BCL such as invoking child processe
 painlessly, copying directories, environment variable substitution, password
 generation, useful extensions to string builder, option, and result monads.
 
-The `GnomeStack.Std` namespace is the "Stardard" namespace where key classes
+The `GnomeStack.Standard` namespace is the std namespace where key classes
 are, most of which are static classes that can be imported like a module or
 use like a normal C# static class.
 
-The `GnomeStack.Std` makes it easier for C# scripting or a more functional 
+The `GnomeStack.Standard` makes it easier for C# scripting or a more functional 
 approach to programming in C#.
 
+The `GnomeStack.Extra` contains extension and convenience methods for the BCL and
+are isolated to avoid collisions with other libraries. 
+
+Both namespaces are meant to be used with the global `Usings.cs` file.
+
 ```csharp
-using static GnomeStack.Std.Fs;
+using static GnomeStack.Standard.Fs;
 
 MakeDirectory("path/to/directory");
 ```
@@ -34,9 +39,12 @@ methods:
 ## Ps
 
 The Ps class invokes child processes and has helper methods such as `Which` that
-determines if an executeable is on the path.
+determines if an executable is on the path.
 
 ```csharp
+using GnomeStack.Standard;
+
+// elsewhere 
 // executes and sends out standard out and standard error.
 Ps.Exec("dotnet", "--version");
 Ps.Exec("dotnet", new[] { "build", "-c", "Configuration"});

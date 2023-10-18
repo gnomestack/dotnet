@@ -7,7 +7,7 @@ using GnomeStack.Text;
 using Microsoft.Extensions.FileSystemGlobbing;
 using Microsoft.Extensions.FileSystemGlobbing.Abstractions;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static partial class Fs
 {

@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.Versioning;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static partial class Env
 {

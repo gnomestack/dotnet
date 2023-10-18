@@ -7,7 +7,7 @@ using GnomeStack.Text;
 
 using Microsoft.Win32.SafeHandles;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static partial class Fs
 {

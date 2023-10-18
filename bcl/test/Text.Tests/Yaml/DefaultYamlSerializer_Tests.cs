@@ -1,5 +1,5 @@
 using GnomeStack.Extra.Strings;
-using GnomeStack.Std;
+using GnomeStack.Standard;
 using GnomeStack.Text.Yaml;
 
 using Models;

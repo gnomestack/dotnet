@@ -2,7 +2,7 @@ using GnomeStack.Colors;
 using GnomeStack.Diagnostics;
 using GnomeStack.Secrets;
 
-using static GnomeStack.Std.Ansi;
+using static GnomeStack.Standard.Ansi;
 
 using Term = System.Console;
 

@@ -1,4 +1,4 @@
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static partial class Env
 {

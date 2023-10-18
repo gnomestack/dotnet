@@ -2,7 +2,7 @@ using System.Text.Json;
 
 using GnomeStack.Text.Json;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static class Json
 {

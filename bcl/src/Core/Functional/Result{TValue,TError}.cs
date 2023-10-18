@@ -1,4 +1,4 @@
-using GnomeStack.Std;
+using GnomeStack.Standard;
 
 namespace GnomeStack.Functional;
 

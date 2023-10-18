@@ -4,7 +4,7 @@ using System.Text;
 using GnomeStack.Extra.IO;
 using GnomeStack.Extra.Strings;
 using GnomeStack.Functional;
-using GnomeStack.Std;
+using GnomeStack.Standard;
 
 namespace GnomeStack.Diagnostics;
 

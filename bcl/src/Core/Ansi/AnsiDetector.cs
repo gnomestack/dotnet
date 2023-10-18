@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 using GnomeStack.Extra.Strings;
 
-using GnomeStack.Std;
+using GnomeStack.Standard;
 
 namespace GnomeStack.Ansi;
 

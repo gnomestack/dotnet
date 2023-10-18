@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using GnomeStack.Functional;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 /// <summary>
 ///    Provides static methods for creating and manipulating

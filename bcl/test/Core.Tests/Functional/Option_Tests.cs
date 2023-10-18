@@ -1,7 +1,7 @@
 using GnomeStack;
 using GnomeStack.Functional;
 
-using static GnomeStack.Std.Option;
+using static GnomeStack.Standard.Option;
 
 namespace Tests;
 

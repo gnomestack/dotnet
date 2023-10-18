@@ -2,7 +2,7 @@ using System.Text;
 
 using GnomeStack.Extra.Strings;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 #if DFX_CORE
 public

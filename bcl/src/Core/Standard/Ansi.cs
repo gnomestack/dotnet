@@ -2,7 +2,7 @@ using GnomeStack.Ansi;
 using GnomeStack.Colors;
 using GnomeStack.Extra.Ansi;
 
-namespace GnomeStack.Std;
+namespace GnomeStack.Standard;
 
 public static class Ansi
 {
