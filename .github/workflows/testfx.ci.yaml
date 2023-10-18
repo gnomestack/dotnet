@@ -1,15 +1,19 @@
-name: "TestFx CI"
+name: "Test Fx Integration"
 
 on: 
   push:
     paths: 
       - 'testfx/**'
-      - '.github/workflows/testfx.ci.yaml'
-      - '.github/workflows/multi-target-lib.yaml'
+      #- '.github/workflows/testfx.cd.yaml'
+      #- '.github/workflows/multi-target-lib-ci.yaml'
+    tags-ignore:
+      - '*'
+    branches-ignore:
+      - 'main'
 
 jobs:
-  ci:
-    uses: ./.github/workflows/multi-target-lib.yaml
+  testfx-cd:
+    uses: ./.github/workflows/multi-target-lib-ci.yaml
     with:
         project-dir: "testfx"
         project-name: "testfx"

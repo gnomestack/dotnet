@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "BowTiedGnome",
+    "classifications": [
+        "GnomeStack",
+        "Test",
+        "Xunit"
+    ],
+    "description": "Generates a C# xunit test project that uses GnomeStack.Xunit.Core",
+    "identity": "GnomeStack.Xunit.Library",
+    "name": "GnomeStack Xunit Test Project",
+    "shortName": "gs-xunit",
+    "sourceName": "GnomeStack.Xunit.Library",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}

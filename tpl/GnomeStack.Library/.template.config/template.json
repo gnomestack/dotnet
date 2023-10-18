@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "BowTiedGnome",
+    "classifications": [
+        "GnomeStack",
+        "Library"
+    ],
+    "description": "Generates a C# class library that uses a property to define target frameworks",
+    "identity": "GnomeStack.Library",
+    "name": "GnomeStack Class Library",
+    "shortName": "gs-lib",
+    "sourceName": "GnomeStack.Library",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}

@@ -55,6 +55,8 @@
     <Windows>false</Windows>
     <Linux>false</Linux>
     <MacOs>false</MacOs>
+    <RootDir>$(MSBuildThisFileDirectory.TrimEnd("/"))</RootDir>
+    <BclDir>$(RootDir)/bcl/src</BclDir>
     <InternalDir>$(MSBuildThisFileDirectory)internal</InternalDir>
     <ArtifactsDir>$(MSBuildThisFileDirectory).artifacts</ArtifactsDir>
     <BaseOutputPath>$(ArtifactsDir)/bin/$(MsBuildProjectName)</BaseOutputPath>

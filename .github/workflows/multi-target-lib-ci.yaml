@@ -1,0 +1,88 @@
+on:
+  workflow_call:
+    inputs:
+      project-name:
+          required: true
+          type: string
+      project-dir:
+          required: true
+          type: string
+      gh-org:
+          required: false
+          type: string
+          default: "gnomestack"
+      gh-user:
+          required: false
+          type: string
+          default: "bowtiedgnome"
+    
+    secrets:
+      GH_PACKAGES_PAT:
+          required: true
+      NUGET_ORG_API_KEY:
+          required: true
+  
+  
+env:
+  PROJECT_NAME: ${{ inputs.project-name }}
+  PROJECT_DIR: ${{ inputs.project-dir }}
+  TAG_REF: "refs/tags/${{ inputs.project-name }}-"
+  GH_ORG: ${{ inputs.gh-org }}
+  GH_USER: ${{ inputs.gh-user }}
+  GH_PAT: ${{ secrets.GH_PACKAGES_PAT }}
+  NUGET_API_KEY: ${{ secrets.NUGET_ORG_API_KEY }}
+    
+  
+name: Multi Target Library CI
+jobs:
+  build: 
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - name: 🧳 Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
+
+    - name: "🟣 Setup Deno"
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+
+    - name: "🟣 Install Qtr"
+      run: |
+        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.8/cli.ts"
+
+    - name: 🟣 Setup .NET Core # Required to execute ReportGenerator
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.x
+        dotnet-quality: 'ga'
+
+    - name: 🔃 Restore 
+      run: qtr restore
+      working-directory: ${{ env.PROJECT_DIR }}
+
+    - name: 🏭 Build
+      run: qtr build
+      working-directory: ${{ env.PROJECT_DIR }}
+
+    - name: 🧪 Test
+      run: qtr test
+      working-directory: ${{ env.PROJECT_DIR }}
+
+    - name: Pack
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: qtr pack
+      working-directory: ${{ env.PROJECT_DIR }}
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      with:
+        name: "${{ env.PROJECT_DIR }}-nupkgs"
+        path: .artifacts/packages/*.nupkg

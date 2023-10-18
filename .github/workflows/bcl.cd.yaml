@@ -1,0 +1,20 @@
+name: "BCL Fx Delivery"
+
+on: 
+  push:
+    paths: 
+      - 'bcl/**'
+      #- '.github/workflows/bcl.cd.yaml'
+      #- '.github/workflows/multi-target-lib-cd.yaml'
+    tags: 
+      - 'bcl-*'
+    branches:
+      - 'main'
+
+jobs:
+  bcl-cd:
+    uses: ./.github/workflows/multi-target-lib-cd.yaml
+    with:
+        project-dir: "bcl"
+        project-name: "bcl"
+    secrets: inherit

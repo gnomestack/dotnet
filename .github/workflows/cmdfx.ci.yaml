@@ -1,0 +1,20 @@
+name: "CMD Fx Integration"
+
+on: 
+  push:
+    paths: 
+      - 'cmdfx/**'
+      #- '.github/workflows/cmdfx.cd.yaml'
+      #- '.github/workflows/multi-target-lib-ci.yaml'
+    tags-ignore:
+      - '*'
+    branches-ignore:
+      - 'main'
+
+jobs:
+  cmdfx-cd:
+    uses: ./.github/workflows/multi-target-lib-ci.yaml
+    with:
+        project-dir: "cmdfx"
+        project-name: "cmdfx"
+    secrets: inherit
