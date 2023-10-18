@@ -13,6 +13,5 @@ public static class SqlServer
             BEGIN
                 CREATE LOGIN [{loginName}] WITH PASSWORD = '{password}';
             END");
-       
     }
 }

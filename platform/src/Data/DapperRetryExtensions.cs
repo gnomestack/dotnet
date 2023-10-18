@@ -14,6 +14,7 @@ using Polly;
 
 namespace GnomeStack.Data;
 
+#pragma warning disable S4136 // Method overloads should be grouped together
 public static class DapperRetryExtensions
 {
     /// <summary>
