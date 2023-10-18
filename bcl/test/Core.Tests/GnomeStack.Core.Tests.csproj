@@ -39,8 +39,5 @@
     <ProjectReference Include="$(SrcDir)/Core/*.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Colors\" />
-  </ItemGroup>
 
 </Project>

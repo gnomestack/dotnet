@@ -74,6 +74,8 @@
     <Compile Include="$(InternalDir)/Interop/Unix/Libraries.cs" Link="Interop/Unix/Libraries.cs" />
     <Compile Include="$(InternalDir)/Interop/Windows/Libraries.cs" Link="Interop/Windows/Libraries.cs" />
     <Compile Include="$(InternalDir)/Interop/Windows/Shell32/IsUserAnAdmin.cs" Link="Interop/Windows/Shell32/IsUserAnAdmin.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Kernel32/GetConsoleMode.cs" Link="Interop/Windows/Kernel32/GetConsoleMode.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Kernel32/GetStdHandle.cs" Link="Interop/Windows/Kernel32/GetStdHandle.cs" />
     <Compile Include="$(InternalDir)/Interop/Unix/System.Native/ChMod.cs" Link="Interop/Unix/System.Native/ChMod.cs" />
     <Compile Include="$(InternalDir)/Interop/Unix/System.Native/ChOwn.cs" Link="Interop/Unix/System.Native/ChOwn.cs" />
     <Compile Include="$(InternalDir)/Interop/Unix/System.Native/GetEUid.cs" Link="Interop/Unix/System.Native/GetEUid.cs" />

@@ -1,84 +1,67 @@
+using System.Globalization;
+
 namespace GnomeStack.Colors;
 
 public readonly struct Rgba : IRgba, IEquatable<Rgba>
 {
-    internal const int RedShift = 24;
+    private readonly uint value;
 
-    internal const int GreenShift = 16;
-
-    internal const int BlueShift = 8;
-
-    internal const int AlphaShift = 0;
-
-    private readonly int value;
-
-    public Rgba(long value)
+    public Rgba()
+        : this(0x000000FF)
     {
-        if (value < 0 || value > 0xFFFFFFFF)
-        {
-            throw new ArgumentOutOfRangeException(nameof(value));
-        }
-
-        // different order than Argb
-        var r = (byte)(value >> Argb.RedShift);
-        var g = (byte)(value >> Argb.GreenShift);
-        var b = (byte)(value >> Argb.BlueShift);
-        var a = (byte)(value >> Argb.AlphaShift);
-        this.value = (r << Rgb.RedShift) | (g << Rgb.GreenShift) | (b << Rgb.BlueShift);
-        this.A = a;
     }
 
-    public Rgba(int value)
+    [CLSCompliant(false)]
+    public Rgba(uint value)
     {
-        if (value < 0 || value > 0xFFFFFF)
-        {
-            throw new ArgumentOutOfRangeException(nameof(value));
-        }
-
+        // different order than Argb
         this.value = value;
-        this.A = Alpha.Opaque;
     }
 
     public Rgba(IRgb rgb)
     {
-        this.value = (rgb.R << Rgb.RedShift) | (rgb.G << Rgb.GreenShift) | (rgb.B << Rgb.BlueShift);
-        this.A = Alpha.Opaque;
+        this.value = (uint)((rgb.R << 24) | (rgb.G << 16) | (rgb.B << 8) | 0xFF);
     }
 
     public Rgba(IRgba rgb)
     {
-        this.value = (rgb.R << Rgb.RedShift) | (rgb.G << Rgb.GreenShift) | (rgb.B << Rgb.BlueShift);
-        this.A = Alpha.Opaque;
+        this.value = (uint)((rgb.R << 24) | (rgb.G << 16) | (rgb.B << 8) | (byte)rgb.A);
     }
 
     public Rgba(byte r, byte g, byte b)
     {
-        this.R = r;
-        this.G = g;
-        this.B = b;
-        this.A = Alpha.Opaque;
+        this.value = (uint)((r << 24) | (g << 16) | (b << 8) | 0xFF);
+    }
+
+    public Rgba(byte r, byte g, byte b, byte a)
+    {
+        this.value = (uint)((r << 24) | (g << 16) | (b << 8) | a);
     }
 
     public Rgba(byte r, byte g, byte b, Alpha a)
-    {
-        this.R = r;
-        this.G = g;
-        this.B = b;
-        this.A = a;
-    }
-
-    public Rgba()
-        : this(0, 0, 0, 1)
+        : this(r, g, b, (byte)a)
     {
     }
 
-    public byte R { get; }
+    /// <summary>
+    /// Gets the red channel.
+    /// </summary>
+    public byte R => unchecked((byte)((this.value >> 24) & 0xFF));
 
-    public byte G { get; }
+    /// <summary>
+    /// Gets the green channel.
+    /// </summary>
+    public byte G => unchecked((byte)((this.value >> 16) & 0xFF));
 
-    public byte B { get; }
+    /// <summary>
+    /// Gets the blue channel.
+    /// </summary>
+    public byte B => unchecked((byte)((this.value >> 8) & 0xFF));
 
-    public Alpha A { get; }
+    /// <summary>
+    /// Gets the alpha channel.
+    /// </summary>
+    public Alpha A => unchecked((byte)(this.value >> 8 & 0xFF));
 
     public void Deconstruct(out byte r, out byte g, out byte b, out Alpha a)
     {
