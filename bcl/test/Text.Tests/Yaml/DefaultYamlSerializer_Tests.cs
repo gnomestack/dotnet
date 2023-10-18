@@ -14,14 +14,20 @@ public class DefaultYamlSerializer_Tests
         var cat = new Cat();
         var yaml = new DefaultYamlSerializer();
         var result = yaml.Serialize(cat);
-        Assert.Equal("cat_name: Floof\ncat_age: 21\ncat_is_alive: false\n", result);
+        if (Env.IsWindows)
+            Assert.Equal("cat_name: Floof\r\ncat_age: 21\r\ncat_is_alive: false\r\n", result);
+        else
+            Assert.Equal("cat_name: Floof\ncat_age: 21\ncat_is_alive: false\n", result);
     }
 
     [UnitTest]
     public void SerializeWithStd()
     {
         var result = Yaml.Stringify(new Cat());
-        Assert.Equal("cat_name: Floof\ncat_age: 21\ncat_is_alive: false\n", result);
+        if (Env.IsWindows)
+            Assert.Equal("cat_name: Floof\r\ncat_age: 21\r\ncat_is_alive: false\r\n", result);
+        else
+            Assert.Equal("cat_name: Floof\ncat_age: 21\ncat_is_alive: false\n", result);
     }
 
     [UnitTest]
