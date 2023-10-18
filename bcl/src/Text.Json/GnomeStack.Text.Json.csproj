@@ -6,8 +6,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Text.Json</RootNamespace>
-    <!-- TODO: SHIP -->
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
