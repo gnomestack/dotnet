@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Platform.Hosting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Azure.Identity", "src\Azure.Identity\GnomeStack.Azure.Identity.csproj", "{93C2D5CE-D900-4984-A4AB-5F14A21A523B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Data", "src\Data\GnomeStack.Data.csproj", "{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Data.SqlServer", "src\Data.SqlServer\GnomeStack.Data.SqlServer.csproj", "{57995408-B55E-4D24-8971-BBA149058659}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +30,19 @@ Global
 		{93C2D5CE-D900-4984-A4AB-5F14A21A523B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93C2D5CE-D900-4984-A4AB-5F14A21A523B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93C2D5CE-D900-4984-A4AB-5F14A21A523B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57995408-B55E-4D24-8971-BBA149058659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57995408-B55E-4D24-8971-BBA149058659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57995408-B55E-4D24-8971-BBA149058659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57995408-B55E-4D24-8971-BBA149058659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1FCA967C-6124-46EC-9571-03CE30985ECB} = {258D3422-0C2C-427E-904C-B207BD9CC166}
 		{93C2D5CE-D900-4984-A4AB-5F14A21A523B} = {258D3422-0C2C-427E-904C-B207BD9CC166}
+		{27940703-2E22-4A11-AF6A-ADC8AE8B4DE3} = {258D3422-0C2C-427E-904C-B207BD9CC166}
+		{57995408-B55E-4D24-8971-BBA149058659} = {258D3422-0C2C-427E-904C-B207BD9CC166}
 	EndGlobalSection
 EndGlobal

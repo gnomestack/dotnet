@@ -10,7 +10,7 @@
     <PackageVersion Include="Dapper" Version="2.0.123" />
     <PackageVersion Include="Docker.DotNet" Version="3.125.14" />
     <PackageVersion Include="KeySharp" Version="1.0.5" />
-    <PackageVersion Include="Polly" Version="7.2.3" />
+    <PackageVersion Include="Polly" Version="8.0.0" />
     <PackageVersion Include="GnomeStack.Xunit.Core" Version="0.1.0" />
     <PackageVersion Include="Serilog.Expressions" Version="3.4.1" />
     <PackageVersion Include="SSH.NET" Version="2020.0.2" />

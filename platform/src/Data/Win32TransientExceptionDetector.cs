@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.Data.Common;
+
 namespace GnomeStack.Data;
 
 public static class Win32TransientExceptionDetector
