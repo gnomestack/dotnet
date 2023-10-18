@@ -1,15 +1,15 @@
 {
     "$schema": "http://json.schemastore.org/template",
-    "author": "Bearz.Dev",
+    "author": "GomeStack.Dev",
     "classifications": [
-        "Bearz",
+        "GomeStack",
         "Console"
     ],
     "description": "Generates a C# console project that uses a property to define target frameworks",
-    "identity": "Bearz.Console",
-    "name": "Bearz Class Library",
-    "shortName": "bearz-console",
-    "sourceName": "Bearz.Console",
+    "identity": "GomeStack.Console",
+    "name": "GomeStack Class Library",
+    "shortName": "GomeStack-console",
+    "sourceName": "GomeStack.Console",
     "tags": {
         "language": "C#",
         "type": "project"

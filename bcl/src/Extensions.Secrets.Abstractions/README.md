@@ -1,9 +1,6 @@
 # GnomeStack.Extensions.Secrets.Abstractions
 
-## Description
+Provides abstractions for secret vaults to enable switching out vaults in an application and provides a default
+null provider.
 
-Provides abstractions for Secret Vaults.
-
-## License
-
-MIT
+MIT License

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Bearz.Library;
+namespace GomeStack.Library;
 
 public class Class1
 {

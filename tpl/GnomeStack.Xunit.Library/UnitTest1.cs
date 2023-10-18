@@ -1,4 +1,4 @@
-namespace Bearz.Xunit.Library;
+namespace GomeStack.Xunit.Library;
 
 public class UnitTest1
 {

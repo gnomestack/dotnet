@@ -1,4 +1,4 @@
-# Bearz.Library
+# GomeStack.Library
 <a name="top"></a>
 
 ## Description
@@ -12,11 +12,11 @@
 ## Installation
 
 ```powershell
-dotnet add package Bearz.Library
+dotnet add package GomeStack.Library
 ```
 
 ```powershell 
-<PackageReference Include="Bearz.Library" Version="*" />
+<PackageReference Include="GomeStack.Library" Version="*" />
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>

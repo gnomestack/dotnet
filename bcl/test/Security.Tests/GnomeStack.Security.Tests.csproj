@@ -37,6 +37,8 @@
 
   <ItemGroup>
     <ProjectReference Include="$(SrcDir)/Security.Cryptography/*.csproj" />
+    <ProjectReference Include="..\..\src\Extensions.Secrets.Abstractions\GnomeStack.Extensions.Secrets.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Extensions.Secrets\GnomeStack.Extensions.Secrets.csproj" />
   </ItemGroup>
 
 </Project>
