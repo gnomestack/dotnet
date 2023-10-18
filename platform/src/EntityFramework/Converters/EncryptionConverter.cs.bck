@@ -1,0 +1,40 @@
+using System.Linq.Expressions;
+
+using GnomeStack.Security.Cryptography;
+
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+
+namespace GnomeStack.Cloud.EntityFramework.Converters;
+
+public class EncryptionConverter : ValueConverter<string?, string?>
+{
+    public EncryptionConverter(IEncryptionProvider cipher, ConverterMappingHints? mappingHints = default)
+        : this(new Wrapper(cipher), mappingHints)
+    {
+    }
+
+    private EncryptionConverter(Wrapper wrapper, ConverterMappingHints? mappingHints)
+        : base(wrapper.To, wrapper.From, mappingHints)
+    {
+    }
+
+    private sealed class Wrapper
+    {
+        private readonly IEncryptionProvider cipher;
+
+        public Wrapper(IEncryptionProvider cipher)
+        {
+            this.cipher = cipher;
+        }
+
+        public Expression<Func<string?, string?>> To => x => x != null ? this.Encrypt(x) : null;
+
+        public Expression<Func<string?, string?>> From => x => x != null ? this.Decrypt(x) : null;
+
+        public string Encrypt(string value)
+            => this.cipher.Encrypt(value);
+
+        public string Decrypt(string value)
+            => this.cipher.Decrypt(value);
+    }
+}
