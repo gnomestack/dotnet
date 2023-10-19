@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GnomeStack.Core" />
+    <PackageReference Include="GnomeStack.Extensions.Logging.Abstractions" />
+    <PackageReference Include="GnomeStack.Security.Cryptography" />
+    <PackageReference Include="GnomeStack.Text.Json" />
+    <PackageReference Include="Humanizer.Core" />
+    <PackageReference Include="Mediator.Abstractions" />
+    <PackageReference Include="Mediator.SourceGenerator">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OpenTelemetry" />
+  </ItemGroup>
+
+
+
+
+
+</Project>

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{258D3422-0C2C-427E-904C-B207BD9CC166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Platform.Hosting", "src\Platform.Hosting\GnomeStack.Platform.Hosting.csproj", "{1FCA967C-6124-46EC-9571-03CE30985ECB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{34DF2FE7-8F94-46CD-8C73-529998F45ADB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{2E32FC50-B0DD-4EC0-AC7F-B9432157FABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeSec.Web", "apps\GnomeSec.Web\GnomeSec.Web.csproj", "{7220CFC6-DB98-4D7B-8159-38FCE1837B71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FCA967C-6124-46EC-9571-03CE30985ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCA967C-6124-46EC-9571-03CE30985ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCA967C-6124-46EC-9571-03CE30985ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCA967C-6124-46EC-9571-03CE30985ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7220CFC6-DB98-4D7B-8159-38FCE1837B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7220CFC6-DB98-4D7B-8159-38FCE1837B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7220CFC6-DB98-4D7B-8159-38FCE1837B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7220CFC6-DB98-4D7B-8159-38FCE1837B71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FCA967C-6124-46EC-9571-03CE30985ECB} = {258D3422-0C2C-427E-904C-B207BD9CC166}
+		{7220CFC6-DB98-4D7B-8159-38FCE1837B71} = {2E32FC50-B0DD-4EC0-AC7F-B9432157FABB}
+	EndGlobalSection
+EndGlobal
