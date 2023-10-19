@@ -46,4 +46,4 @@ if (isSome)
 MIT License
 
 Underlying KPCLib is licensed under LGPL v3
-KPCLib source code is here: https://github.com/passxyz/KPCLib
+KPCLib source code is here: <https://github.com/passxyz/KPCLib>
