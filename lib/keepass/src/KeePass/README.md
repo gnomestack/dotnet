@@ -1,0 +1,5 @@
+# GnomeStack.KeePass
+
+{{ description }}
+
+{{ license }}

@@ -9,6 +9,6 @@
         <TestDir>$(MSBuildThisFileDirectory)/src</TestDir>
         <MinVerDefaultPreReleaseIdentifiers 
             Condition="$(MinVerDefaultPreReleaseIdentifiers) == ''">build</MinVerDefaultPreReleaseIdentifiers>
-        <MinVerTagPrefix>platform-</MinVerTagPrefix>
+        <MinVerTagPrefix>plat-</MinVerTagPrefix>
     </PropertyGroup>
 </Project>
