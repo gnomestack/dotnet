@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6038769-623F-413A-A461-F5539CB20C73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Generators.Core", "src\Generators.Core\GnomeStack.Generators.Core.csproj", "{67CC4D72-576F-4F6F-928A-A82E1B6A496C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Attributes", "src\Attributes\GnomeStack.Attributes.csproj", "{290C2C27-7E6A-4411-BCA6-8026951863D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Standard", "src\Pulumi.Standard\GnomeStack.Pulumi.Standard.csproj", "{332AF1C1-1331-4CD9-89E3-31DF5DC51370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Command", "src\Pulumi.Command\GnomeStack.Pulumi.Command.csproj", "{6C75578C-F24A-4E53-A772-B3817D6EB42D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67CC4D72-576F-4F6F-928A-A82E1B6A496C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CC4D72-576F-4F6F-928A-A82E1B6A496C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CC4D72-576F-4F6F-928A-A82E1B6A496C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CC4D72-576F-4F6F-928A-A82E1B6A496C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290C2C27-7E6A-4411-BCA6-8026951863D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290C2C27-7E6A-4411-BCA6-8026951863D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290C2C27-7E6A-4411-BCA6-8026951863D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290C2C27-7E6A-4411-BCA6-8026951863D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{332AF1C1-1331-4CD9-89E3-31DF5DC51370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332AF1C1-1331-4CD9-89E3-31DF5DC51370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332AF1C1-1331-4CD9-89E3-31DF5DC51370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332AF1C1-1331-4CD9-89E3-31DF5DC51370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C75578C-F24A-4E53-A772-B3817D6EB42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C75578C-F24A-4E53-A772-B3817D6EB42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C75578C-F24A-4E53-A772-B3817D6EB42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C75578C-F24A-4E53-A772-B3817D6EB42D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67CC4D72-576F-4F6F-928A-A82E1B6A496C} = {F6038769-623F-413A-A461-F5539CB20C73}
+		{290C2C27-7E6A-4411-BCA6-8026951863D4} = {F6038769-623F-413A-A461-F5539CB20C73}
+		{332AF1C1-1331-4CD9-89E3-31DF5DC51370} = {F6038769-623F-413A-A461-F5539CB20C73}
+		{6C75578C-F24A-4E53-A772-B3817D6EB42D} = {F6038769-623F-413A-A461-F5539CB20C73}
+	EndGlobalSection
+EndGlobal

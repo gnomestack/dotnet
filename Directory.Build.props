@@ -30,7 +30,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <CoreFx>net7.0</CoreFx>
+    <CoreFx>net8.0</CoreFx>
    
     <CoreTestFx>$(CoreFx)</CoreTestFx>
 
@@ -42,8 +42,11 @@
   
     <NetStandard>netstandard2.0</NetStandard>
 
-    <SourceGeneratorFx>netstandard2.0</SourceGeneratorFx>
-    <SourceGeneratorTestFx>netstandard2.0</SourceGeneratorTestFx>
+    <GenFx>netstandard2.0</GenFx>
+    <GenTestFx>netstandard2.0</GenTestFx>
+
+    <PulumiFx>net6.0;net8.0</PulumiFx>
+    <PulumiTestFx>$(PulumiFx)</PulumiTestFx>
 
     <LibFx>netstandard2.0;net6.0;net7.0</LibFx>
     <LibTestFx>net472;net7.0</LibTestFx>
