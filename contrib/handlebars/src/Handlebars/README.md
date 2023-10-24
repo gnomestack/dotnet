@@ -1,1 +1,0 @@
-# GnomeStack.Contrib.Handlebars

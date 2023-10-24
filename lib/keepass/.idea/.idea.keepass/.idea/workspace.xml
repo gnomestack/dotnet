@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4c29e248-931b-4cf6-9911-92603d7b8b31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ArrayReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/DataRecordReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/DataTableReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ExcelCellExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ExcelRangeBaseExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ExcelStyleExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ExcelWorkSheetExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/GnomeStack.Contrib.ClosedXml.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/IInsertDataReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/InsertDataReaderFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/NullDataReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/ObjectReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/SimpleNullableTypeReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/SimpleTypeReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/StringExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/TypeExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/InsertData/UntypedObjectReader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/closed-xml/src/ClosedXml/version.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/ArgumentExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/DateTimeHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/EnvHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/GnomeStack.Contrib.Handlebars.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/Helpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/JsonHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/RegexHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/StringHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/TypeConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../contrib/handlebars/src/Handlebars/version.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.keepass/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.keepass/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.keepass/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keepass.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Collections/KpBinarySet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Collections/KpFields.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Collections/KpFiles.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Collections/KpMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Collections/KpSortedBinaryMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/Blake2bConstants.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/ChaCha20Rng.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/DerivedKeyParams.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/Dpapi.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/HmacStream.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/IKpCipher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/IKpStreamCipherRng.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/IProcessDataProtection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/KpAesCipher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/KpRng.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/ProtectDataAction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/Salsa20ProcessDataProtection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/Salsa20Rng.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/SecurityExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/ShroudedBytes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Cryptography/ShroudedChars.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Extensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/GnomeStack.KeePass.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpKey.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpKeyFileFragment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpKeyFragment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpSecretFragment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpTags.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/KpUserAccountFragment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Kpid.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/BinaryInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/BinaryMapping.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/DeletedObjectInfos.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpAssociation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpAuditFieldNames.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpAuditFields.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpAutoType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpDatabase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpEntry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpGroup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpIcon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpIcons.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/KpTags.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/MemoryProtection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Model/StringMapping.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Package/KpHeader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Package/KpHeaderExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Package/KpHeaderFields.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Package/KpPackage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Utils.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Xml/SerializerContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Xml/XmlExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeePass/Xml/XmlSerializable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/GnomeStack.Azure.Identity.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/GsConfigTokenCredential.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/GsTokenCredential.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Azure.Identity/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/ArgumentExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/DateTimeHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/EnvHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/GnomeStack.Dx.Handlebars.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/JsonHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/RegexHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/StringHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/TemplateModelBuilder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/TypeConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.Handlebars/YamlHelpers.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/GnomeStack.Dx.KpcLib.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/KpDatabase.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/KpEntry.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/KpGroup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/KpTags.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/QueryPath.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Dx.KpcLib/Usings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/Dx.Tests/GlobalAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/Dx.Tests/GnomeStack.Dx.Tests.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/Dx.Tests/KeePass_Tests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/Dx.Tests/Usings.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/32bef4655bd944e0b3bd1103dda3437ec0400/65/8e2039c2/0200007B.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/32bef4655bd944e0b3bd1103dda3437ec0400/8a/5bf7eab2/IEquatable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Collections/KpBinarySet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Collections/KpFields.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Collections/KpMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/Dpapi.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/HmacStream.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/IKpStreamCipherRng.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/IProcessDataProtection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/KpRng.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/ProtectDataAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/Salsa20ProcessDataProtection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/Cryptography/ShroudedBytes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/KpKeyFileFragment.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/KeePass/KpUserAccountFragment.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="5019ms7y" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2WzprHxHi37ey9Kf66FBSw7e9Pl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;work/platform&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/home/dev_user/.config/JetBrains/Rider2023.2/resharper-host/DecompilerCache&quot;,
+      &quot;/home/dev_user/.config/JetBrains/Rider2023.2/resharper-host/SourcesCache&quot;,
+      &quot;/home/dev_user/.local/share/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c29e248-931b-4cf6-9911-92603d7b8b31" name="Changes" comment="" />
+      <created>1697745459966</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697745459966</updated>
+      <workItem from="1697745461066" duration="21362000" />
+      <workItem from="1697842808328" duration="23153000" />
+      <workItem from="1697870542862" duration="9494000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
