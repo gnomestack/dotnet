@@ -2,18 +2,18 @@
 
   <PropertyGroup>
     <TargetFx>$(GenFx)</TargetFx>
-    <TargetFx Condition="$(TargetFx) == ''">netstandard2.0</TargetFx>
+    <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
     <TargetFrameworks>$(TargetFx)</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-    <RootNamespace>GnomeStack.Generators.Core</RootNamespace>
+    <RootNamespace>GnomeStack.Generators.Commands</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags></PackageTags>
     <Description>
-    GnomeStack.Generators.Core
+    GnomeStack.Generators.Commands
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
@@ -38,17 +38,5 @@
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Humanizer.Core" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
-    <PackageReference Include="System.Text.Json" />
-    <PackageReference Include="YamlDotNet" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CodeAnalysis\" />
   </ItemGroup>
 </Project>

@@ -2,12 +2,22 @@ using System;
 using System.Linq;
 using System.Text;
 
+using GnomeStack.CodeAnalysis;
+
 using Humanizer;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GomeStack.Generators.Core;
+
+public class Sample : IIncrementalGenerator
+{
+    public void Initialize(IncrementalGeneratorInitializationContext context)
+    {
+        context.
+    }
+}
 
 public class SampleGenerator : ISourceGenerator
 {
@@ -22,6 +32,8 @@ public class SampleGenerator : ISourceGenerator
         // retrieve the populated receiver
         if (!(context.SyntaxReceiver is SyntaxReceiver receiver))
             return;
+        
+        context.AdditionalFiles.
 
         var sb = new StringBuilder();
 
@@ -38,11 +50,15 @@ public class SampleGenerator : ISourceGenerator
 
             var usings = new HashSet<string>();
 
+            
+
             foreach (var propertySymbol in propertySymbols)
             {
                 var type = propertySymbol.Type as INamedTypeSymbol;
                 if (type is null)
                     continue;
+                
+                type.GetMembers()
 
                 if (type.ContainingNamespace?.Name is "Pulumi")
                 {
@@ -52,16 +68,38 @@ public class SampleGenerator : ISourceGenerator
                         if (genericType.ContainingNamespace is not null)
                             usings.Add(genericType.ContainingNamespace.Name);
 
-
                         var variableName = propertySymbol.Name.Camelize();
+
+                        sb.AppendLine(
+                            $$"""
+                              public {{classSymbol.Name}}Builder Add{{propertySymbol.Name}}(Input<{{genericType}}> value)
+                              {
+                                  this.Instance.{{propertySymbol.Name}}.Add(value);
+                                  return this;
+                              }
+                              """);
+
                         sb.AppendLine(
                         $$"""
-                        public {{classSymbol.Name}}Builder With{{propertySymbol.Name}}(GsInputList<{{genericType}}> {{variableName}})
+                          public {{classSymbol.Name}}Builder Add{{propertySymbol.Name}}(GsInputList<{{genericType}}> list)
+                          {
+                              this.Instance.{{propertySymbol.Name}}.AddRange(list);
+                              return this;
+                          }
+                          """);
+
+                        sb.AppendLine(
+                        $$"""
+                        public {{classSymbol.Name}}Builder With{{propertySymbol.Name}}(GsInputList<{{genericType}}> list)
                         {
-                            this.Instance.{{propertySymbol.Name}} = {{variableName}};
+                            this.Instance.{{propertySymbol.Name}} = list;
                             return this;
                         }
+                        
+
                         """);
+
+                        continue;
                     }
                 }
             }
@@ -80,25 +118,7 @@ public class SampleGenerator : ISourceGenerator
 
     private class SyntaxReceiver : ISyntaxReceiver
     {
-        public List<ClassDeclarationSyntax> CandidateClasses { get; } = new();
-
-        public List<ClassDeclarationSyntax> BuilderClasses { get; } = new();
-
-        public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
-        {
-            // any class with at least one attribute is a candidate for property generation
-            if (syntaxNode is ClassDeclarationSyntax classDeclarationSyntax
-                && classDeclarationSyntax.AttributeLists.Count > 0)
-            {
-                var attributes = classDeclarationSyntax.AttributeLists
-                    .SelectMany(o => o.Attributes)
-                    .Select(o => o.Name.ToString());
-                var hasAttribute = attributes
-                    .Any(o => o is "GeneratePulumiBuilder" or "GeneratePulumiBuilderAttribute");
-
-                if (hasAttribute)
-                    this.CandidateClasses.Add(classDeclarationSyntax);
-            }
+       
         }
     }
 }

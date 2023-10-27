@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace GomeStack.Library;
+namespace GnomeStack.Library;
 
 [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = true)]
 public sealed class IgnoreAttribute : Attribute
