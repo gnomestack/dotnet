@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 using System.Text;
 
 using GnomeStack.Collections.Generic;
@@ -14,6 +15,26 @@ public static partial class Fs
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static FileAttributes Attr(string path)
         => File.GetAttributes(path);
+
+    [UnsupportedOSPlatform("windows")]
+    [UnsupportedOSPlatform("browser")]
+    public static void ChangeOwner(string path, int userId, int groupId)
+    {
+        if (Env.IsWindows)
+            throw new PlatformNotSupportedException("Chown is not supported on Windows.");
+
+        Interop.Sys.ChOwn(path, userId, groupId);
+    }
+
+    [UnsupportedOSPlatform("windows")]
+    [UnsupportedOSPlatform("browser")]
+    public static void ChangeOwner(string path, int id)
+    {
+        if (Env.IsWindows)
+            throw new PlatformNotSupportedException("Chown is not supported on Windows.");
+
+        Interop.Sys.ChOwn(path, id, id);
+    }
 
     /// <summary>
     /// Matches the glob the given directory against the include and exclude glob patterns.
@@ -267,6 +288,15 @@ public static partial class Fs
     {
         if (!FileExists(path))
             File.WriteAllBytes(path, Array.Empty<byte>());
+    }
+
+    public static bool Exists(string path)
+    {
+#if NET7_0_OR_GREATER
+        return System.IO.Path.Exists(path);
+#else
+        return File.Exists(path) || Directory.Exists(path);
+#endif
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

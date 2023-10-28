@@ -11,6 +11,10 @@ namespace GnomeStack;
 /// </summary>
 public readonly struct Nil : IEquatable<Nil>
 {
+    public Nil()
+    {
+    }
+
     public static Nil Value => default;
 
     public static implicit operator Nil(ValueTuple _) => default;

@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFx>$(LibFx)</TargetFx>
+    <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
+    <TargetFrameworks>$(TargetFx)</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <RootNamespace>GnomeStack.OS.Release</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags></PackageTags>
+    <Description>
+    GnomeStack.OS.Release
+    </Description>
+    <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
+      $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Condition="Exists('README.md')" Include="README.md" Pack="true" PackagePath="\"/>
+    <None Condition="Exists('LICENSE.md')" Include="LICENSE.md" Pack="true" PackagePath="\"/>
+    <None Condition="Exists('$(IconPath)')" Include="$(IconPath)" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(InternalDir)')">
+    <Compile Include="$(InternalDir)/Polyfill/Range.cs" Link="Polyfill/Range.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Trimming.cs" Link="Polyfill/Trimming.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/PlatformAttributes.cs" Link="Polyfill/PlatformAttributes.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Polyfill/String.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/NtDll/RtlGetVersion.cs" Link="Interop/Windows/NtDll/RtlGetVersion.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Libraries.cs" Link="Interop/Windows/Library.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(NetLegacy)' == 'true'">
+    <PackageReference Include="System.Memory" />
+  </ItemGroup>
+</Project>

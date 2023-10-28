@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
+#pragma warning disable SA1307, S101, SA1202, S3903
 internal static partial class Interop
 {
     [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:Field names should not contain underscore")]
