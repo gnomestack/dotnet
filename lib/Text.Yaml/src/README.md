@@ -44,7 +44,7 @@ Console.WriteLine(yaml);
 ### Extension Methods
 
 ```csharp
-using GnomeStack.Extra.Yaml;
+using GnomeStack.Extras.Yaml;
 // elsewhere
 var yaml = new { Name = "John Doe", Age = 42 }.ToYaml();
 // => "Name: John Doe\nAge: 42\n"

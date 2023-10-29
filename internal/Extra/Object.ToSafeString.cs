@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 
 #pragma warning disable CS8601
-namespace GnomeStack.Extra.Object;
+namespace GnomeStack.Extras.Object;
 
 #if DFX_CORE
 public

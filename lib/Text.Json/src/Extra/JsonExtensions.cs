@@ -1,4 +1,4 @@
-namespace GnomeStack.Extra.Json;
+namespace GnomeStack.Extras.Json;
 
 public static class JsonExtensions
 {

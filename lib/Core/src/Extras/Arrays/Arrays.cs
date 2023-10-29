@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
-namespace GnomeStack.Extra.Arrays;
+namespace GnomeStack.Extras.Arrays;
 
 public static partial class ArrayExtensions
 {

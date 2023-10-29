@@ -1,13 +1,13 @@
 using System.Collections;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Text;
 
 using HandlebarsDotNet;
 
 using Humanizer;
 
-using StringExtensions = GnomeStack.Extra.Strings.StringExtensions;
+using StringExtensions = GnomeStack.Extras.Strings.StringExtensions;
 
 namespace GnomeStack.Handlebars.Helpers;
 

@@ -1,4 +1,4 @@
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Standard;
 using GnomeStack.Text.Json;
 

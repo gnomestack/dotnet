@@ -4,7 +4,7 @@ using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.EventEmitters;
 
-namespace GnomeStack.Extra.YamlDotNet;
+namespace GnomeStack.Extras.YamlDotNet;
 
 public sealed class StringQuotingEmitter : ChainedEventEmitter
 {

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 
 namespace GnomeStack.Secrets;
 

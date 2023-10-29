@@ -1,4 +1,4 @@
-using GnomeStack.Extra.YamlDotNet;
+using GnomeStack.Extras.YamlDotNet;
 
 using YamlDotNet.Serialization;
 

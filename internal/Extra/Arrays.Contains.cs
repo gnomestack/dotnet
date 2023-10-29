@@ -1,7 +1,7 @@
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 
-namespace GnomeStack.Extra.Arrays;
+namespace GnomeStack.Extras.Arrays;
 
 #if DFX_CORE
 public

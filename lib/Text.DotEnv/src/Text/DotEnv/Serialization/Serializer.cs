@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Text.DotEnv.Document;
 using GnomeStack.Text.DotEnv.Tokens;
 using GnomeStack.Text.Serialization;

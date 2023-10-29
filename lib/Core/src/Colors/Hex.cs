@@ -1,6 +1,6 @@
 using System.Globalization;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 
 namespace GnomeStack.Colors;
 

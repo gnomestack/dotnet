@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 
 #if NETLEGACY
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 #endif
 
 namespace GnomeStack.Standard;

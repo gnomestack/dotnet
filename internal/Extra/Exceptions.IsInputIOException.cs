@@ -1,5 +1,5 @@
 #pragma warning disable CS8601
-namespace GnomeStack.Extra.IO;
+namespace GnomeStack.Extras.IO;
 
 #if DFX_CORE
 public

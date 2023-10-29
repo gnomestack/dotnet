@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 
 using GnomeStack.Standard;
 

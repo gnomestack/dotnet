@@ -1,6 +1,6 @@
-using GnomeStack.Extra.Arrays;
+using GnomeStack.Extras.Arrays;
 
-namespace GnomeStack.Extra.Collections;
+namespace GnomeStack.Extras.Collections;
 
 public static class ListExtensions
 {

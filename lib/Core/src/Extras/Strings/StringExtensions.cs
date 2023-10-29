@@ -4,7 +4,7 @@ using System.Text;
 
 using GnomeStack.Text;
 
-namespace GnomeStack.Extra.Strings;
+namespace GnomeStack.Extras.Strings;
 
 public partial class StringExtensions
 {

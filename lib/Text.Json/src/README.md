@@ -44,7 +44,7 @@ Console.WriteLine(json);
 ### Extension Methods
 
 ```csharp
-using GnomeStack.Extra.Yaml;
+using GnomeStack.Extras.Yaml;
 // elsewhere
 var json = new Person { Name = "John Doe", Age = 42 }.ToJson();
 // => "Name: John Doe\nAge: 42\n"

@@ -1,6 +1,6 @@
 using GnomeStack.Ansi;
 using GnomeStack.Colors;
-using GnomeStack.Extra.Ansi;
+using GnomeStack.Extras.Ansi;
 
 namespace GnomeStack.Standard;
 

@@ -2,7 +2,7 @@ using GnomeStack.Colors;
 
 using AnsiFormat = GnomeStack.Standard.Ansi;
 
-namespace GnomeStack.Extra.Ansi;
+namespace GnomeStack.Extras.Ansi;
 
 public static class AnsiFormatExtensions
 {

@@ -1,4 +1,4 @@
-using GnomeStack.Extra.Arrays;
+using GnomeStack.Extras.Arrays;
 
 namespace Tests;
 

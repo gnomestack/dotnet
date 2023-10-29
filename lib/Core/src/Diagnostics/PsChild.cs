@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using System.Text;
 
-using GnomeStack.Extra.IO;
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.IO;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Functional;
 using GnomeStack.Standard;
 

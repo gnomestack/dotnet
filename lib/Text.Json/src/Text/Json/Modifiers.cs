@@ -1,7 +1,7 @@
 using System.Reflection;
 using System.Text.Json.Serialization.Metadata;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Text.Serialization;
 
 namespace GnomeStack.Text.Json;

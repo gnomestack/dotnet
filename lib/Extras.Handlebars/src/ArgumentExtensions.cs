@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 
 using HandlebarsDotNet;
 

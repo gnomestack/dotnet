@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-using GnomeStack.Extra.Object;
+using GnomeStack.Extras.Object;
 
 namespace GnomeStack.Builder;
 

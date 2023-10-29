@@ -1,4 +1,4 @@
-namespace GnomeStack.Extra.Reflection;
+namespace GnomeStack.Extras.Reflection;
 
 #pragma warning disable SA1649
 #if DFX_CORE

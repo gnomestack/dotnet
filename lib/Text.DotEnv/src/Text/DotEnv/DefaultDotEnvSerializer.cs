@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Xml;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Text.DotEnv.Serialization;
 
 namespace GnomeStack.Text.DotEnv;

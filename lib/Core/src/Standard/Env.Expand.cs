@@ -1,6 +1,6 @@
 using System.Text;
 
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Strings;
 
 namespace GnomeStack.Standard;
 

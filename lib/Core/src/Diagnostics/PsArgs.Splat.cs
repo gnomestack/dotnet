@@ -3,8 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 using GnomeStack.Collections.Generic;
-using GnomeStack.Extra.Object;
-using GnomeStack.Extra.Strings;
+using GnomeStack.Extras.Object;
+using GnomeStack.Extras.Strings;
 using GnomeStack.Text.Serialization;
 
 namespace GnomeStack.Diagnostics;

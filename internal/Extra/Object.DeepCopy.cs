@@ -8,11 +8,11 @@ using System.Diagnostics.Contracts;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-using GnomeStack.Extra.Arrays;
-using GnomeStack.Extra.Reflection;
+using GnomeStack.Extras.Arrays;
+using GnomeStack.Extras.Reflection;
 
 #pragma warning disable CS8601
-namespace GnomeStack.Extra.Object;
+namespace GnomeStack.Extras.Object;
 
 [SuppressMessage("ReflectionAnalyzers.SystemReflection", "REFL029:Specify types in case an overload is added in the future")]
 [SuppressMessage("ReflectionAnalyzers.SystemReflection", "REFL008:Specify binding flags for better performance and less fragile code")]
