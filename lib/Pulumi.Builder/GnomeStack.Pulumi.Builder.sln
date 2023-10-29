@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Builder", "src\GnomeStack.Pulumi.Builder.csproj", "{200954DF-2DC9-4F7E-87A7-D417733B2750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Builder.Tests", "test\GnomeStack.Pulumi.Builder.Tests.csproj", "{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{200954DF-2DC9-4F7E-87A7-D417733B2750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200954DF-2DC9-4F7E-87A7-D417733B2750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200954DF-2DC9-4F7E-87A7-D417733B2750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200954DF-2DC9-4F7E-87A7-D417733B2750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

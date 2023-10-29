@@ -24,7 +24,7 @@ public static class Linux
                 if (valueSpan.Length > 2)
                 {
                     if (valueSpan[0] is '\"' or '\'')
-                        valueSpan = valueSpan.Slice(1, 0);
+                        valueSpan = valueSpan.Slice(1);
                     if (valueSpan[^1] is '\"' or '\'')
                         valueSpan = valueSpan[..^1];
                 }

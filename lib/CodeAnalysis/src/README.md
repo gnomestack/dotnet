@@ -1,0 +1,5 @@
+# GnomeStack.CodeAnalysis
+
+{{ description }}
+
+{{ license }}
