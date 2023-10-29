@@ -381,6 +381,7 @@ dotnet_diagnostic.CA1704.severity = none # The spelling dictionary for .NET is h
 
 dotnet_diagnostic.SA1308.severity = none # static variables should be prefixed with s_ 
 dotnet_diagnostic.SA1311.severity = none # staic readonly fields should begin s_camecase
+dotnet_diagnostic.SA1314.severity = none # prefer rust style generic type arg names
 dotnet_diagnostic.SA1402.severity = none # allow multiple types per file.
 dotnet_diagnostic.SA1404.severity = none # suppression justification is not required
 dotnet_diagnostic.SA1503.severity = none # braces are not preferred for brevity
@@ -390,6 +391,7 @@ dotnet_diagnostic.SA1600.severity = none # elements are not required to be docum
 dotnet_diagnostic.SA1601.severity = none # partial elements are not required to be documented.
 dotnet_diagnostic.SA1602.severity = none # enumerations are not required to be documented.
 dotnet_diagnostic.SA1633.severity = none # file should have a copyright header
+
 
 dotnet_diagnostic.RS0016.severity = none # 
 dotnet_diagnostic.RS0037.severity = none # 

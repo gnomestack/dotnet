@@ -1,4 +1,4 @@
-# GnomeStack.Builder
+# GnomeStack.FluentBuilder
 
 {{ description }}
 

@@ -7,6 +7,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Builder</RootNamespace>
+    <!-- TODO:ship -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -38,5 +40,9 @@
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../Core/src/*.csproj" />
   </ItemGroup>
 </Project>

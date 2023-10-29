@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Builder",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Builder.Tests", "test\GnomeStack.Pulumi.Builder.Tests.csproj", "{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Builder", "..\Builder\src\GnomeStack.Builder.csproj", "{CD290F50-B9D8-479B-BE17-EB265D62B9F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D97D8DA1-23AB-4BF8-A41E-DD9748106D40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD290F50-B9D8-479B-BE17-EB265D62B9F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD290F50-B9D8-479B-BE17-EB265D62B9F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD290F50-B9D8-479B-BE17-EB265D62B9F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD290F50-B9D8-479B-BE17-EB265D62B9F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

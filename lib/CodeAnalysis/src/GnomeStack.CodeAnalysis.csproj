@@ -39,4 +39,10 @@
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Humanizer.Core" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp"  />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+  </ItemGroup>
 </Project>

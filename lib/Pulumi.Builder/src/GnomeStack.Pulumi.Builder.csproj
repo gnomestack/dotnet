@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFx>$(LibFx)</TargetFx>
+    <TargetFx>$(CoreFx)</TargetFx>
     <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
     <TargetFrameworks>$(TargetFx)</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Pulumi.Builder</RootNamespace>
+    <!-- TODO: ship -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -38,5 +40,13 @@
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pulumi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Builder\src\*.csproj" />
   </ItemGroup>
 </Project>
