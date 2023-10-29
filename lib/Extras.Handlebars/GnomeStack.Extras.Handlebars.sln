@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extras.Handlebars", "src\GnomeStack.Extras.Handlebars.csproj", "{93DAB9BC-C15D-4898-B459-A038CEDADDD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extras.Handlebars.Tests", "test\GnomeStack.Extras.Handlebars.Tests.csproj", "{EB446438-0F37-4574-8562-530AE22BEC92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93DAB9BC-C15D-4898-B459-A038CEDADDD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93DAB9BC-C15D-4898-B459-A038CEDADDD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93DAB9BC-C15D-4898-B459-A038CEDADDD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93DAB9BC-C15D-4898-B459-A038CEDADDD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB446438-0F37-4574-8562-530AE22BEC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB446438-0F37-4574-8562-530AE22BEC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB446438-0F37-4574-8562-530AE22BEC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB446438-0F37-4574-8562-530AE22BEC92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

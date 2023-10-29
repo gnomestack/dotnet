@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Search.Abstractions", "src\GnomeStack.Extensions.Search.Abstractions.csproj", "{19B11098-6146-478B-8A4C-1C0CA0A8D2B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Search.Abstractions.Tests", "test\GnomeStack.Extensions.Search.Abstractions.Tests.csproj", "{87CF76B1-AF34-4C45-8CB9-BB16AB9878E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19B11098-6146-478B-8A4C-1C0CA0A8D2B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B11098-6146-478B-8A4C-1C0CA0A8D2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B11098-6146-478B-8A4C-1C0CA0A8D2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B11098-6146-478B-8A4C-1C0CA0A8D2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CF76B1-AF34-4C45-8CB9-BB16AB9878E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CF76B1-AF34-4C45-8CB9-BB16AB9878E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CF76B1-AF34-4C45-8CB9-BB16AB9878E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CF76B1-AF34-4C45-8CB9-BB16AB9878E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

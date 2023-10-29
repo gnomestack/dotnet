@@ -5,7 +5,7 @@ using KeePassLib.Serialization;
 
 using KpResult = GnomeStack.Functional.Result<GnomeStack.Dx.KpcLib.KpDatabase, GnomeStack.Functional.Error>;
 
-namespace GnomeStack.Dx.KpcLib;
+namespace GnomeStack.Extras.KpcLib;
 
 public class KpDatabase
 {

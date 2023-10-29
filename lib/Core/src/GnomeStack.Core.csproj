@@ -1,0 +1,87 @@
+<!--suppress MsbuildTargetFrameworkTagInspection -->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <LibFx Condition="$(LibFx) == ''">net7.0</LibFx>
+    <TargetFrameworks>$(LibFx)</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <RootNamespace>GnomeStack</RootNamespace>
+    <DefineConstants>$(DefineConstants);DFX_CORE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>GnomeStack Core Process Shell Env Fs OrderedDictionary BCL</PackageTags>
+    <Description>
+      Provides extended functionality for the .NET BCL such as invoking child processes
+      painlessly, copying directories, environment variable substitution, password 
+      generation, useful extensions to string builder, etc.
+    </Description>
+    <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="$(IconPath)" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup Condition="$(NetLegacy) == 'true'">
+    <PackageReference Include="System.Memory" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" />
+    <PackageReference Include="Microsoft.Bcl.HashCode" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(InternalDir)/Polyfill/Range.cs" Link="Polyfill/Range.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Trimming.cs" Link="Polyfill/Trimming.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/PlatformAttributes.cs" Link="Polyfill/PlatformAttributes.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/IO.cs" Link="Polyfill/IO.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Include="$(InternalDir)/Extra/Arrays.Clear.cs" Link="Extra/Arrays/Arrays.Clear.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Contains.cs" Link="Extra/Arrays/Arrays.Contains.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Equals.cs" Link="Extra/Arrays/Arrays.Equals.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.ForEach.cs" Link="Extra/Arrays/Arrays.ForEach.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Slice.cs" Link="Extra/Arrays/Arrays.Slice.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Swap.cs" Link="Extra/Arrays/Arrays.Swap.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Segment.cs" Link="Extra/Arrays/Arrays.Segment.cs" />
+    <Compile Include="$(InternalDir)/Extra/Exceptions.IsInputIOException.cs" Link="Extra/IO/Exceptions.IsInputIOException.cs" />
+    <Compile Include="$(InternalDir)/Extra/StreamReader.PipeTo.cs" Link="Extra/IO/StreamReader.PipeTo.cs" />
+    <Compile Include="$(InternalDir)/Extra/TextReader.PipeTo.cs" Link="Extra/IO/TextReader.PipeTo.cs" />
+    <Compile Include="$(InternalDir)/Extra/TextWriter.Write.cs" Link="Extra/IO/TextWriter.Write.cs" />
+    <Compile Include="$(InternalDir)/Extra/Object.DeepCopy.cs" Link="Extra/Object/Object.DeepCopy.cs" />
+    <Compile Include="$(InternalDir)/Extra/Object.ToSafeString.cs" Link="Extra/Object/Object.ToSafeString.cs" />
+    <Compile Include="$(InternalDir)/Extra/Type.IsPrimitive.cs" Link="Extra/Reflection/Type.IsPrimitive.cs" />
+    <Compile Include="$(InternalDir)/Extra/SearchSpan.cs" Link="Extra/Strings/SearchSpan.cs" />
+    <Compile Include="$(InternalDir)/Extra/String.Search.cs" Link="Extra/Strings/String.Search.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Extra/Strings/String.cs" />
+    <Compile Include="$(InternalDir)/Text/StringBuilderCache.cs" Link="Text/StringBuilderCache.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(InternalDir)/Interop/Interop.cs" Link="Interop/Interop.cs" />
+    <Compile Include="$(InternalDir)/Interop/Unix/Libraries.cs" Link="Interop/Unix/Libraries.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Libraries.cs" Link="Interop/Windows/Libraries.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Shell32/IsUserAnAdmin.cs" Link="Interop/Windows/Shell32/IsUserAnAdmin.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Kernel32/GetConsoleMode.cs" Link="Interop/Windows/Kernel32/GetConsoleMode.cs" />
+    <Compile Include="$(InternalDir)/Interop/Windows/Kernel32/GetStdHandle.cs" Link="Interop/Windows/Kernel32/GetStdHandle.cs" />
+    <Compile Include="$(InternalDir)/Interop/Unix/System.Native/ChMod.cs" Link="Interop/Unix/System.Native/ChMod.cs" />
+    <Compile Include="$(InternalDir)/Interop/Unix/System.Native/ChOwn.cs" Link="Interop/Unix/System.Native/ChOwn.cs" />
+    <Compile Include="$(InternalDir)/Interop/Unix/System.Native/GetEUid.cs" Link="Interop/Unix/System.Native/GetEUid.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" />
+  </ItemGroup>
+</Project>

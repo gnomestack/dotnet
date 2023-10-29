@@ -2,7 +2,7 @@ using System.Collections;
 
 using KeePassLib;
 
-namespace GnomeStack.Dx.KpcLib;
+namespace GnomeStack.Extras.KpcLib;
 
 public class KpGroup : IEnumerable<KpGroup>, IEnumerable<KpEntry>, IEquatable<KpGroup>
 {

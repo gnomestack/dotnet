@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFx>$(LibFx)</TargetFx>
+    <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
+    <TargetFrameworks>$(TargetFx)</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <RootNamespace>GnomeStack.Diagnostics.Activity</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Activity Trace Distributed Tracing DiagnosticSource GnomeStack</PackageTags>
+    <Description>
+    Provides extension methods for System.Diagnostics.Activity to make it easier
+    to leverage Activity in lower level libraries as OpenTelemetry.Api includes
+    logging and other things one may not want in a base class library.
+
+    The semantic convention tags for traces and resources are included.  The are
+    pulled from the Apache 2.0 source code in 
+    OpenTelemetry.SemanticConventions package.
+    </Description>
+    <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
+      $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Condition="Exists('README.md')" Include="README.md" Pack="true" PackagePath="\"/>
+    <None Condition="Exists('LICENSE.md')" Include="LICENSE.md" Pack="true" PackagePath="\"/>
+    <None Condition="Exists('$(IconPath)')" Include="$(IconPath)" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(InternalDir)')">
+    <Compile Include="$(InternalDir)/Polyfill/Range.cs" Link="Polyfill/Range.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Trimming.cs" Link="Polyfill/Trimming.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/PlatformAttributes.cs" Link="Polyfill/PlatformAttributes.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Polyfill/String.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(NetLegacy) == 'true'">
+    <PackageReference Include="System.Memory" />
+    <PackageReference Include="Microsoft.Bcl.HashCode" />
+  </ItemGroup>
+</Project>

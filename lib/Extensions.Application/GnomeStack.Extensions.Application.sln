@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Application", "src\GnomeStack.Extensions.Application.csproj", "{F75B0360-CC3A-445F-BCDE-00802E99F3BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Application.Tests", "test\GnomeStack.Extensions.Application.Tests.csproj", "{6FEA4A18-91DD-440A-BB95-AECFDBC62ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Application.Abstractions", "..\Extensions.Application.Abstractions\src\GnomeStack.Extensions.Application.Abstractions.csproj", "{2E0CA500-B471-45F2-8EF2-710952369F36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F75B0360-CC3A-445F-BCDE-00802E99F3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75B0360-CC3A-445F-BCDE-00802E99F3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75B0360-CC3A-445F-BCDE-00802E99F3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75B0360-CC3A-445F-BCDE-00802E99F3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FEA4A18-91DD-440A-BB95-AECFDBC62ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FEA4A18-91DD-440A-BB95-AECFDBC62ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FEA4A18-91DD-440A-BB95-AECFDBC62ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FEA4A18-91DD-440A-BB95-AECFDBC62ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E0CA500-B471-45F2-8EF2-710952369F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0CA500-B471-45F2-8EF2-710952369F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0CA500-B471-45F2-8EF2-710952369F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0CA500-B471-45F2-8EF2-710952369F36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

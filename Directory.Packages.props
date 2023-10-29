@@ -11,6 +11,7 @@
     <PackageVersion Include="Dapper" Version="2.0.123" />
     <PackageVersion Include="Docker.DotNet" Version="3.125.14" />
     <PackageVersion Include="KeySharp" Version="1.0.5" />
+    <PackageVersion Include="LunrCore" Version="2.3.10" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.Abstractions" Version="8.0.0-rc.2.23479.6" />
     <PackageVersion Include="Microsoft.Extensions.FileProviders.Abstractions" Version="7.0.0" />

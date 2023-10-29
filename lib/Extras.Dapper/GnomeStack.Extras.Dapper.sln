@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extras.Dapper", "src\GnomeStack.Extras.Dapper.csproj", "{56D9E80C-8A74-4204-B27D-50E0BB0539D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extras.Dapper.Tests", "test\GnomeStack.Extras.Dapper.Tests.csproj", "{CDD9F2DB-583E-4A9F-B965-E61137DA68F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56D9E80C-8A74-4204-B27D-50E0BB0539D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D9E80C-8A74-4204-B27D-50E0BB0539D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D9E80C-8A74-4204-B27D-50E0BB0539D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D9E80C-8A74-4204-B27D-50E0BB0539D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD9F2DB-583E-4A9F-B965-E61137DA68F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD9F2DB-583E-4A9F-B965-E61137DA68F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD9F2DB-583E-4A9F-B965-E61137DA68F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD9F2DB-583E-4A9F-B965-E61137DA68F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
