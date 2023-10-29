@@ -3,13 +3,13 @@ name: "CMD Fx Integration"
 on: 
   push:
     paths: 
-      - 'cmdfx/**'
+      - 'cmdfx2/**'
       #- '.github/workflows/cmdfx.cd.yaml'
       #- '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
-      - '*'
+        - '*'
     branches-ignore:
-      - 'main'
+        - '*'
 
 jobs:
   cmdfx-cd:
