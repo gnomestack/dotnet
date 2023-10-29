@@ -1,5 +1,0 @@
-# GnomeStack.KpcLib
-
-{{ description }}
-
-{{ license }}
