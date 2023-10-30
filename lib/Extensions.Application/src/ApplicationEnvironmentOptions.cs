@@ -4,7 +4,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GnomeStack.Extensions.Application;
 
-public class ApplicationInfoOptions
+public class ApplicationEnvironmentOptions
 {
     public string? Name { get; set; }
 

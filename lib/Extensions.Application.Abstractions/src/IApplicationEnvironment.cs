@@ -6,7 +6,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GnomeStack.Extensions.Application;
 
-public interface IApplicationInfo
+public interface IApplicationEnvironment
 {
     string Name { get; }
 

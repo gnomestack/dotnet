@@ -10,25 +10,30 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ApplicationServiceCollectionExtensions
 {
-    public static IServiceCollection AddApplicationPaths(this IServiceCollection services, Action<ApplicationPathsOptions>? configure)
+    public static IServiceCollection AddGsApplicationPaths(this IServiceCollection services, Action<ApplicationPathsOptions>? configure)
     {
         var options = new ApplicationPathsOptions();
         configure?.Invoke(options);
         services.TryAddSingleton<IApplicationPaths>(s =>
         {
-            var appInfo = s.GetService<IApplicationInfo>();
-            return new ApplicationPaths(options, appInfo);
+            if (ApplicationPaths.Current is not UnknownApplicationPaths)
+                return ApplicationPaths.Current;
+
+            var appInfo = s.GetService<IApplicationEnvironment>();
+            var paths = new ApplicationPaths(options, appInfo);
+            ApplicationPaths.Current = paths;
+            return paths;
         });
 
         return services;
     }
 
-    public static IServiceCollection AddApplicationInfo(
+    public static IServiceCollection AddGsApplicationEnvironment(
         this IServiceCollection services,
-        Action<ApplicationInfoOptions>? configure,
+        Action<ApplicationEnvironmentOptions>? configure,
         Func<IServiceProvider, MicrosoftHostEnvironment>? configureMicrosoftHostEnvironment)
     {
-        var options = new ApplicationInfoOptions();
+        var options = new ApplicationEnvironmentOptions();
         configure?.Invoke(options);
 
         if (configureMicrosoftHostEnvironment is null)
@@ -71,10 +76,15 @@ public static class ApplicationServiceCollectionExtensions
             };
         }
 
-        services.TryAddSingleton<IApplicationInfo>(s =>
+        services.TryAddSingleton<IApplicationEnvironment>(s =>
         {
+            if (ApplicationEnvironment.Current is not UnknownApplicationEnvironment)
+                return ApplicationEnvironment.Current;
+
             var environment = configureMicrosoftHostEnvironment(s);
-            return new ApplicationInfo(options, environment);
+            var env = new ApplicationEnvironment(options, environment);
+            ApplicationEnvironment.Current = env;
+            return env;
         });
 
         return services;

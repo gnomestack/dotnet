@@ -6,9 +6,9 @@ using Microsoft.Extensions.FileProviders;
 
 namespace GnomeStack.Extensions.Application;
 
-public class UnknownApplicationInfo : IApplicationInfo
+public class UnknownApplicationEnvironment : IApplicationEnvironment
 {
-    public static IApplicationInfo Instance { get; } = new UnknownApplicationInfo();
+    public static IApplicationEnvironment Instance { get; } = new UnknownApplicationEnvironment();
 
     public string Name { get; } = "Unknown";
 

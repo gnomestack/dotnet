@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFx>$(LibFx)</TargetFx>
     <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
+    <!--suppress MsbuildTargetFrameworkTagInspection -->
     <TargetFrameworks>$(TargetFx)</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>

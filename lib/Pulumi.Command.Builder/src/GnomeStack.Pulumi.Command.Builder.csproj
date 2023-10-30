@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -7,11 +8,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Pulumi.Command.Builder</RootNamespace>
+    <!-- TODO: ship -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags></PackageTags>
+    <PackageTags>Pulumi Builder Command BuilderPattern GnomeStack</PackageTags>
     <Description>
     GnomeStack.Pulumi.Command.Builder
     </Description>

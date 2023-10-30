@@ -4,12 +4,12 @@ namespace GnomeStack.Extensions.Auditing;
 
 public class AuditLoggerOptions
 {
-    public AuditLoggerOptions(IApplicationInfo app)
+    public AuditLoggerOptions(IApplicationEnvironment app)
     {
         this.App = app;
     }
 
-    public IApplicationInfo App { get; set; }
+    public IApplicationEnvironment App { get; set; }
 
     public IAuditLoggerChannel Channel { get; set; } = NullAuditLoggerChannel.Instance;
 

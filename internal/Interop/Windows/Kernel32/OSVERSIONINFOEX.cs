@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 internal static partial class Interop
 {
+    #pragma warning disable SA1307, S101
     internal static partial class Kernel32
     {
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]

@@ -8,12 +8,13 @@ using Microsoft.Extensions.FileProviders;
 namespace GnomeStack.Extensions.Application;
 
 [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
-public class ApplicationInfo : IApplicationInfo
+public class ApplicationEnvironment : IApplicationEnvironment
 {
     private readonly ConcurrentDictionary<string, object?> map = new();
 
-    public ApplicationInfo(ApplicationInfoOptions options, MicrosoftHostEnvironment? environment)
+    public ApplicationEnvironment(ApplicationEnvironmentOptions? options = null, MicrosoftHostEnvironment? environment = null)
     {
+        options ??= new ApplicationEnvironmentOptions();
         var name = options.Name ?? environment?.ApplicationName;
         var entryAssembly = options.EntryAssembly ?? Assembly.GetEntryAssembly();
         Debug.WriteLineIf(entryAssembly is null, "EntryAssembly is null");
@@ -50,6 +51,8 @@ public class ApplicationInfo : IApplicationInfo
         this.ContentRootPath = options.ContentRootPath ?? environment?.ContentRootPath ?? Directory.GetCurrentDirectory();
         this.ContentRootFileProvider = options.ContentRootFileProvider ?? environment?.ContentRootFileProvider ?? new NullFileProvider();
     }
+
+    public static IApplicationEnvironment Current { get; set; } = new UnknownApplicationEnvironment();
 
     public virtual string Name { get; }
 

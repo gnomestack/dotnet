@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class AzureIdentityServiceCollectionExtensions
 {
-    public static IServiceCollection AddAzureIdentity(this IServiceCollection services, Action<AzureIdentityOptions>? configure)
+    public static IServiceCollection AddGsAzureIdentity(this IServiceCollection services, Action<AzureIdentityOptions>? configure)
     {
         var options = new AzureIdentityOptions();
         configure?.Invoke(options);

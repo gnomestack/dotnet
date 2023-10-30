@@ -8,6 +8,8 @@
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Internal</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- TODO: ship icon -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>

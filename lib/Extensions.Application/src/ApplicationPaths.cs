@@ -25,7 +25,7 @@ public class ApplicationPaths : IApplicationPaths
 
     private string? machineLogsDirectory;
 
-    public ApplicationPaths(ApplicationPathsOptions? options = null, IApplicationInfo? environment = null)
+    public ApplicationPaths(ApplicationPathsOptions? options = null, IApplicationEnvironment? environment = null)
     {
         options ??= new ApplicationPathsOptions();
 
@@ -36,7 +36,7 @@ public class ApplicationPaths : IApplicationPaths
         }
 
         if (options.AppDirectoryName.IsNullOrWhiteSpace())
-            options.AppDirectoryName = environment?.Name ?? ApplicationInfo.GetAssemblyName();
+            options.AppDirectoryName = environment?.Name ?? ApplicationEnvironment.GetAssemblyName();
 
         if (options.UserConfigDirectory.IsNullOrWhiteSpace())
             options.UserConfigDirectory = null;
@@ -77,6 +77,8 @@ public class ApplicationPaths : IApplicationPaths
         this.userStateDirectory = options.UserStateDirectory;
         this.dotDirectory = options.DotDirectory;
     }
+
+    public static IApplicationPaths Current { get; set; } = new UnknownApplicationPaths();
 
     public string ApplicationDirectoryName { get; }
 
@@ -261,7 +263,7 @@ public class ApplicationPaths : IApplicationPaths
                 this.machineDataDirectory = Path.Combine(
                     programData,
                     this.ApplicationDirectoryName,
-                    "data");
+                    "share");
             }
             else
             {
