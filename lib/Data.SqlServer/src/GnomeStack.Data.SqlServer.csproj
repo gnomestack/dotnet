@@ -39,4 +39,15 @@
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Microsoft.Data.SqlClient" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\src\GnomeStack.Core.csproj" />
+    <ProjectReference Include="..\..\Data\src\GnomeStack.Data.csproj" />
+    <ProjectReference Include="..\..\Extras.Dapper\src\GnomeStack.Extras.Dapper.csproj" />
+  </ItemGroup>
 </Project>

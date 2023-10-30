@@ -226,6 +226,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Docker.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Docker.Builder.Tests", "Pulumi.Docker.Builder\test\GnomeStack.Pulumi.Docker.Builder.Tests.csproj", "{F4860C23-526E-4F95-8402-A58C746091C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Internal", "..\internal\GnomeStack.Internal.csproj", "{94BC2979-3E6F-4A7C-91AC-9EDB416805BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -515,6 +517,10 @@ Global
 		{F4860C23-526E-4F95-8402-A58C746091C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4860C23-526E-4F95-8402-A58C746091C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4860C23-526E-4F95-8402-A58C746091C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BC2979-3E6F-4A7C-91AC-9EDB416805BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BC2979-3E6F-4A7C-91AC-9EDB416805BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BC2979-3E6F-4A7C-91AC-9EDB416805BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BC2979-3E6F-4A7C-91AC-9EDB416805BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B5792C7B-EBE1-4D17-91D7-BA9A06F21E0C} = {66CA29F0-9DA1-4FAE-A25C-89CBEF3C1584}
