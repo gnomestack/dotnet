@@ -5,7 +5,7 @@ on:
   push:
     paths: 
       - 'lib/**'
-    branches:
+    tags-ignore:
       - '*'
 
 jobs:
