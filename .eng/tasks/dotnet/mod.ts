@@ -23,7 +23,7 @@ export function getTestArgs(ctx: BuildContext) {
         "test", 
         ctx.sln, 
         "-c", ctx.dotnet.configuration, 
-        "--logger", "trx;logfilename=test-results.trx", 
+        "--logger", "trx", 
         "--results-directory", ctx.testResultsDir];
     
     if (ctx.ci) {

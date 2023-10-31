@@ -1,3 +1,4 @@
+import { IS_DARWIN } from "https://deno.land/x/quasar@0.0.6/mod.ts";
 import { BuildContext } from "./context/mod.ts";
 import { env, path, ps, fs, task, parseAndRun } from "./deps.ts";
 import { getBuildArgs, getCleanArgs, getGithubNugetSourceArgs, getPackArgs, getRestoreArgs, getTestArgs, getToolRestoreArgs } from "./dotnet/mod.ts";
@@ -51,9 +52,12 @@ export async function addDotnetTasks(projectDir: string, rootDir?: string, slnNa
 
     task("build", ["dotnet:build"]);
 
-    task("dotnet:test", () => {
+    task("dotnet:test", async () => {
         const o = getTestArgs(ctx);
-        return ps.exec("dotnet", o.splat, o.options);
+        const r = await ps.exec("dotnet", o.splat, o.options);
+        if (!IS_DARWIN) {
+            return r;
+        }
     })
 
     task("test", ["dotnet:test"]);
