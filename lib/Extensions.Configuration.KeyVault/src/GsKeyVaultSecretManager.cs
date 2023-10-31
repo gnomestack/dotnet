@@ -20,7 +20,7 @@ public class GsKeyVaultSecretManager : KeyVaultSecretManager
         if (prefix.IsNullOrWhiteSpace())
             prefix = null;
 
-        if (prefix is not null && prefix.EndsWith("-"))
+        if (prefix is not null && !prefix.EndsWith("-"))
             prefix = $"{prefix}-";
 
         if (delimiter.IsNullOrWhiteSpace())
