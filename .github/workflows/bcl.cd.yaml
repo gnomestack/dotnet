@@ -3,12 +3,8 @@ name: "BCL Fx Delivery"
 on: 
   workflow_dispatch:
   push:
-    paths: 
-      - 'bcl2/**'
-      #- '.github/workflows/bcl.cd.yaml'
-      #- '.github/workflows/multi-target-lib-cd.yaml'
     paths-ignore: 
-      - 'lib/Data/**'
+      - '**'
     tags: 
       - 'bcl2-*'
     branches:

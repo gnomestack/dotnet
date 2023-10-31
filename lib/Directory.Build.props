@@ -6,9 +6,7 @@
         <IsTrimmable>false</IsTrimmable>
         <Version>$(PackageVersion)</Version>
         <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl>
-        <MinVerVerbosity Condition="'$(MinVerVerbosity)' == ''">detailed</MinVerVerbosity>
-        <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
         <MinVerDefaultPreReleaseIdentifiers 
-            Condition="'$(MinVerDefaultPreReleaseIdentifiers)' == ''">build.0</MinVerDefaultPreReleaseIdentifiers>
+            Condition="'$(MinVerDefaultPreReleaseIdentifiers)' == ''">build</MinVerDefaultPreReleaseIdentifiers>
     </PropertyGroup>
 </Project>
