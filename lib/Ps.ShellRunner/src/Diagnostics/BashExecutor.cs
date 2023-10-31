@@ -32,6 +32,7 @@ internal sealed class BashExecutor : ShellExecutor
         var exe = PsPathRegistry.Default.FindOrThrow(DefaultShell);
         if (Env.IsWindows && exe.EndsWith("System32\\bash.exe", StringComparison.OrdinalIgnoreCase))
         {
+            file = file.Replace("\\", "/");
             file = "/mnt/" + "c" + file.Substring(1).Replace(":", string.Empty);
         }
 

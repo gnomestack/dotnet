@@ -29,7 +29,7 @@ internal class CmdExecutor : ShellExecutor
                     "/V:OFF",
                     "/S",
                     "/C",
-                    $"\"CALL \"{file}\"\"",
+                    $"CALL \"{file}\"",
                 });
 
         return ps;
