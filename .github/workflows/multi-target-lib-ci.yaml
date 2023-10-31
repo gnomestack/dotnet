@@ -55,7 +55,7 @@ jobs:
 
     - name: "🟣 Install Qtr"
       run: |
-        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.9/cli.ts"
+        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.10/cli.ts"
 
     - name: 🟣 Setup .NET Core # Required to execute ReportGenerator
       uses: actions/setup-dotnet@v3
@@ -64,15 +64,15 @@ jobs:
         dotnet-quality: 'ga'
 
     - name: 🔃 Restore 
-      run: qtr restore --timeout 10800
+      run: qtr restore
       working-directory: ${{ env.PROJECT_DIR }}
 
     - name: 🏭 Build
-      run: qtr build --timeout 10800
+      run: qtr build
       working-directory: ${{ env.PROJECT_DIR }}
 
     - name: 🧪 Test
-      run: qtr test --timeout 10800
+      run: qtr test
       working-directory: ${{ env.PROJECT_DIR }}
 
     - name: Pack

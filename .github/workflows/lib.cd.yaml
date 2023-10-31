@@ -1,7 +1,6 @@
 name: "Lib Continous Delivery"
 
-on: 
-  workflow_dispatch:
+on:
   push:
     paths: 
       - 'lib/**'

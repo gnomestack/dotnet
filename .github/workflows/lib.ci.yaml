@@ -8,9 +8,6 @@ on:
       #- '.github/workflows/multi-target-lib-ci.yaml'
     branches:
       - '*'
-  schedule:
-    - cron:  '30 5 * * *'
-
 
 jobs:
   lib-ci:

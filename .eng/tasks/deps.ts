@@ -1,4 +1,4 @@
-export {task, parseAndRun} from "https://deno.land/x/qtr@0.0.9/mod.ts";
+export {task, parseAndRun} from "https://deno.land/x/qtr@0.0.10/mod.ts";
 export * from "https://deno.land/x/quasar@0.0.7/os/scripting.ts";
 export * from "https://deno.land/x/quasar@0.0.7/process/scripting.ts";
 export * from "https://deno.land/x/quasar@0.0.7/fs/scripting.ts";
