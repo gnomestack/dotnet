@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace GnomeStack.Extra.Strings;
+namespace GnomeStack.Extras.Strings;
 
 #if DFX_CORE
 public

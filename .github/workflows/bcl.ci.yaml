@@ -3,13 +3,13 @@ name: "BCL Fx Integration"
 on: 
   push:
     paths: 
-      - 'bcl/**'
+      - 'bcl2/**'
       #- '.github/workflows/bcl.cd.yaml'
       #- '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
       - '*'
     branches-ignore:
-      - 'main'
+      - '*'
 
 jobs:
   bcl-cd:

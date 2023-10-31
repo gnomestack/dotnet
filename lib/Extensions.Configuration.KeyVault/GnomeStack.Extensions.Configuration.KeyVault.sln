@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Configuration.KeyVault", "src\GnomeStack.Extensions.Configuration.KeyVault.csproj", "{A22FF629-FC2C-4D75-B566-9682972CF880}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Configuration.KeyVault.Tests", "test\GnomeStack.Extensions.Configuration.KeyVault.Tests.csproj", "{5E1B4760-B70B-4EE9-A51D-9F0FF1C998CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A22FF629-FC2C-4D75-B566-9682972CF880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22FF629-FC2C-4D75-B566-9682972CF880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22FF629-FC2C-4D75-B566-9682972CF880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22FF629-FC2C-4D75-B566-9682972CF880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1B4760-B70B-4EE9-A51D-9F0FF1C998CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1B4760-B70B-4EE9-A51D-9F0FF1C998CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1B4760-B70B-4EE9-A51D-9F0FF1C998CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1B4760-B70B-4EE9-A51D-9F0FF1C998CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,109 @@
+filename: dotnet
+options:
+  prefix: '--'
+  separator: ' '
+  short-prefix: '-'
+  shared: 
+      - name: runtime
+        aliases: ['r']
+        desc: The target runtime to build for.
+        type: string?
+
+      - name: configuration
+        aliases: ['c']
+        desc: |
+          Configuration to use for building the project. Default for most
+          projects is 'Debug'.
+        type: string?
+
+      - name: framework
+        aliases: ['f']
+        desc: |
+          The target framework to build for. The target framework has to be
+          specified in the project file.
+        type: string?
+
+      - name: nologo
+        desc: Do not show logo information.
+        type: flag
+
+      - name: arch
+        aliases: ['a']
+        desc: The target architecture.
+        type: string?
+
+      - name: os
+        desc: The target operating system.
+        type: string?
+
+commands:
+  - name: build
+    arguments:
+      - name: project
+        type: string
+        required: true
+
+    options:
+      - name: use-current-runtime
+        aliases: ['ucr']
+        desc: Use current runtime as the target runtime.
+        type: flag
+
+      - ref: runtime
+      - ref: configuration
+      - ref: framework
+      - ref: nologo
+      - ref: arch
+      - ref: os
+   
+      - name: output
+        aliases: ['o']
+        desc: The output directory to place the built artifacts in.
+        type: string?
+
+      - name: no-incremental
+        desc: Do not allow incremental building.
+        type: flag
+
+      - name: no-dependencies
+        desc: Do not build project-to-project references and only build the specified project.
+        type: flag
+
+      - name: no-restore
+        desc: Do not restore the project before building.
+        type: flag
+
+      - name: interactive
+        desc: |
+          Allows the command to stop and wait for user input or action 
+          (for example to complete authentication).
+        type: flag
+
+      - name: verbosity
+        aliases: ['v']
+        desc: | 
+          Set the MSBuild verbosity level. Allowed values are 
+          q[uiet], m[inimal], n[ormal], d[etailed], and diag[nostic].
+        type: enum?
+        values: ['quiet', 'minimal', 'normal', 'detailed', 'diagnostic']
+
+      - name: artifacts-path
+        desc: Directory in which to place built artifacts.
+        type: string?
+
+      - name: self-contained
+        aliases: ['sc']
+        desc: Produce a self-contained output.
+        type: flag
+
+      - name: no-self-contained
+        desc: Do not produce a self-contained output.
+        type: flag
+
+      - name: version-suffix
+        desc: | 
+          Set the value of the $(VersionSuffix) property to use when
+          building the project.
+        type: string?
+      
+      

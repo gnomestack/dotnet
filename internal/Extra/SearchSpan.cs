@@ -1,4 +1,4 @@
-namespace GnomeStack.Extra.Strings;
+namespace GnomeStack.Extras.Strings;
 
 /// <summary>
 /// Struct <see cref="SearchSpan"/> represents the location of a span of text

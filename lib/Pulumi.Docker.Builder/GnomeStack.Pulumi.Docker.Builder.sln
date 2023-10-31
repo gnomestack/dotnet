@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Docker.Builder", "src\GnomeStack.Pulumi.Docker.Builder.csproj", "{1E8D7719-B592-4597-A75F-D1076F1A0F76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Pulumi.Docker.Builder.Tests", "test\GnomeStack.Pulumi.Docker.Builder.Tests.csproj", "{DFB89B76-9C91-40DC-813A-BECE12E6D77D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E8D7719-B592-4597-A75F-D1076F1A0F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8D7719-B592-4597-A75F-D1076F1A0F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8D7719-B592-4597-A75F-D1076F1A0F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8D7719-B592-4597-A75F-D1076F1A0F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB89B76-9C91-40DC-813A-BECE12E6D77D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB89B76-9C91-40DC-813A-BECE12E6D77D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB89B76-9C91-40DC-813A-BECE12E6D77D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB89B76-9C91-40DC-813A-BECE12E6D77D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

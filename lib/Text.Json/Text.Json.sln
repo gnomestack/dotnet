@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Text.Json", "src\GnomeStack.Text.Json.csproj", "{6FBFC068-2D40-4061-A6CD-5B38CA040443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Text.Json.Tests", "test\GnomeStack.Text.Json.Tests.csproj", "{09F65DF9-98D8-4E53-8AC6-4B4F93252767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FBFC068-2D40-4061-A6CD-5B38CA040443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FBFC068-2D40-4061-A6CD-5B38CA040443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FBFC068-2D40-4061-A6CD-5B38CA040443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FBFC068-2D40-4061-A6CD-5B38CA040443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F65DF9-98D8-4E53-8AC6-4B4F93252767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F65DF9-98D8-4E53-8AC6-4B4F93252767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F65DF9-98D8-4E53-8AC6-4B4F93252767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F65DF9-98D8-4E53-8AC6-4B4F93252767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

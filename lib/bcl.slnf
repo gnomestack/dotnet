@@ -1,0 +1,8 @@
+{
+    "solution": {
+        "path": "lib.sln",
+        "projects": [
+            "Core\\src\\GnomeStack.Core.csproj"
+        ]
+    }
+}

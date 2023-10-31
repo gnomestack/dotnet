@@ -45,11 +45,11 @@
     <SourceGeneratorFx>netstandard2.0</SourceGeneratorFx>
     <SourceGeneratorTestFx>netstandard2.0</SourceGeneratorTestFx>
 
-    <LibFx>netstandard2.0;net6.0;net7.0</LibFx>
-    <LibTestFx>net472;net7.0</LibTestFx>
+    <LibFx>$(NetStandard);$(CoreLibFx)</LibFx>
+    <LibTestFx>net472;$(CoreFx)</LibTestFx>
     
     <!-- for cases when netstandard2.0 is not supported, but functionality is supported in net472 or greater -->
-    <NetCoreLibFx>$(NetFx);net6.0;$(CoreFx)</NetCoreLibFx>
+    <NetCoreLibFx>$(NetFx);$(CoreLibFx)</NetCoreLibFx>
     <NetCoreLibTestFx>$(CoreFx);$(NetFx)</NetCoreLibTestFx>
 
     <Windows>false</Windows>

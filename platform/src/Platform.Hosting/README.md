@@ -1,1 +1,0 @@
-# GnomeStack.Platform.Hosting
