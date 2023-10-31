@@ -1,0 +1,20 @@
+name: "Lib Continuous Integration"
+
+on: 
+  push:
+    paths: 
+      - 'lib/**'
+      - '.github/workflows/lib.ci.yaml'
+      #- '.github/workflows/multi-target-lib-ci.yaml'
+    tags-ignore:
+      - '*'
+    branches-ignore:
+      - 'main'
+
+jobs:
+  bcl-cd:
+    uses: ./.github/workflows/multi-target-lib-ci.yaml
+    with:
+        project-dir: "lib"
+        project-name: "lib"
+    secrets: inherit
