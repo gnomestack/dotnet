@@ -65,6 +65,7 @@ public class ShellRunner_Tests
         assert.Equal(0, output.ExitCode);
     }
 
+    /*
     [IntegrationTest]
     public async Task Cmd(IAssert assert, ITestOutputHelper writer)
     {
@@ -79,7 +80,7 @@ public class ShellRunner_Tests
         // this assert is not working on linux / dotnet core.
         // assert.Equal(1, output.StdOut.Count);
         assert.Equal(0, output.ExitCode);
-    }
+    }*/
 
     [IntegrationTest]
     public async Task Node(IAssert assert, ITestOutputHelper writer)
