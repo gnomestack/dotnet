@@ -9,8 +9,6 @@ on:
       - .github/workflows/lib-ci.yaml
     tags-ignore:
       - '*'
-    branches-ignore:
-      - 'main'
 
 jobs:
   bcl-cd:

@@ -19,7 +19,8 @@
     logging and other things one may not want in a base class library.
 
     The semantic convention tags for traces and resources are included.  The are
-    pulled from the Apache 2.0 source code in OpenTelemetry.SemanticConventions package.
+    pulled from the Apache 2.0 source code in
+    OpenTelemetry.SemanticConventions package.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
