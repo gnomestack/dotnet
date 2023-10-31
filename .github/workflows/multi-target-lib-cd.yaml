@@ -101,7 +101,7 @@ jobs:
 
     - name: "🟣 Install Qtr"
       run: |
-        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.8/cli.ts"
+        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.9/cli.ts"
 
     - name: Download Artifacts
       uses: actions/download-artifact@v3

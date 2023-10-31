@@ -4,7 +4,7 @@
     "deno.lint": true,
     "deno.enablePaths": [
         "./.eng/tasks",
-        "./bcl/.quasar",
+        "./lib/.quasar",
         "./testfx/.quasar",
         "./cmdfx/.quasar",
     ]
