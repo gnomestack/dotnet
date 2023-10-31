@@ -16,7 +16,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>Pulumi Builder BuilderPattern GnomeStack</PackageTags>
     <Description>
-    GnomeStack.Pulumi.Builder
+    GnomeStack.Pulumi.Builder builds on the Pulumi SDK to provide a builder pattern for.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))

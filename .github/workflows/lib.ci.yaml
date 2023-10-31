@@ -9,7 +9,7 @@ on:
       - '*'
 
 jobs:
-  lib-ci:
+  bcl-cd:
     uses: ./.github/workflows/multi-target-lib-ci.yaml
     with:
         project-dir: "lib"
