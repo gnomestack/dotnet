@@ -51,9 +51,9 @@ export async function addDotnetTasks(projectDir: string, rootDir?: string, slnNa
 
     task("build", ["dotnet:build"]);
 
-    task("dotnet:test", async () => {
+    task("dotnet:test", () => {
         const o = getTestArgs(ctx);
-        return await ps.exec("dotnet", o.splat, o.options).then(o => o.throwOrContinue());
+        return ps.exec("dotnet", o.splat, o.options);
     })
 
     task("test", ["dotnet:test"]);

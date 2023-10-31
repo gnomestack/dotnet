@@ -26,7 +26,7 @@ on:
 env:
   PROJECT_NAME: ${{ inputs.project-name }}
   PROJECT_DIR: ${{ inputs.project-dir }}
-  TAG_REF: "refs/tags/${{ inputs.project-name }}-"
+  TAG_REF: "refs/tags/0."
   GH_ORG: ${{ inputs.gh-org }}
   GH_USER: ${{ inputs.gh-user }}
   GH_PAT: ${{ secrets.GH_PACKAGES_PAT }}
@@ -101,7 +101,7 @@ jobs:
 
     - name: "🟣 Install Qtr"
       run: |
-        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.8/cli.ts"
+        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.10/cli.ts"
 
     - name: Download Artifacts
       uses: actions/download-artifact@v3

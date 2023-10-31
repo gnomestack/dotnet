@@ -1,0 +1,15 @@
+name: "Lib Continuous Integration"
+
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  bcl-cd:
+    uses: ./.github/workflows/multi-target-lib-ci.yaml
+    with:
+        project-dir: "lib"
+        project-name: "lib"
+    secrets: inherit

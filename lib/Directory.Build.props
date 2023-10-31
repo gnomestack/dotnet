@@ -7,6 +7,6 @@
         <Version>$(PackageVersion)</Version>
         <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl>
         <MinVerDefaultPreReleaseIdentifiers 
-            Condition="$(MinVerDefaultPreReleaseIdentifiers) == ''">build</MinVerDefaultPreReleaseIdentifiers>
+            Condition="'$(MinVerDefaultPreReleaseIdentifiers)' == ''">build</MinVerDefaultPreReleaseIdentifiers>
     </PropertyGroup>
 </Project>

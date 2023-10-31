@@ -1,0 +1,16 @@
+name: "Lib Continous Delivery"
+
+on:
+  push:
+    paths: 
+      - 'lib/**'
+    tags: 
+      - '[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  lib-cd:
+    uses: ./.github/workflows/multi-target-lib-cd.yaml
+    with:
+        project-dir: "lib"
+        project-name: "lib"
+    secrets: inherit

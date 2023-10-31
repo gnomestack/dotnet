@@ -5,7 +5,7 @@ namespace GnomeStack.Data.SqlServer.Management;
 public class SelectLoginExists : SqlStatementBuilder
 {
     public string LoginName { get; set; } = string.Empty;
-    
+
     public static implicit operator string(SelectLoginExists cmd)
         => cmd.Build().Unwrap();
 

@@ -2,6 +2,9 @@ using System.Diagnostics;
 
 namespace GnomeStack.Diagnostics;
 
+/// <summary>
+/// The activity status code for otel.
+/// </summary>
 public readonly struct ActivityStatus : IEquatable<ActivityStatus>
 {
     public ActivityStatus(ActivityStatusCode code, string? description = null)

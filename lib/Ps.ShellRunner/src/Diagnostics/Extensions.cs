@@ -8,7 +8,7 @@ internal static class Extensions
         {
             set.Add(value);
         }
-        
+
         return set;
     }
 }

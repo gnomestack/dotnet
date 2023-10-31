@@ -55,7 +55,7 @@ jobs:
 
     - name: "🟣 Install Qtr"
       run: |
-        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.8/cli.ts"
+        deno install --unstable -qAn qtr "https://deno.land/x/qtr@0.0.10/cli.ts"
 
     - name: 🟣 Setup .NET Core # Required to execute ReportGenerator
       uses: actions/setup-dotnet@v3
@@ -77,7 +77,7 @@ jobs:
 
     - name: Pack
       if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: qtr pack
+      run: qtr pack --timeout 10800
       working-directory: ${{ env.PROJECT_DIR }}
 
     - name: Upload Artifacts
