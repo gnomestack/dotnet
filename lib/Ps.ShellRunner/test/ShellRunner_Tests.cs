@@ -196,7 +196,7 @@ public class ShellRunner_Tests
 
         var script = GenerateScriptFile(
             """
-            #!/bin/bash
+            #!/usr/bin/env bash
             echo 'Hello from dynamically determined script!'
             sleep 1
             """,
@@ -229,7 +229,7 @@ public class ShellRunner_Tests
 
         var script = GenerateScriptFile(
             $"""
-            #!{exe} -ExecutionPolicy Bypass -c
+            #!/usr/bin/env pwsh -ExecutionPolicy Bypass -c
             echo 'Hello from dynamically determined script!'
             """,
             ".ps1");
