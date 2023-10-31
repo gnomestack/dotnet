@@ -4,13 +4,13 @@ using GnomeStack.Text;
 
 namespace GnomeStack.Data.SqlServer.Management;
 
-public class UpdateElasticPool : SqlStatementBuilder
+public class UpdateElasticPoolName : SqlStatementBuilder
 {
     public string DatabaseName { get; set; } = string.Empty;
 
     public string ElasticPoolName { get; set; } = string.Empty;
 
-    public static implicit operator string(UpdateElasticPool cmd)
+    public static implicit operator string(UpdateElasticPoolName cmd)
         => cmd.Build().Unwrap();
 
     public override Result<string, Exception> Build()

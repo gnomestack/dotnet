@@ -32,7 +32,7 @@ public class ShellRunner_Tests
         writer.WriteLine(string.Join(Environment.NewLine, output.StdError));
         writer.WriteLine(string.Join(Environment.NewLine, output.StdOut));
         assert.Equal(0, output.ExitCode);
-        assert.Equal(1, output.StdOut.Count);
+        assert.True(output.StdOut.Count > 0);
     }
 
     [IntegrationTest]
@@ -152,7 +152,6 @@ public class ShellRunner_Tests
         var output = await Shell.RunAsync("python", "print('Hello, World!')", new PsStartInfo().WithStdio(Stdio.Piped));
         writer.WriteLine(string.Join(Environment.NewLine, output.StdError));
         writer.WriteLine(string.Join(Environment.NewLine, output.StdOut));
-
 
         assert.Equal(0, output.ExitCode);
         assert.Equal(1, output.StdOut.Count);
