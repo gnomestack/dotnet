@@ -8,8 +8,10 @@ on:
       #- '.github/workflows/multi-target-lib-ci.yaml'
     tags-ignore:
       - '*'
-    branches-ignore:
-      - 'main'
+    branches:
+      - '*'
+  schedule:
+    - cron:  '30 5 * * *'
 
 jobs:
   bcl-cd:

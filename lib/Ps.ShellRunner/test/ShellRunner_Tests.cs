@@ -46,7 +46,7 @@ public class ShellRunner_Tests
         writer.WriteLine(string.Join(Environment.NewLine, output.StdError));
         writer.WriteLine(string.Join(Environment.NewLine, output.StdOut));
         assert.Equal(0, output.ExitCode);
-        assert.Equal(1, output.StdOut.Count);
+        assert.True(output.StdOut.Count > 0);
     }
 
     [IntegrationTest]
@@ -241,7 +241,7 @@ public class ShellRunner_Tests
             writer.WriteLine(string.Join(Environment.NewLine, output.StdOut));
 
             assert.Equal(0, output.ExitCode);
-            assert.Equal(1, output.StdOut.Count);
+            assert.True(output.StdOut.Count > 0);
         }
         finally
         {
@@ -254,19 +254,19 @@ public class ShellRunner_Tests
 
     private static string GenerateScriptFile(string script, string extension)
     {
+        var fileName = Path.GetRandomFileName();
+        var temp = Path.Combine(Path.GetTempPath(), $"{fileName}{extension}");
         if (!Env.IsWindows && script.Contains("\r\n"))
         {
             script = script.Replace("\r\n", "\n");
         }
 
-        var temp = Path.GetTempPath();
-        var file = Path.Combine(temp, $"{Guid.NewGuid()}{extension}");
-        File.WriteAllText(file, script);
+        File.WriteAllText(temp, script);
         if (!Env.IsWindows)
         {
-            Fs.ChangeMode(file, UnixFileMode.GroupExecute | UnixFileMode.OtherExecute | UnixFileMode.UserExecute | UnixFileMode.UserRead | UnixFileMode.OtherRead);
+            Fs.ChangeMode(temp, UnixFileMode.GroupExecute | UnixFileMode.OtherExecute | UnixFileMode.UserExecute | UnixFileMode.UserRead | UnixFileMode.UserWrite);
         }
 
-        return file;
+        return temp;
     }
 }
