@@ -36,6 +36,16 @@ public static partial class Fs
         Interop.Sys.ChOwn(path, id, id);
     }
 
+    [UnsupportedOSPlatform("windows")]
+    [UnsupportedOSPlatform("browser")]
+    public static void ChangeMode(string path, UnixFileMode mode)
+    {
+        if (Env.IsWindows)
+            throw new PlatformNotSupportedException("Chown is not supported on Windows.");
+
+        Interop.Sys.ChMod(path, (int)mode);
+    }
+
     /// <summary>
     /// Matches the glob the given directory against the include and exclude glob patterns.
     /// </summary>
