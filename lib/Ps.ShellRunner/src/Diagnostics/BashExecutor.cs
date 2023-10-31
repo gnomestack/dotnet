@@ -30,10 +30,13 @@ internal sealed class BashExecutor : ShellExecutor
     protected override Ps CreatePs(string file, PsStartInfo? info)
     {
         var exe = PsPathRegistry.Default.FindOrThrow(DefaultShell);
-        if (Env.IsWindows && exe.EndsWith("System32\\bash.exe", StringComparison.OrdinalIgnoreCase))
+        if (Env.IsWindows)
         {
             file = file.Replace("\\", "/");
-            file = "/mnt/" + "c" + file.Substring(1).Replace(":", string.Empty);
+            if (exe.EndsWith("System32\\bash.exe", StringComparison.OrdinalIgnoreCase))
+            {
+                file = "/mnt/" + "c" + file.Substring(1).Replace(":", string.Empty);
+            }
         }
 
         var ps = new Ps(exe, info)
