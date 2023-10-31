@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
   push:
     paths: 
-      - 'lib/**'
+      - lib/**
+      - .github/workflows/multi-target-lib-ci.yaml
+      - .github/workflows/lib-ci.yaml
+    branches:
+        - work/*
     tags-ignore:
       - '*'
 
