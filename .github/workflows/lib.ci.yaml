@@ -5,8 +5,6 @@ on:
   push:
     paths: 
       - lib/**
-      - .github/workflows/multi-target-lib-ci.yaml
-      - .github/workflows/lib-ci.yaml
     tags-ignore:
       - '*'
 
