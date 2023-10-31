@@ -14,7 +14,7 @@ on:
     - cron:  '30 5 * * *'
 
 jobs:
-  bcl-cd:
+  lib-ci:
     uses: ./.github/workflows/multi-target-lib-ci.yaml
     with:
         project-dir: "lib"

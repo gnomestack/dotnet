@@ -11,7 +11,7 @@ on:
       - '*'
 
 jobs:
-  bcl-cd:
+  lib-cd:
     uses: ./.github/workflows/multi-target-lib-cd.yaml
     with:
         project-dir: "lib"

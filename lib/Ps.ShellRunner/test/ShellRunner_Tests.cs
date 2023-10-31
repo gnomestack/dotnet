@@ -228,8 +228,8 @@ public class ShellRunner_Tests
             assert.Skip("pwsh is not installed.");
 
         var script = GenerateScriptFile(
-            """
-            #!/bin/pwsh -ExecutionPolicy Bypass -c
+            $"""
+            #!{exe} -ExecutionPolicy Bypass -c
             echo 'Hello from dynamically determined script!'
             """,
             ".ps1");
