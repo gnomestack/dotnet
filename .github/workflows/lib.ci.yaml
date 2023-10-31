@@ -3,9 +3,7 @@ name: "Lib Continuous Integration"
 on: 
   workflow_dispatch:
   push:
-    paths: 
-      - lib/**
-    tags-ignore:
+    branches:
       - '*'
 
 jobs:
