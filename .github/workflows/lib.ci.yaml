@@ -4,7 +4,7 @@ on:
   push:
     paths: 
       - 'lib/**'
-      - '.github/workflows/lib.ci.yaml'
+      #- '.github/workflows/lib.ci.yaml'
       #- '.github/workflows/multi-target-lib-ci.yaml'
     branches:
       - '*'
