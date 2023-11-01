@@ -10,6 +10,9 @@
     <PackageVersion Include="ClosedXML.Report" Version="0.2.6" />
     <PackageVersion Include="Dapper" Version="2.0.123" />
     <PackageVersion Include="Docker.DotNet" Version="3.125.14" />
+    <PackageVersion Include="GnomeStack.Core" Version="0.1.1" />
+    <PackageVersion Include="GnomeStack.Ps.ShellRunner" Version="0.1.1" />
+    <PackageVersion Include="GnomeStack.Text.DotEnv" Version="0.1.1" />
     <PackageVersion Include="KeySharp" Version="1.0.5" />
     <PackageVersion Include="LunrCore" Version="2.3.10" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="7.0.0" />
@@ -24,7 +27,7 @@
     <PackageVersion Include="XamlNameReferenceGenerator" Version="1.6.1" />
     <PackageVersion Include="AlphaFS" Version="2.2.6" />
     <PackageVersion Include="AltCover" Version="8.6.14" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0"  />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
     <PackageVersion Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
     <PackageVersion Include="ClosedXML" Version="0.100.3" />
@@ -64,7 +67,6 @@
     <PackageVersion Include="Pulumi" Version="3.58.0" />
     <PackageVersion Include="Pulumi.Command" Version="0.9.1" />
     <PackageVersion Include="Pulumi.Docker" Version="4.4.4" />
-    
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1" />
     <PackageVersion Include="NuGet.Frameworks" Version="6.1.0" />
