@@ -3,26 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{0DBBC438-A19E-4A62-AB32-DC5EF1723F97}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run", "Run\src\Run.csproj", "{76B0F5B1-9A6B-4AEF-B706-373945F8E177}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GnomeStack.Run.Abstractions", "GnomeStack.Run.Abstractions", "{B2E9490F-3E4A-4F10-A48D-BD76972C1C78}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Abstractions", "GnomeStack.Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj", "{65F406A7-7592-4760-97C5-7262FA577015}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GnomeStack.Run", "GnomeStack.Run", "{33A7FCAD-2688-4E74-8B3E-C0C266133B8D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run", "GnomeStack.Run\src\GnomeStack.Run.csproj", "{1DD53CD2-B5FB-458A-9169-121415FDC27A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GnomeStack.Run.Yaml", "GnomeStack.Run.Yaml", "{8CB4DAFD-0AD2-4CA1-A807-3CA0AE62C532}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Yaml", "GnomeStack.Run.Yaml\src\GnomeStack.Run.Yaml.csproj", "{C8B834E5-48E9-49AC-B399-6CAA602EC66B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GnomeStack.Run.Mef", "GnomeStack.Run.Mef", "{D6ADF400-FF03-491A-9B6F-B6B25B1E4E66}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Mef", "GnomeStack.Run.Mef\src\GnomeStack.Run.Mef.csproj", "{C1D71CA8-199F-4D6F-8802-C3F09E8148D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Core", "..\lib\Core\src\GnomeStack.Core.csproj", "{98272455-0C62-4977-9397-AF72DF7A2F19}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Ps.ShellRunner", "..\lib\Ps.ShellRunner\src\GnomeStack.Ps.ShellRunner.csproj", "{A373D22A-28C4-499A-A541-56B744BED7FE}"
@@ -30,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Text.Yaml", "..\lib\Text.Yaml\src\GnomeStack.Text.Yaml.csproj", "{C3A4CC3C-669C-4692-9638-8CCC96DD4B8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Text.DotEnv", "..\lib\Text.DotEnv\src\GnomeStack.Text.DotEnv.csproj", "{AD134765-3CA3-4F43-8F94-864F20A59703}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PackageManager.Abstractions", "PackageManager.Abstractions", "{9F4D3579-3025-46AA-9B35-85E494C6BE1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.PackageManager.Abstractions", "PackageManager.Abstractions\src\GnomeStack.PackageManager.Abstractions.csproj", "{6049B4DB-4909-4526-8728-F0756607F8C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,26 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76B0F5B1-9A6B-4AEF-B706-373945F8E177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76B0F5B1-9A6B-4AEF-B706-373945F8E177}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76B0F5B1-9A6B-4AEF-B706-373945F8E177}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76B0F5B1-9A6B-4AEF-B706-373945F8E177}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65F406A7-7592-4760-97C5-7262FA577015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65F406A7-7592-4760-97C5-7262FA577015}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65F406A7-7592-4760-97C5-7262FA577015}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65F406A7-7592-4760-97C5-7262FA577015}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DD53CD2-B5FB-458A-9169-121415FDC27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DD53CD2-B5FB-458A-9169-121415FDC27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DD53CD2-B5FB-458A-9169-121415FDC27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DD53CD2-B5FB-458A-9169-121415FDC27A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8B834E5-48E9-49AC-B399-6CAA602EC66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8B834E5-48E9-49AC-B399-6CAA602EC66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8B834E5-48E9-49AC-B399-6CAA602EC66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8B834E5-48E9-49AC-B399-6CAA602EC66B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1D71CA8-199F-4D6F-8802-C3F09E8148D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1D71CA8-199F-4D6F-8802-C3F09E8148D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1D71CA8-199F-4D6F-8802-C3F09E8148D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1D71CA8-199F-4D6F-8802-C3F09E8148D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98272455-0C62-4977-9397-AF72DF7A2F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98272455-0C62-4977-9397-AF72DF7A2F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98272455-0C62-4977-9397-AF72DF7A2F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,12 +42,16 @@ Global
 		{AD134765-3CA3-4F43-8F94-864F20A59703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD134765-3CA3-4F43-8F94-864F20A59703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD134765-3CA3-4F43-8F94-864F20A59703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6049B4DB-4909-4526-8728-F0756607F8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6049B4DB-4909-4526-8728-F0756607F8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6049B4DB-4909-4526-8728-F0756607F8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6049B4DB-4909-4526-8728-F0756607F8C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{76B0F5B1-9A6B-4AEF-B706-373945F8E177} = {0DBBC438-A19E-4A62-AB32-DC5EF1723F97}
-		{65F406A7-7592-4760-97C5-7262FA577015} = {B2E9490F-3E4A-4F10-A48D-BD76972C1C78}
-		{1DD53CD2-B5FB-458A-9169-121415FDC27A} = {33A7FCAD-2688-4E74-8B3E-C0C266133B8D}
-		{C8B834E5-48E9-49AC-B399-6CAA602EC66B} = {8CB4DAFD-0AD2-4CA1-A807-3CA0AE62C532}
-		{C1D71CA8-199F-4D6F-8802-C3F09E8148D1} = {D6ADF400-FF03-491A-9B6F-B6B25B1E4E66}
+		{6049B4DB-4909-4526-8728-F0756607F8C1} = {9F4D3579-3025-46AA-9B35-85E494C6BE1F}
+		{98272455-0C62-4977-9397-AF72DF7A2F19} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
+		{A373D22A-28C4-499A-A541-56B744BED7FE} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
+		{AD134765-3CA3-4F43-8F94-864F20A59703} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
+		{C3A4CC3C-669C-4692-9638-8CCC96DD4B8D} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
 	EndGlobalSection
 EndGlobal

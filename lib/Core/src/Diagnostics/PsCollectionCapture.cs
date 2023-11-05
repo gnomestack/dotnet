@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace GnomeStack.Diagnostics;
 
-internal sealed class PsCollectionCapture : IPsCapture
+public sealed class PsCollectionCapture : IPsCapture
 {
     private readonly ICollection<string> lines;
 

@@ -1,6 +1,6 @@
-using GnomeStack.Ansi;
-using GnomeStack.Colors;
 using GnomeStack.Diagnostics;
+using GnomeStack.Fmt.Ansi;
+using GnomeStack.Fmt.Colors;
 
 namespace GnomeStack.Standard;
 

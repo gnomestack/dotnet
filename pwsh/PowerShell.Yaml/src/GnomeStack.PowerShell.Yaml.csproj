@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(InternalDir)/Polyfill/Range.cs" Link="Polyfill/Range.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Trimming.cs" Link="Polyfill/Trimming.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/PlatformAttributes.cs" Link="Polyfill/PlatformAttributes.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PowerShellStandard.Library" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PowerShell\src\GnomeStack.PowerShell.csproj" />
+  </ItemGroup>
+</Project>

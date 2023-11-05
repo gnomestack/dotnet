@@ -1,4 +1,4 @@
-using GnomeStack.Colors;
+using GnomeStack.Fmt.Colors;
 
 using AnsiFormat = GnomeStack.Standard.Ansi;
 

@@ -33,6 +33,14 @@ public class KpDatabase
 
     public KpGroup Root => this.root.Value;
 
+    public string Name
+    {
+        get => this.database.Name;
+        set => this.database.Name = value;
+    }
+
+    public string FileName => this.database.IOConnectionInfo.Path;
+
     /// <summary>
     /// Opens the kdbx file and returns the database.
     /// </summary>
@@ -79,7 +87,7 @@ public class KpDatabase
         if (path.IsNullOrWhiteSpace())
             return new Error("path is empty.");
 
-        path = Path.GetFullPath(path);
+        path = System.IO.Path.GetFullPath(path);
 
         if (!path.EndsWith(".kdbx", StringComparison.OrdinalIgnoreCase))
         {
@@ -218,7 +226,22 @@ public class KpDatabase
     {
         try
         {
+
             this.database.Save(new NullStatusLogger());
+            return Nil.Value;
+        }
+        catch (Exception ex)
+        {
+            return Error.Convert(ex);
+        }
+    }
+
+    public Result<Nil, Error> Save(string path)
+    {
+        var ioc = IOConnectionInfo.FromPath(path);
+        try
+        {
+            this.database.SaveAs(ioc, true, new NullStatusLogger());
             return Nil.Value;
         }
         catch (Exception ex)

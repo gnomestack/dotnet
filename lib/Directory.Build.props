@@ -6,6 +6,7 @@
         <IsTrimmable>false</IsTrimmable>
         <Version>$(PackageVersion)</Version>
         <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl>
+        <BaseOutputPath>$(ArtifactsDir)/bin/$(MsBuildProjectName)</BaseOutputPath>
         <MinVerDefaultPreReleaseIdentifiers 
             Condition="'$(MinVerDefaultPreReleaseIdentifiers)' == ''">preview</MinVerDefaultPreReleaseIdentifiers>
     </PropertyGroup>

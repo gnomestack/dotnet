@@ -49,23 +49,23 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Compile Include="$(InternalDir)/Extra/Arrays.Clear.cs" Link="Extra/Arrays/Arrays.Clear.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.Contains.cs" Link="Extra/Arrays/Arrays.Contains.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.Equals.cs" Link="Extra/Arrays/Arrays.Equals.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.ForEach.cs" Link="Extra/Arrays/Arrays.ForEach.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.Slice.cs" Link="Extra/Arrays/Arrays.Slice.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.Swap.cs" Link="Extra/Arrays/Arrays.Swap.cs" />
-    <Compile Include="$(InternalDir)/Extra/Arrays.Segment.cs" Link="Extra/Arrays/Arrays.Segment.cs" />
-    <Compile Include="$(InternalDir)/Extra/Exceptions.IsInputIOException.cs" Link="Extra/IO/Exceptions.IsInputIOException.cs" />
-    <Compile Include="$(InternalDir)/Extra/StreamReader.PipeTo.cs" Link="Extra/IO/StreamReader.PipeTo.cs" />
-    <Compile Include="$(InternalDir)/Extra/TextReader.PipeTo.cs" Link="Extra/IO/TextReader.PipeTo.cs" />
-    <Compile Include="$(InternalDir)/Extra/TextWriter.Write.cs" Link="Extra/IO/TextWriter.Write.cs" />
-    <Compile Include="$(InternalDir)/Extra/Object.DeepCopy.cs" Link="Extra/Object/Object.DeepCopy.cs" />
-    <Compile Include="$(InternalDir)/Extra/Object.ToSafeString.cs" Link="Extra/Object/Object.ToSafeString.cs" />
-    <Compile Include="$(InternalDir)/Extra/Type.IsPrimitive.cs" Link="Extra/Reflection/Type.IsPrimitive.cs" />
-    <Compile Include="$(InternalDir)/Extra/SearchSpan.cs" Link="Extra/Strings/SearchSpan.cs" />
-    <Compile Include="$(InternalDir)/Extra/String.Search.cs" Link="Extra/Strings/String.Search.cs" />
-    <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Extra/Strings/String.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Clear.cs" Link="Extras/Arrays/Arrays.Clear.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Contains.cs" Link="Extras/Arrays/Arrays.Contains.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Equals.cs" Link="Extras/Arrays/Arrays.Equals.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.ForEach.cs" Link="Extras/Arrays/Arrays.ForEach.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Slice.cs" Link="Extras/Arrays/Arrays.Slice.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Swap.cs" Link="Extras/Arrays/Arrays.Swap.cs" />
+    <Compile Include="$(InternalDir)/Extra/Arrays.Segment.cs" Link="Extras/Arrays/Arrays.Segment.cs" />
+    <Compile Include="$(InternalDir)/Extra/Exceptions.IsInputIOException.cs" Link="Extras/IO/Exceptions.IsInputIOException.cs" />
+    <Compile Include="$(InternalDir)/Extra/StreamReader.PipeTo.cs" Link="Extras/IO/StreamReader.PipeTo.cs" />
+    <Compile Include="$(InternalDir)/Extra/TextReader.PipeTo.cs" Link="Extras/IO/TextReader.PipeTo.cs" />
+    <Compile Include="$(InternalDir)/Extra/TextWriter.Write.cs" Link="Extras/IO/TextWriter.Write.cs" />
+    <Compile Include="$(InternalDir)/Extra/Object.DeepCopy.cs" Link="Extras/Object/Object.DeepCopy.cs" />
+    <Compile Include="$(InternalDir)/Extra/Object.ToSafeString.cs" Link="Extras/Object/Object.ToSafeString.cs" />
+    <Compile Include="$(InternalDir)/Extra/Type.IsPrimitive.cs" Link="Extras/Reflection/Type.IsPrimitive.cs" />
+    <Compile Include="$(InternalDir)/Extra/SearchSpan.cs" Link="Extras/Strings/SearchSpan.cs" />
+    <Compile Include="$(InternalDir)/Extra/String.Search.cs" Link="Extras/Strings/String.Search.cs" />
+    <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Extras/Strings/String.cs" />
     <Compile Include="$(InternalDir)/Text/StringBuilderCache.cs" Link="Text/StringBuilderCache.cs" />
   </ItemGroup>
 
