@@ -28,10 +28,10 @@ public class CreateMssqlUser : CreateUser
         if (this.UserName.IsNullOrWhiteSpace())
             return new InvalidDbIdentifierException("User name cannot be empty");
 
-        if (Validate.Identifier(this.UserName.AsSpan()))
+        if (!Validate.Identifier(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
-        if (!this.LoginName.IsNullOrWhiteSpace() && Validate.Identifier(this.LoginName.AsSpan()))
+        if (!this.LoginName.IsNullOrWhiteSpace() && !Validate.Identifier(this.LoginName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid login name {this.LoginName}");
 
         if (this.CheckExists)

@@ -22,7 +22,7 @@ public class SelectTableStats : SqlStatementBuilder
                         s.no_recompute,
                         s.[object_id],
                         sc.column_id,
-                        STATS_DATE(s.[object_id], s.stats_id) AS last_updated,
+                        STATS_DATE(s.[object_id], s.stats_id) AS last_updated
                     FROM sys.stats s 
                         JOIN sys.stats_columns sc 
                             ON sc.[object_id] = s.[object_id] 

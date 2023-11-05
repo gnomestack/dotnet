@@ -19,7 +19,7 @@ public class CreateMssqlLogin : SqlStatementBuilder
 
     public override Result<string, Exception> Build()
     {
-        if (Validate.Identifier(this.UserName.AsSpan()))
+        if (!Validate.Identifier(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
         if (this.Password.IsNullOrWhiteSpace() && this.GeneratePassword)

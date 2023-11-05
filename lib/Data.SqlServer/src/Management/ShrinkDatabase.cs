@@ -7,7 +7,7 @@ public class ShrinkDatabase : SqlStatementBuilder
 {
     public string Database { get; set; } = string.Empty;
 
-    public string ShrinkPercentage { get; set; } = string.Empty;
+    public int ShrinkPercentage { get; set; } = 10;
 
     public bool WithLowPriority { get; set; } = false;
 
@@ -16,7 +16,7 @@ public class ShrinkDatabase : SqlStatementBuilder
 
     public override Result<string, Exception> Build()
     {
-        if (Validate.Identifier(this.Database.AsSpan()))
+        if (!Validate.Identifier(this.Database.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.Database}");
 
         var sb = StringBuilderCache.Acquire();

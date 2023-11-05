@@ -26,7 +26,7 @@ public class SelectHighCumulativeCpuQueries : SqlStatementBuilder
                                 qs.plan_handle,
                                 qs.total_worker_time
                              FROM
-                                 sys.dm_exec_query_stats WITH (NOLOCK) AS qs
+                                 sys.dm_exec_query_stats AS qs WITH (NOLOCK)
                              ORDER BY qs.total_worker_time desc
                          ) AS highest_cpu_queries
                      CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q

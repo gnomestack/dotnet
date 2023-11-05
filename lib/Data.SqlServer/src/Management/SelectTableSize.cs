@@ -29,9 +29,9 @@ public class SelectTableSize : SqlStatementBuilder
                         s.Name AS schema_name,
                         t.Name AS table_name,
                         p.rows AS row_count,
-                        (SUM(a.used_pages) / 8.0) {calc} AS used_space,
+                        (SUM(a.used_pages) * 8.0) {calc} AS used_space,
                         ((SUM(a.total_pages) - SUM(a.used_pages)) * 8.0) {calc} AS unused_space,
-                        (SUM(a.total_pages) / 8.0) {calc} AS total_space
+                        (SUM(a.total_pages) * 8.0) {calc} AS total_space
                     FROM sys.tables t
                         INNER JOIN sys.indexes i ON t.OBJECT_ID = i.object_id
                         INNER JOIN sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id

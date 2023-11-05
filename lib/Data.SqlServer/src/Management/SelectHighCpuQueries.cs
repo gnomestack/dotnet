@@ -23,7 +23,7 @@ public class SelectHighCpuQueries : SqlStatementBuilder
                                     WHEN -1 THEN DATALENGTH(ST.text)
                                     ELSE QS.statement_end_offset END
                                 - QS.statement_start_offset)/2) + 1) AS statement_text
-                    FROM sys.dm_exec_query_stats WITH (NOLOCK) AS QS
+                    FROM sys.dm_exec_query_stats AS QS WITH (NOLOCK)
                         CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) AS ST
                         ) AS query_stats
                     GROUP BY query_stats.query_hash
