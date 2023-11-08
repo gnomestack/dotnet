@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-using GnomeStack.Ansi;
+using GnomeStack.Fmt.Ansi;
 using GnomeStack.Run.Execution;
 using GnomeStack.Run.Messaging;
 using GnomeStack.Standard;
@@ -15,6 +15,7 @@ public class DefaultConsoleMessageSink : IMessageSink
 {
     private readonly IAnsiWriter writer;
 
+    [CLSCompliant(false)]
     public DefaultConsoleMessageSink(IAnsiWriter? writer = null)
     {
         this.writer = writer ?? new AnsiWriter();

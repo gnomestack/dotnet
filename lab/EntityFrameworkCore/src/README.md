@@ -1,0 +1,5 @@
+# GnomeStack.EntityFrameworkCore
+
+{{ description }}
+
+{{ license }}

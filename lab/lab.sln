@@ -17,6 +17,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.PackageManager.A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run.Abstractions", "Run.Abstractions", "{C5385A4E-8661-4966-88A2-15217B6E83C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Abstractions", "Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj", "{EE47D45B-85F3-4247-8E85-BA2330424C46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{DE9A0AB7-BB7A-412D-8DBD-0008BD2FBF2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run", "Run\src\GnomeStack.Run.csproj", "{5EAA971E-9970-492B-8062-259A77A55F92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run.Mef", "Run.Mef", "{03FE64CF-C3FF-465F-841A-7A7867EE0FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Mef", "Run.Mef\src\GnomeStack.Run.Mef.csproj", "{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run.Yaml", "Run.Yaml", "{2247973D-5111-4777-8A48-9D05D6A1CD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Run.Yaml", "Run.Yaml\src\GnomeStack.Run.Yaml.csproj", "{DC4E3E11-5123-4536-89C0-6DACC1BC3D70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GsRun", "GsRun", "{3FDE9B2C-CD1E-4A76-BB1D-4EEBB97D8770}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GsRun", "GsRun\src\GsRun.csproj", "{6C017716-06AE-4183-8D92-1125452F6ED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore", "EntityFrameworkCore", "{7C760F76-92ED-4283-983E-8CBEA1E30407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.EntityFrameworkCore", "EntityFrameworkCore\src\GnomeStack.EntityFrameworkCore.csproj", "{B347FD29-EA84-4098-BBC1-D55D1E61A68F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore.Identity", "EntityFrameworkCore.Identity", "{07AB00B7-D777-46FE-ABD5-18407B8B8EEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.EntityFrameworkCore.Identity", "EntityFrameworkCore.Identity\src\GnomeStack.EntityFrameworkCore.Identity.csproj", "{12054BD1-E81C-46D1-A8DC-244BF7F72CB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".root", ".root", "{CA47C16E-9F74-4365-B547-8C6BF33EB814}"
+	ProjectSection(SolutionItems) = preProject
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\Directory.Build.targets = ..\Directory.Build.targets
+		..\Directory.Packages.props = ..\Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".project", ".project", "{5003692A-89F8-4996-A522-DC196D45C707}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore.Deployments", "EntityFrameworkCore.Deployments", "{475A9BB9-7D93-4B8E-914D-758C42AF3DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.EntityFrameworkCore.Deployments", "EntityFrameworkCore.Deployments\src\GnomeStack.EntityFrameworkCore.Deployments.csproj", "{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore.UniversalResources", "EntityFrameworkCore.UniversalResources", "{0FF36036-2075-480A-86E8-5C69F2191DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.EntityFrameworkCore.UniversalResources", "EntityFrameworkCore.UniversalResources\src\GnomeStack.EntityFrameworkCore.UniversalResources.csproj", "{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +94,42 @@ Global
 		{6049B4DB-4909-4526-8728-F0756607F8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6049B4DB-4909-4526-8728-F0756607F8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6049B4DB-4909-4526-8728-F0756607F8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE47D45B-85F3-4247-8E85-BA2330424C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE47D45B-85F3-4247-8E85-BA2330424C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE47D45B-85F3-4247-8E85-BA2330424C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE47D45B-85F3-4247-8E85-BA2330424C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAA971E-9970-492B-8062-259A77A55F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAA971E-9970-492B-8062-259A77A55F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAA971E-9970-492B-8062-259A77A55F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAA971E-9970-492B-8062-259A77A55F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4E3E11-5123-4536-89C0-6DACC1BC3D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4E3E11-5123-4536-89C0-6DACC1BC3D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4E3E11-5123-4536-89C0-6DACC1BC3D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4E3E11-5123-4536-89C0-6DACC1BC3D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C017716-06AE-4183-8D92-1125452F6ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C017716-06AE-4183-8D92-1125452F6ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C017716-06AE-4183-8D92-1125452F6ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C017716-06AE-4183-8D92-1125452F6ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B347FD29-EA84-4098-BBC1-D55D1E61A68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B347FD29-EA84-4098-BBC1-D55D1E61A68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B347FD29-EA84-4098-BBC1-D55D1E61A68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B347FD29-EA84-4098-BBC1-D55D1E61A68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6049B4DB-4909-4526-8728-F0756607F8C1} = {9F4D3579-3025-46AA-9B35-85E494C6BE1F}
@@ -53,5 +137,14 @@ Global
 		{A373D22A-28C4-499A-A541-56B744BED7FE} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
 		{AD134765-3CA3-4F43-8F94-864F20A59703} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
 		{C3A4CC3C-669C-4692-9638-8CCC96DD4B8D} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
+		{EE47D45B-85F3-4247-8E85-BA2330424C46} = {C5385A4E-8661-4966-88A2-15217B6E83C4}
+		{5EAA971E-9970-492B-8062-259A77A55F92} = {DE9A0AB7-BB7A-412D-8DBD-0008BD2FBF2E}
+		{FE3BE24F-52DB-4303-8DFC-F4B53C86C20D} = {03FE64CF-C3FF-465F-841A-7A7867EE0FAB}
+		{DC4E3E11-5123-4536-89C0-6DACC1BC3D70} = {2247973D-5111-4777-8A48-9D05D6A1CD2D}
+		{6C017716-06AE-4183-8D92-1125452F6ED4} = {3FDE9B2C-CD1E-4A76-BB1D-4EEBB97D8770}
+		{B347FD29-EA84-4098-BBC1-D55D1E61A68F} = {7C760F76-92ED-4283-983E-8CBEA1E30407}
+		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2} = {07AB00B7-D777-46FE-ABD5-18407B8B8EEC}
+		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472} = {475A9BB9-7D93-4B8E-914D-758C42AF3DC6}
+		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC} = {0FF36036-2075-480A-86E8-5C69F2191DA1}
 	EndGlobalSection
 EndGlobal

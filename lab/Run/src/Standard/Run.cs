@@ -1,4 +1,4 @@
-using GnomeStack.Ansi;
+using GnomeStack.Fmt.Ansi;
 using GnomeStack.Run.Runners;
 using GnomeStack.Run.Tasks;
 
@@ -71,6 +71,7 @@ public static class Run
     public static IShellTaskBuilder ShellFileTask(string id, string file, IEnumerable<string> deps)
         => GlobalsTasks.AddShellFileTask(id, file, deps);
 
+    [CLSCompliant(false)]
     public static async Task<int> ParseAndRunAsync(
         string[] args,
         IAnsiWriter? writer = null,

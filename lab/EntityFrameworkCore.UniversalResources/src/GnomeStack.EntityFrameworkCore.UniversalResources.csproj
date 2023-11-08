@@ -6,14 +6,14 @@
     <TargetFrameworks>$(TargetFx)</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-    <RootNamespace>GnomeStack.Run</RootNamespace>
+    <RootNamespace>GnomeStack.EntityFrameworkCore.UniversalResources</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags></PackageTags>
     <Description>
-    GnomeStack.Run
+    GnomeStack.EntityFrameworkCore.UniversalResources
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
@@ -41,14 +41,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\lib\Ps.ShellRunner\src\GnomeStack.Ps.ShellRunner.csproj" />
-    <ProjectReference Include="..\..\..\lib\Text.DotEnv\src\GnomeStack.Text.DotEnv.csproj" />
-    <ProjectReference Include="..\..\GnomeStack.Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Threading.Tasks.Dataflow" />
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+    <ProjectReference Include="..\..\EntityFrameworkCore\src\GnomeStack.EntityFrameworkCore.csproj" />
   </ItemGroup>
 </Project>

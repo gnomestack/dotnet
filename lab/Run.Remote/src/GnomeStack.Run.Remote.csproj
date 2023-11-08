@@ -1,7 +1,8 @@
+<!--suppress MsbuildTargetFrameworkTagInspection -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFx>$(LibFx)</TargetFx>
+    <TargetFx>net6.0;net48</TargetFx>
     <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
     <TargetFrameworks>$(TargetFx)</TargetFrameworks>
     <Nullable>enable</Nullable>
@@ -11,9 +12,9 @@
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags></PackageTags>
+    <PackageTags>Run Remote GnomeStack</PackageTags>
     <Description>
-    GnomeStack.Run
+    GnomeStack.Run.Remote
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
@@ -41,14 +42,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\lib\Ps.ShellRunner\src\GnomeStack.Ps.ShellRunner.csproj" />
-    <ProjectReference Include="..\..\..\lib\Text.DotEnv\src\GnomeStack.Text.DotEnv.csproj" />
-    <ProjectReference Include="..\..\GnomeStack.Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.DevTunnels.Ssh" />
+    <PackageReference Include="Microsoft.DevTunnels.Ssh.Keys" />
+    <PackageReference Include="Microsoft.DevTunnels.Ssh.Tcp" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Threading.Tasks.Dataflow" />
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+    <ProjectReference Include="..\..\..\lib\Core\src\GnomeStack.Core.csproj" />
+    <ProjectReference Include="..\..\Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
   </ItemGroup>
 </Project>

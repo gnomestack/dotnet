@@ -59,7 +59,6 @@
     <BclDir>$(RootDir)/bcl/src</BclDir>
     <InternalDir>$(MSBuildThisFileDirectory)internal</InternalDir>
     <ArtifactsDir>$(MSBuildThisFileDirectory).artifacts</ArtifactsDir>
-    <BaseOutputPath>$(ArtifactsDir)/bin/$(MsBuildProjectName)</BaseOutputPath>
     <IconPath>$(MSBuildThisFileDirectory)assets/icon.png</IconPath>
     <NetLegacy>false</NetLegacy>
     <NetFramework>false</NetFramework>

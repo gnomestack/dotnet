@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFx>$(LibFx)</TargetFx>
     <TargetFx Condition="$(TargetFx) == ''">net7.0</TargetFx>
-    <TargetFrameworks>$(TargetFx)</TargetFrameworks>
+    <TargetFrameworks>$(TargetFx);net8.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-    <RootNamespace>GnomeStack.Run</RootNamespace>
+    <RootNamespace>GnomeStack.EntityFrameworkCore</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags></PackageTags>
     <Description>
-    GnomeStack.Run
+    GnomeStack.EntityFrameworkCore
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
@@ -33,22 +33,27 @@
     <Compile Include="$(InternalDir)/Polyfill/Nullable.cs" Link="Polyfill/Nullable.cs" />
     <Compile Include="$(InternalDir)/Polyfill/String.cs" Link="Polyfill/String.cs" />
   </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" VersionOverride="3.1.32" />
+    <PackageReference Include="EFCore.NamingConventions" VersionOverride="1.1.1" />
+    <PackageReference Include="Bricelam.EntityFrameworkCore.Pluralizer" VersionOverride="1.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" VersionOverride="4.7.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" VersionOverride="8.0.0-rc.2.23480.1" />
+    <PackageReference Include="EFCore.NamingConventions" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" VersionOverride="7.0.13" />
+    <PackageReference Include="EFCore.NamingConventions" />
+  </ItemGroup>
 
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\lib\Ps.ShellRunner\src\GnomeStack.Ps.ShellRunner.csproj" />
-    <ProjectReference Include="..\..\..\lib\Text.DotEnv\src\GnomeStack.Text.DotEnv.csproj" />
-    <ProjectReference Include="..\..\GnomeStack.Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Run.Abstractions\src\GnomeStack.Run.Abstractions.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Threading.Tasks.Dataflow" />
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
   </ItemGroup>
 </Project>
