@@ -65,6 +65,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFrameworkCore.Univers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.EntityFrameworkCore.UniversalResources", "EntityFrameworkCore.UniversalResources\src\GnomeStack.EntityFrameworkCore.UniversalResources.csproj", "{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cli.Docker", "Cli.Docker", "{B3548982-3BC3-4BCC-86FD-DFB45D6671B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Cli.Docker", "Cli.Docker\src\GnomeStack.Cli.Docker.csproj", "{2698CFCC-A476-408F-8895-297FD5687AC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions.Secrets.KeyVault", "Extensions.Secrets.KeyVault", "{B5579962-8BA6-4D56-921C-B3C596D1549B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Secrets.KeyVault", "Extensions.Secrets.KeyVault\src\GnomeStack.Extensions.Secrets.KeyVault.csproj", "{72B00F4F-F10A-4E5C-B8EA-48B30032576F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions.Secrets.KeePass", "Extensions.Secrets.KeePass", "{755266AD-62A5-4292-9394-8963494C3CD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Secrets.KeePass", "Extensions.Secrets.KeePass\src\GnomeStack.Extensions.Secrets.KeePass.csproj", "{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extensions.Secrets.Abstractions", "..\lib\Extensions.Secrets.Abstractions\src\GnomeStack.Extensions.Secrets.Abstractions.csproj", "{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GnomeStack.Extras.KpcLib", "..\lib\Extras.KpcLib\src\GnomeStack.Extras.KpcLib.csproj", "{4AE06764-B308-440E-A5C5-AA224AED6D36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +146,26 @@ Global
 		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2698CFCC-A476-408F-8895-297FD5687AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2698CFCC-A476-408F-8895-297FD5687AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2698CFCC-A476-408F-8895-297FD5687AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2698CFCC-A476-408F-8895-297FD5687AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B00F4F-F10A-4E5C-B8EA-48B30032576F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B00F4F-F10A-4E5C-B8EA-48B30032576F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B00F4F-F10A-4E5C-B8EA-48B30032576F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B00F4F-F10A-4E5C-B8EA-48B30032576F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE06764-B308-440E-A5C5-AA224AED6D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE06764-B308-440E-A5C5-AA224AED6D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE06764-B308-440E-A5C5-AA224AED6D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE06764-B308-440E-A5C5-AA224AED6D36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6049B4DB-4909-4526-8728-F0756607F8C1} = {9F4D3579-3025-46AA-9B35-85E494C6BE1F}
@@ -146,5 +182,9 @@ Global
 		{12054BD1-E81C-46D1-A8DC-244BF7F72CB2} = {07AB00B7-D777-46FE-ABD5-18407B8B8EEC}
 		{1603C7F6-9B7D-45B1-80E4-4AEA0EBC0472} = {475A9BB9-7D93-4B8E-914D-758C42AF3DC6}
 		{CCB22ACC-5BCA-4DA6-AC81-F95D9D59F0CC} = {0FF36036-2075-480A-86E8-5C69F2191DA1}
+		{2698CFCC-A476-408F-8895-297FD5687AC4} = {B3548982-3BC3-4BCC-86FD-DFB45D6671B2}
+		{72B00F4F-F10A-4E5C-B8EA-48B30032576F} = {B5579962-8BA6-4D56-921C-B3C596D1549B}
+		{36E5FBD7-2FEA-41CB-86A5-2BB5B0B0474C} = {755266AD-62A5-4292-9394-8963494C3CD8}
+		{CA1AA70C-F455-4038-A5AD-DD10A03FC5DC} = {B4DDB298-E91D-45AF-A2A8-7B7B2A2F50D9}
 	EndGlobalSection
 EndGlobal
