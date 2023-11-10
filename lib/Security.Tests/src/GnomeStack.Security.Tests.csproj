@@ -35,4 +35,9 @@
     <PackageReference Include="GnomeStack.Xunit.Core" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Security.Cryptography.X509Certificates\src\GnomeStack.Security.Cryptography.X509Certificates.csproj" />
+    <ProjectReference Include="..\..\Security.Cryptography\src\GnomeStack.Security.Cryptography.csproj" />
+  </ItemGroup>
+
 </Project>

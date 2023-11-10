@@ -35,4 +35,8 @@
     <PackageReference Include="GnomeStack.Xunit.Core" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Os.Release\src\GnomeStack.Os.Release.csproj" />
+  </ItemGroup>
+
 </Project>

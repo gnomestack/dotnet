@@ -147,52 +147,8 @@ public static class CommandLineConfigurationBuilderExtensions
 
     public static LoggerConfiguration UseMinimumLevel(this LoggerConfiguration configuration, string[] args)
     {
-        if (args.Contains("--debug"))
-            configuration.MinimumLevel.Debug();
-
-        if (args.Contains("--verbose") || args.Contains("--trace"))
-            configuration.MinimumLevel.Verbose();
-
-        var index = Array.IndexOf(args, "--log-level");
-        if (index > -1)
-        {
-            var level = args[index + 1].ToLower();
-            switch (level)
-            {
-                case "v":
-                case "detailed":
-                case "verbose":
-                case "trace":
-                    configuration.MinimumLevel.Verbose();
-                    break;
-
-                case "d":
-                case "diag":
-                case "diagnostic":
-                case "debug":
-                    configuration.MinimumLevel.Debug();
-                    break;
-
-                case "i":
-                case "info":
-                case "information":
-                    configuration.MinimumLevel.Information();
-                    break;
-
-                case "w":
-                case "warn":
-                case "warning":
-                    configuration.MinimumLevel.Warning();
-                    break;
-
-                case "quiet":
-                case "e":
-                case "error":
-                    configuration.MinimumLevel.Error();
-                    break;
-            }
-        }
-
+        var level = args.ToLogEventLevel();
+        configuration.MinimumLevel.Is(level);
         return configuration;
     }
 }

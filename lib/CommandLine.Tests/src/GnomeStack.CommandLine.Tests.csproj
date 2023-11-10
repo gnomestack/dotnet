@@ -35,4 +35,9 @@
     <PackageReference Include="GnomeStack.Xunit.Core" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommandLine.Hosting\src\GnomeStack.CommandLine.Hosting.csproj" />
+    <ProjectReference Include="..\..\CommandLine.Serilog\src\GnomeStack.CommandLine.Serilog.csproj" />
+  </ItemGroup>
+
 </Project>
