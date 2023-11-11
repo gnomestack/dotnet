@@ -10,7 +10,7 @@ public abstract class SecretVault : ISecretVault
 
     public abstract string Kind { get; }
 
-    protected SecretVaultOptions Options { get; set; } = new();
+    protected SecretVaultOptions Options { get; set; } = new NullSecureVaultOptions();
 
     public static string FormatPath(string name, SecretVaultOptions options)
     {

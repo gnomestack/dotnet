@@ -9,13 +9,18 @@ public class VaultRequirements
 {
     public List<SecretRequirement> SecretRequirements { get; set; } = new();
 
-    public void Apply(ISecretVault vault, bool throwOnMissing = true)
+    public void Apply(ISecretVault vault, bool loadEnvVariables = true, bool throwOnMissing = true)
     {
         foreach (var req in this.SecretRequirements)
         {
             var secret = vault.GetSecret(req.Url);
             if (secret is not null)
+            {
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secret.Value);
+
                 continue;
+            }
 
             if (req.Generate)
             {
@@ -34,12 +39,17 @@ public class VaultRequirements
 
                 var secretValue = generator.GenerateAsString(req.Length);
                 vault.SetSecretValue(req.Url, secretValue);
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secretValue);
+
                 continue;
             }
 
             if (!req.Default.IsNullOrWhiteSpace())
             {
                 vault.SetSecretValue(req.Url, req.Default);
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, req.Default);
                 continue;
             }
 
@@ -50,14 +60,19 @@ public class VaultRequirements
         }
     }
 
-    public Result<Nil, List<Error>> ApplyAsResult(ISecretVault vault)
+    public Result<Nil, List<Error>> ApplyAsResult(ISecretVault vault, bool loadEnvVariables = true)
     {
         var errors = new List<Error>();
         foreach (var req in this.SecretRequirements)
         {
             var secret = vault.GetSecret(req.Url);
             if (secret is not null)
+            {
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secret.Value);
+
                 continue;
+            }
 
             if (req.Generate)
             {
@@ -99,6 +114,7 @@ public class VaultRequirements
 
     public async Task<Result<Nil, List<Error>>> ApplyAsResultTask(
         ISecretVault vault,
+        bool loadEnvVariables = true,
         CancellationToken cancellationToken = default)
     {
         var errors = new List<Error>();
@@ -107,7 +123,12 @@ public class VaultRequirements
             var secret = await vault.GetSecretAsync(req.Url, cancellationToken)
                 .NoCap();
             if (secret is not null)
+            {
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secret.Value);
+
                 continue;
+            }
 
             if (req.Generate)
             {
@@ -151,6 +172,7 @@ public class VaultRequirements
 
     public async Task ApplyTask(
         ISecretVault vault,
+        bool loadEnvVariables = true,
         bool throwOnMissing = true,
         CancellationToken cancellationToken = default)
     {
@@ -158,8 +180,14 @@ public class VaultRequirements
         {
             var secret = await vault.GetSecretAsync(req.Url, cancellationToken)
                 .NoCap();
+
             if (secret is not null)
+            {
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secret.Value);
+
                 continue;
+            }
 
             if (req.Generate)
             {
@@ -179,6 +207,9 @@ public class VaultRequirements
                 var secretValue = generator.GenerateAsString(req.Length);
                 await vault.SetSecretValueAsync(req.Url, secretValue, cancellationToken)
                     .NoCap();
+
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, secretValue);
                 continue;
             }
 
@@ -186,6 +217,10 @@ public class VaultRequirements
             {
                 await vault.SetSecretValueAsync(req.Url, req.Default, cancellationToken)
                     .NoCap();
+
+                if (loadEnvVariables && !req.EnvironmentVariableName.IsNullOrWhiteSpace())
+                    Environment.SetEnvironmentVariable(req.EnvironmentVariableName, req.Default);
+
                 continue;
             }
 
@@ -193,6 +228,8 @@ public class VaultRequirements
             {
                 throw new InvalidOperationException($"Secret {req.Url} is required but not found.");
             }
+            
+           
         }
     }
 }

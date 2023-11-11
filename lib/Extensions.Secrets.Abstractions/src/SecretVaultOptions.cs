@@ -1,7 +1,9 @@
 namespace GnomeStack.Extensions.Secrets;
 
-public class SecretVaultOptions
+public abstract class SecretVaultOptions
 {
+    public abstract Type SecretVaultType { get; }
+
     public string Prefix { get; set; } = string.Empty;
 
     /// <summary>

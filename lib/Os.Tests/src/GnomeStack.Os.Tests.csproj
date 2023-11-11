@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Os.Release\src\GnomeStack.Os.Release.csproj" />
+    <ProjectReference Include="..\..\Os.Secrets\src\GnomeStack.Os.Secrets.csproj" />
   </ItemGroup>
 
 </Project>

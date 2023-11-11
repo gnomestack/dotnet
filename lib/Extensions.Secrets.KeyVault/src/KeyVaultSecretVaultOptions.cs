@@ -5,6 +5,8 @@ namespace GnomeStack.Extensions.Secrets.KeyVault;
 
 public class KeyVaultSecretVaultOptions : SecretVaultOptions
 {
+    public override Type SecretVaultType => typeof(KeyVaultSecretVault);
+
     [CLSCompliant(false)]
     public TokenCredential? TokenCredential { get; set; }
 
