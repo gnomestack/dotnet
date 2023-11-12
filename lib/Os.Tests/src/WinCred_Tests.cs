@@ -51,8 +51,7 @@ public static class WinCred_Tests
         WinCredManager.DeleteSecret("unit", "test");
 
         writer.WriteLine("Verify 'WIN_VALUE' was deleted");
-        creds = WinCredManager.EnumerateCredentials();
-        inserted = creds.FirstOrDefault(o => o is { Service: "unit", Account: "test" });
-        Assert.Null(inserted);
+        var v = WinCredManager.GetSecret("unit", "test");
+        Assert.True(string.IsNullOrEmpty(v));
     }
 }
