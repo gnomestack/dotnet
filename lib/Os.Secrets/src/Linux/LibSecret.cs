@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using System.Text;
 
 namespace GnomeStack.Os.Secrets.Linux;
 
@@ -52,21 +54,57 @@ public static class LibSecret
             account,
             IntPtr.Zero);
 
-        Console.WriteLine(result);
+        GException.ThrowIfError(error);
 
-        if (error != IntPtr.Zero)
-        {
-            var gerror = Marshal.PtrToStructure<GError>(error);
-            var message = Marshal.PtrToStringAnsi(gerror.Message);
-            if (message is not null && message.Length > 0)
-                throw new InvalidOperationException(message);
-        }
+        return result;
+    }
+
+    [SupportedOSPlatform("linux")]
+    public static bool SetSecret(string service, string account, byte[] secret)
+    {
+        var schema = GetSchemaPtr();
+        var chars = Encoding.UTF8.GetChars(secret);
+        var result = secret_password_store_sync(
+            schema,
+            SecretCollectionDefault,
+            $"{service}/{account}",
+            chars,
+            IntPtr.Zero,
+            out IntPtr error,
+            "service",
+            service,
+            "account",
+            account,
+            IntPtr.Zero);
+
+        Array.Clear(chars, 0, chars.Length);
+        GException.ThrowIfError(error);
 
         return result;
     }
 
     [SupportedOSPlatform("linux")]
     public static string? GetSecret(string service, string account)
+    {
+        var schema = GetSchemaPtr();
+        var result = secret_password_lookup_sync(
+            schema,
+            IntPtr.Zero,
+            out IntPtr error,
+            "service",
+            service,
+            "account",
+            account,
+            IntPtr.Zero);
+
+        GException.ThrowIfError(error);
+
+        var secret = Marshal.PtrToStringAnsi(result);
+        return secret;
+    }
+
+    [SupportedOSPlatform("linux")]
+    public static unsafe byte[] GetSecretAsBytes(string service, string account)
     {
         var schema = GetSchemaPtr();
         var result = secret_password_lookup_sync(
@@ -87,8 +125,17 @@ public static class LibSecret
                 throw new InvalidOperationException(message);
         }
 
-        var secret = Marshal.PtrToStringAnsi(result);
-        return secret;
+        if (result == IntPtr.Zero)
+            return Array.Empty<byte>();
+
+        var sbytes = (sbyte*)result;
+        var length = 0;
+        while (sbytes[length] != 0)
+            length++;
+
+        var bytes = new byte[length];
+        Marshal.Copy(result, bytes, 0, length);
+        return bytes;
     }
 
     [SupportedOSPlatform("linux")]
@@ -173,6 +220,20 @@ public static class LibSecret
 
     [DllImport(LibSecretName, CallingConvention = CallingConvention.Cdecl)]
     internal static extern IntPtr secret_schema_new(string name, int flags, string attribute1, int type1, string attribute2, int type2, IntPtr end);
+
+    [DllImport(LibSecretName, CallingConvention = CallingConvention.Cdecl)]
+    internal static extern bool secret_password_store_sync(
+        IntPtr schema,
+        string collection,
+        string name,
+        char[] secret,
+        IntPtr cancellable,
+        out IntPtr error,
+        string attribute1,
+        string value1,
+        string attribute2,
+        string value2,
+        IntPtr end);
 
     [DllImport(LibSecretName, CallingConvention = CallingConvention.Cdecl)]
     internal static extern bool secret_password_store_sync(
