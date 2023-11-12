@@ -39,16 +39,12 @@ public static class WinCredManager
 
             var nativeCredential = new NativeCredential
             {
-                AttributeCount = 0u,
-                Attributes = null,
-                Flags = (uint)WinCredFlags.None,
-                Type = (uint)WinCredType.Generic,
+                AttributeCount = 0,
+                Type = WinCredType.Generic,
                 TargetName = targetName,
                 CredentialBlob = data,
-                CredentialBlobSize = (uint)secret.Length,
-                Persist = (uint)persistence,
-                Comment = comment ?? string.Empty,
-                TargetAlias = string.Empty,
+                CredentialBlobSize = secret.Length,
+                Persist = persistence,
                 UserName = account,
             };
 
