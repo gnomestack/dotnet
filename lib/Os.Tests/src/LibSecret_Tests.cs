@@ -13,6 +13,12 @@ public static class LibSecret_Tests
     [RequireOsPlatforms(TestOsPlatforms.Linux)]
     public static void LibSecret_Lifecycle(ITestOutputHelper writer)
     {
+        if (Environment.GetEnvironmentVariable("CI") == "true")
+        {
+            FlexAssert.Default.Skip("Skipping in CI due to issues with gnome keyring on headless server");
+            return;
+        }
+
         writer.WriteLine("Setting secret MY_SECRET as bytes.");
         var secretBytes = Encoding.UTF8.GetBytes("MY_SECRET".ToCharArray());
         LibSecret.SetSecret("unit", "test", secretBytes);

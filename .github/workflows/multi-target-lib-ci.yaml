@@ -64,11 +64,6 @@ jobs:
         dotnet-version: 7.x
         dotnet-quality: 'ga'
 
-    - name: "install gnomekeyring"
-      if: ${{ matrix.os == 'ubuntu-latest' }}
-      run: |
-        sudo apt-get install gnome-keyring -y
-
     - name: 🔃 Restore 
       run: qtr restore
       working-directory: ${{ env.PROJECT_DIR }}

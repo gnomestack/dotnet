@@ -43,6 +43,7 @@ public static class WinCredManager
             Type = (uint)WinCredType.Generic,
             TargetName = Marshal.StringToCoTaskMemUni(targetName),
             CredentialBlob = data,
+            CredentialBlobSize = (uint)secret.Length,
             Persist = (uint)persistence,
             Comment = Marshal.StringToCoTaskMemUni(comment),
             TargetAlias = default,

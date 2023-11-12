@@ -25,8 +25,8 @@ public static class WinCred_Tests
         var nc = Marshal.PtrToStructure<NativeCredential>(credentialPtr);
         writer.WriteLine("blob size " + nc.CredentialBlobSize.ToString());
         writer.WriteLine("attr count " + nc.AttributeCount.ToString());
-        writer.WriteLine("targetName " + nc.TargetName);
-        writer.WriteLine("username " + nc.UserName);
+        writer.WriteLine("targetName " + Marshal.PtrToStringUni(nc.TargetName));
+        writer.WriteLine("username " + Marshal.PtrToStringUni(nc.UserName));
         writer.WriteLine("type: " + nc.Type);
         writer.WriteLine(string.Empty);
         writer.WriteLine("Getting secret 'WIN_VALUE'.");
