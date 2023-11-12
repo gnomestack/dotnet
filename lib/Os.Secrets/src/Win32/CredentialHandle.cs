@@ -99,14 +99,11 @@ public class CredentialHandle : Microsoft.Win32.SafeHandles.CriticalHandleMinusO
             Marshal.Copy(native.CredentialBlob, data, 0, (int)native.CredentialBlobSize);
         }
 
-        var service = Marshal.PtrToStringUni(native.TargetName) ?? string.Empty;
-        var account = Marshal.PtrToStringUni(native.UserName);
-
         return new WinCredSecret(
             (WinCredType)native.Type,
-            service,
-            account,
+            native.TargetName,
+            native.UserName,
             data != null ? Encoding.Unicode.GetString(data) : null,
-            Marshal.PtrToStringUni(native.Comment));
+            native.Comment);
     }
 }

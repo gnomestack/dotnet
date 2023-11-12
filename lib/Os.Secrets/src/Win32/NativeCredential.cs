@@ -8,14 +8,22 @@ public struct NativeCredential
 {
     public uint Flags;
     public uint Type;
-    public IntPtr TargetName;
-    public IntPtr Comment;
+
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string TargetName;
+
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string Comment;
     public System.Runtime.InteropServices.ComTypes.FILETIME LastWritten;
     public uint CredentialBlobSize;
     public IntPtr CredentialBlob;
     public uint Persist;
     public uint AttributeCount;
     public IntPtr? Attributes;
-    public IntPtr TargetAlias;
-    public IntPtr UserName;
+
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string TargetAlias;
+
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string UserName;
 }

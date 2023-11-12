@@ -29,36 +29,44 @@ public static class WinCredManager
         WinCredPersistence persistence)
     {
         var targetName = serviceAsKey ? service : $"{service}/{account}";
-        IntPtr data = Marshal.AllocHGlobal(secret.Length);
-        if (secret.Length > 0)
+        IntPtr data = Marshal.AllocCoTaskMem(secret.Length);
+        try
         {
-            Marshal.Copy(secret, 0, data, secret.Length);
+            if (secret.Length > 0)
+            {
+                Marshal.Copy(secret, 0, data, secret.Length);
+            }
+
+            var nativeCredential = new NativeCredential
+            {
+                AttributeCount = 0u,
+                Attributes = null,
+                Flags = (uint)WinCredFlags.None,
+                Type = (uint)WinCredType.Generic,
+                TargetName = targetName,
+                CredentialBlob = data,
+                CredentialBlobSize = (uint)secret.Length,
+                Persist = (uint)persistence,
+                Comment = comment ?? string.Empty,
+                TargetAlias = string.Empty,
+                UserName = account,
+            };
+
+            var isSet = NativeMethods.WriteCredential(
+                ref nativeCredential,
+                0);
+
+            int errorCode = Marshal.GetLastWin32Error();
+            if (isSet)
+                return;
+
+            throw new InvalidOperationException($"WriteCredential failed with error code {errorCode}");
         }
-
-        var nativeCredential = new NativeCredential
+        finally
         {
-            AttributeCount = 0u,
-            Attributes = null,
-            Flags = (uint)WinCredFlags.None,
-            Type = (uint)WinCredType.Generic,
-            TargetName = Marshal.StringToCoTaskMemUni(targetName),
-            CredentialBlob = data,
-            CredentialBlobSize = (uint)secret.Length,
-            Persist = (uint)persistence,
-            Comment = Marshal.StringToCoTaskMemUni(comment),
-            TargetAlias = default,
-            UserName = Marshal.StringToCoTaskMemUni(account),
-        };
-
-        var isSet = NativeMethods.WriteCredential(
-            ref nativeCredential,
-            0);
-
-        int errorCode = Marshal.GetLastWin32Error();
-        if (isSet)
-            return;
-
-        throw new InvalidOperationException($"WriteCredential failed with error code {errorCode}");
+            if (data != IntPtr.Zero)
+                Marshal.FreeCoTaskMem(data);
+        }
     }
 
     public static void SetSecret(
