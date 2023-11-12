@@ -2,8 +2,9 @@ using System.Runtime.InteropServices;
 
 namespace GnomeStack.Os.Secrets.Win32;
 
+[CLSCompliant(false)]
 [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-internal struct NativeCredential
+public struct NativeCredential
 {
     public uint Flags;
     public uint Type;

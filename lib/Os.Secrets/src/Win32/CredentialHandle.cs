@@ -65,6 +65,12 @@ public class CredentialHandle : Microsoft.Win32.SafeHandles.CriticalHandleMinusO
             throw new InvalidOperationException("Invalid CriticalHandle!");
 
         var native = Marshal.PtrToStructure<NativeCredential>(this.handle);
+        if (native.CredentialBlob == IntPtr.Zero || native.CredentialBlob.ToInt32() == -1)
+            return string.Empty;
+
+        if (native.CredentialBlobSize == 0)
+            return string.Empty;
+
         var data = new byte[native.CredentialBlobSize];
         Marshal.Copy(native.CredentialBlob, data, 0, (int)native.CredentialBlobSize);
         return Encoding.Unicode.GetString(data);

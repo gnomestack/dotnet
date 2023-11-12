@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using GnomeStack.Os.Secrets.Win32;
@@ -18,6 +19,16 @@ public static class WinCred_Tests
         var secretBytes = Encoding.UTF8.GetBytes("WIN_VALUE");
         WinCredManager.SetSecret("unit", "test", secretBytes);
 
+        NativeMethods.ReadCredential("unit/test", WinCredType.Generic, 0, out var credentialPtr);
+
+        writer.WriteLine(credentialPtr.ToString());
+        var nc = Marshal.PtrToStructure<NativeCredential>(credentialPtr);
+        writer.WriteLine("blob size " + nc.CredentialBlobSize.ToString());
+        writer.WriteLine("attr count " + nc.AttributeCount.ToString());
+        writer.WriteLine("targetName " + nc.TargetName);
+        writer.WriteLine("username " + nc.UserName);
+        writer.WriteLine("type: " + nc.Type);
+        writer.WriteLine(string.Empty);
         writer.WriteLine("Getting secret 'WIN_VALUE'.");
         var secretValue = WinCredManager.GetSecret("unit", "test");
         Assert.Equal("WIN_VALUE", secretValue);
