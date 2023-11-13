@@ -74,7 +74,6 @@ public static class CommandLineConfigurationBuilderExtensions
         minimumLevel ??= LogEventLevel.Information;
         if (args is not null)
             minimumLevel = args.ToLogEventLevel();
-
         expression ??= "{@l: if @l = 'Information' then undefined() else @l:u3} {@m}\n{@x}";
         configuration.WriteTo.Console(new ExpressionTemplate(expression, theme: theme), restrictedToMinimumLevel: minimumLevel.Value);
 

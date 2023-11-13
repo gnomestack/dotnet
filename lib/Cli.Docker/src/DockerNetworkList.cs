@@ -30,6 +30,6 @@ public class DockerNetworkList : DockerCmd
         if (this.Quiet)
             args.Add("--quiet");
 
-        return base.BuildPsArgs();
+        return args;
     }
 }
