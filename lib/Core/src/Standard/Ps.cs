@@ -96,12 +96,15 @@ public sealed partial class Ps
         return new Ps(fileName, startInfo);
     }
 
-    public static Ps New(PsCommand command, PsStartInfo? startInfo)
+    public static Ps New(SplattableCommand command, PsStartInfo? startInfo)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
         return ps;
     }
+
+    public static Ps New(PsCommand command)
+        => command.BuildProcess();
 
     public static Ps New(string fileName, PsArgs? args = null, PsStartInfo? startInfo = null)
     {
@@ -112,10 +115,19 @@ public sealed partial class Ps
         return ps;
     }
 
-    public static PsOutput Capture(PsCommand command, PsStartInfo? startInfo = null)
+    public static PsOutput Capture(SplattableCommand command, PsStartInfo? startInfo = null)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
+        ps.WithStdOut(Stdio.Piped)
+            .WithStdErr(Stdio.Piped);
+
+        return ps.Output();
+    }
+
+    public static PsOutput Capture(PsCommand command)
+    {
+        var ps = command.BuildProcess();
         ps.WithStdOut(Stdio.Piped)
             .WithStdErr(Stdio.Piped);
 
@@ -135,12 +147,23 @@ public sealed partial class Ps
     }
 
     public static Task<PsOutput> CaptureAsync(
-        PsCommand command,
+        SplattableCommand command,
         PsStartInfo? startInfo = null,
         CancellationToken cancellationToken = default)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
+        ps.WithStdOut(Stdio.Piped)
+            .WithStdErr(Stdio.Piped);
+
+        return ps.OutputAsync(cancellationToken);
+    }
+
+    public static Task<PsOutput> CaptureAsync(
+        PsCommand command,
+        CancellationToken cancellationToken = default)
+    {
+        var ps = command.BuildProcess();
         ps.WithStdOut(Stdio.Piped)
             .WithStdErr(Stdio.Piped);
 
@@ -163,12 +186,17 @@ public sealed partial class Ps
         return ps.OutputAsync(cancellationToken);
     }
 
-    public static PsChild Spawn(PsCommand command, PsStartInfo? startInfo = null)
+    public static PsChild Spawn(SplattableCommand command, PsStartInfo? startInfo = null)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
 
         return ps.Spawn();
+    }
+
+    public static PsChild Spawn(PsCommand command)
+    {
+        return command.BuildProcess().Spawn();
     }
 
     public static PsChild Spawn(string fileName, PsArgs? args = null, PsStartInfo? startInfo = null)
@@ -180,12 +208,17 @@ public sealed partial class Ps
         return ps.Spawn();
     }
 
-    public static PsOutput Exec(PsCommand command, PsStartInfo? startInfo = null)
+    public static PsOutput Exec(SplattableCommand command, PsStartInfo? startInfo = null)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
 
         return ps.Output();
+    }
+
+    public static PsOutput Exec(PsCommand command)
+    {
+        return command.BuildProcess().Output();
     }
 
     public static PsOutput Exec(string fileName, PsArgs? args = null, PsStartInfo? startInfo = null)
@@ -198,13 +231,21 @@ public sealed partial class Ps
     }
 
     public static Task<PsOutput> ExecAsync(
-        PsCommand command,
+        SplattableCommand command,
         PsStartInfo? startInfo = null,
         CancellationToken cancellationToken = default)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
 
+        return ps.OutputAsync(cancellationToken);
+    }
+
+    public static Task<PsOutput> ExecAsync(
+        PsCommand command,
+        CancellationToken cancellationToken = default)
+    {
+        var ps = command.BuildProcess();
         return ps.OutputAsync(cancellationToken);
     }
 
@@ -221,7 +262,7 @@ public sealed partial class Ps
         return ps.OutputAsync(cancellationToken);
     }
 
-    public Ps WithCommand(PsCommand command)
+    public Ps WithCommand(SplattableCommand command)
     {
         this.FileName = command.GetExecutablePath();
         this.WithArgs(command);
@@ -518,8 +559,8 @@ public sealed partial class Ps
         }
     }
 
-    public PsPipe Pipe(PsCommand ps, PsStartInfo? startInfo = null)
-        => new PsPipe(this).Pipe(ps, startInfo);
+    public PsPipe Pipe(SplattableCommand splattable, PsStartInfo? startInfo = null)
+        => new PsPipe(this).Pipe(splattable, startInfo);
 
     public PsPipe Pipe(Ps ps)
         => new PsPipe(this).Pipe(ps);
@@ -530,8 +571,8 @@ public sealed partial class Ps
     public PsPipe Pipe(string fileName, PsArgs? args = null, PsStartInfo? startInfo = null)
         => new PsPipe(this).Pipe(fileName, args, startInfo);
 
-    public PsPipeAsync PipeDefered(PsCommand ps, PsStartInfo? startInfo = null, CancellationToken cancellationToken = default)
-        => new PsPipeAsync(this).Pipe(ps, startInfo, cancellationToken);
+    public PsPipeAsync PipeDefered(SplattableCommand splattable, PsStartInfo? startInfo = null, CancellationToken cancellationToken = default)
+        => new PsPipeAsync(this).Pipe(splattable, startInfo, cancellationToken);
 
     public PsPipeAsync PipeDefered(Ps ps, CancellationToken cancellationToken = default)
         => new PsPipeAsync(this).Pipe(ps, cancellationToken);

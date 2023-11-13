@@ -109,9 +109,9 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
         }
     }
 
-    public override ISecretRecord CreateRecord(string name)
+    public override ISecretRecord CreateRecord(string path)
     {
-        return new JsonSecretRecord(this.FormatName(name));
+        return new JsonSecretRecord(FormatPath(path, this.Options));
     }
 
     public override IEnumerable<string> ListNames()
@@ -120,11 +120,11 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
         return this.secrets.Keys.ToArray();
     }
 
-    public override string? GetSecretValue(string name)
+    public override string? GetSecretValue(string path)
     {
         this.Load();
-        name = this.FormatName(name);
-        if (this.secrets.TryGetValue(name, out var secret)
+        path = FormatPath(path, this.Options);
+        if (this.secrets.TryGetValue(path, out var secret)
             && secret is not null)
         {
             if (secret.Value is { Length: > 0 })
@@ -139,11 +139,11 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
         return null;
     }
 
-    public override ISecretRecord? GetSecret(string name)
+    public override ISecretRecord? GetSecret(string path)
     {
         this.Load();
-        name = this.FormatName(name);
-        if (this.secrets.TryGetValue(name, out var secret)
+        path = FormatPath(path, this.Options);
+        if (this.secrets.TryGetValue(path, out var secret)
             && secret is not null)
         {
             var copy = new JsonSecretRecord(secret);
@@ -166,7 +166,7 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
 
         foreach (var secret in secrets)
         {
-            var name = this.FormatName(secret.Key);
+            var name = FormatPath(secret.Key, this.Options);
             var value = secret.Value;
 
             if (!this.secrets.TryGetValue(name, out var existing) || existing is null)
@@ -190,17 +190,17 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
         this.Save();
     }
 
-    public override void SetSecretValue(string name, string secret)
+    public override void SetSecretValue(string path, string secret)
     {
         this.Load();
-        name = this.FormatName(name);
+        path = FormatPath(path, this.Options);
         var value = secret;
 
-        if (!this.secrets.TryGetValue(name, out var existing))
+        if (!this.secrets.TryGetValue(path, out var existing))
         {
-           existing = new JsonSecretRecord(name);
+           existing = new JsonSecretRecord(path);
            existing.WithCreatedAt(DateTime.UtcNow);
-           this.secrets.TryAdd(name, existing);
+           this.secrets.TryAdd(path, existing);
         }
         else
         {
@@ -276,10 +276,10 @@ public sealed class JsonSecretVault : SecretVault, IDisposable
         this.Save();
     }
 
-    public override void DeleteSecret(string name)
+    public override void DeleteSecret(string path)
     {
-        name = this.FormatName(name);
-        this.secrets.TryRemove(name, out _);
+        path = FormatPath(path, this.Options);
+        this.secrets.TryRemove(path, out _);
     }
 
     public void Dispose()

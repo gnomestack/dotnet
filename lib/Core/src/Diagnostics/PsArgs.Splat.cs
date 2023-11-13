@@ -11,6 +11,15 @@ namespace GnomeStack.Diagnostics;
 
 public partial class PsArgs
 {
+    /// <summary>
+    /// Splats an object into a <see cref="PsArgs"/> instance. If the splattable object
+    /// implements <see cref="IPsArgsBuilder"/>, then the <see cref="IPsArgsBuilder.BuildPsArgs"/>
+    /// method is used to build the <see cref="PsArgs"/> instance.
+    /// </summary>
+    /// <param name="obj">The splattable object.</param>
+    /// <returns>
+    /// A <see cref="PsArgs"/> instance.
+    /// </returns>
     [SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global")]
     public static PsArgs Splat(Splattable obj)
     {
@@ -22,9 +31,6 @@ public partial class PsArgs
         var extraArgs = new PsArgs();
         var separateArgs = new PsArgs();
         var orderedArgs = new PsArgs();
-
-        if (options.Command.Count > 0)
-            splat.AddRange(options.Command);
 
         if (options.Arguments.Count > 0)
             orderedArgs = new PsArgs(new string[options.Arguments.Count]);
@@ -74,11 +80,12 @@ public partial class PsArgs
                         orderedArgs[argIndex] = str;
                         break;
 
-                    case IEnumerable _:
+                    case IEnumerable enumerable:
                         {
-                            throw new NotSupportedException(
-                                "Objects of IEnumerable are not supported for positional arguments");
+                            orderedArgs[argIndex] = string.Join(" ", enumerable);
                         }
+
+                        break;
 
                     default:
                         orderedArgs[argIndex] = value.ToSafeString();
@@ -182,6 +189,9 @@ public partial class PsArgs
                 splat.InsertRange(0, filtered);
             }
         }
+
+        if (options.Command.Count > 0)
+            splat.InsertRange(0, options.Command);
 
         return splat;
     }

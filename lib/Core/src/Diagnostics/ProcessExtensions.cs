@@ -1,3 +1,5 @@
+using GnomeStack.Functional;
+
 namespace GnomeStack.Diagnostics;
 
 public static class ProcessExtensions
@@ -28,4 +30,40 @@ public static class ProcessExtensions
         return process.HasExited ? Task.CompletedTask : tcs.Task;
     }
 #endif
+
+    public static Result<PsOutput, Exception> ValidateExitCode(this Result<PsOutput, Exception> result)
+    {
+        if (result.IsOkAnd(o => o.ExitCode != 0))
+        {
+            var o = result.Unwrap();
+            return new ProcessException(o.ExitCode, o.FileName);
+        }
+
+        return result;
+    }
+
+    public static Result<PsOutput, Exception> ValidateExitCode(this Result<PsOutput, Exception> result, int validCode)
+    {
+        if (result.IsOkAnd(o => o.ExitCode != validCode))
+        {
+            var o = result.Unwrap();
+            return new ProcessException(o.ExitCode, o.FileName);
+        }
+
+        return result;
+    }
+
+    public static Result<PsOutput, Exception> ValidateExitCode(
+        this Result<PsOutput, Exception> result,
+        int validCode,
+        Func<string> createMessage)
+    {
+        if (result.IsOkAnd(o => o.ExitCode != validCode))
+        {
+            var o = result.Unwrap();
+            return new ProcessException(o.ExitCode, o.FileName, createMessage());
+        }
+
+        return result;
+    }
 }

@@ -8,5 +8,7 @@ public interface IResult<TValue, TError> : IResult,
 {
     void Deconstruct(out TValue value);
 
-    void Deconstruct(out TValue value, out bool ok);
+    void Deconstruct(out bool ok, out TValue value);
+
+    void Deconstruct(out bool ok, out TValue value, out TError error);
 }

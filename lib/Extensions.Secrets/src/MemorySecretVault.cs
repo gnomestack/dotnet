@@ -17,15 +17,15 @@ public class MemorySecretVault : SecretVault
         return this.secrets.Keys.ToArray();
     }
 
-    public override ISecretRecord CreateRecord(string name)
+    public override ISecretRecord CreateRecord(string path)
     {
-        return new MemorySecretRecord(this.FormatName(name));
+        return new MemorySecretRecord(FormatPath(path, this.Options));
     }
 
-    public override string? GetSecretValue(string name)
+    public override string? GetSecretValue(string path)
     {
-        name = this.FormatName(name);
-        if (this.secrets.TryGetValue(name, out var secret)
+        path = FormatPath(path, this.Options);
+        if (this.secrets.TryGetValue(path, out var secret)
             && secret is not null)
         {
             return secret.Value;
@@ -34,10 +34,10 @@ public class MemorySecretVault : SecretVault
         return null;
     }
 
-    public override ISecretRecord? GetSecret(string name)
+    public override ISecretRecord? GetSecret(string path)
     {
-        name = this.FormatName(name);
-        if (this.secrets.TryGetValue(name, out var secret)
+        path = FormatPath(path, this.Options);
+        if (this.secrets.TryGetValue(path, out var secret)
             && secret is not null)
         {
             return secret;
@@ -46,10 +46,10 @@ public class MemorySecretVault : SecretVault
         return null;
     }
 
-    public override void SetSecretValue(string name, string secret)
+    public override void SetSecretValue(string path, string secret)
     {
-        name = this.FormatName(name);
-        if (this.secrets.TryGetValue(name, out var record)
+        path = FormatPath(path, this.Options);
+        if (this.secrets.TryGetValue(path, out var record)
             && record is not null)
         {
             record.Value = secret;
@@ -57,17 +57,17 @@ public class MemorySecretVault : SecretVault
         }
         else
         {
-            record = new MemorySecretRecord(name)
+            record = new MemorySecretRecord(path)
             {
                 Value = secret,
             }.WithCreatedAt(DateTime.UtcNow);
-            this.secrets.TryAdd(name, record);
+            this.secrets.TryAdd(path, record);
         }
     }
 
     public override void SetSecret(ISecretRecord secret)
     {
-        var name = this.FormatName(secret.Name);
+        var name = FormatPath(secret.Name, this.Options);
         if (this.secrets.TryGetValue(name, out var existing)
             && existing is not null)
         {
@@ -87,10 +87,10 @@ public class MemorySecretVault : SecretVault
         }
     }
 
-    public override void DeleteSecret(string name)
+    public override void DeleteSecret(string path)
     {
-        name = this.FormatName(name);
-        this.secrets.TryRemove(name, out _);
+        path = FormatPath(path, this.Options);
+        this.secrets.TryRemove(path, out _);
     }
 
     internal class MemorySecretRecord : SecretRecord

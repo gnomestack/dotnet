@@ -11,7 +11,6 @@ public class Error : IError
     public static Func<Exception, Error> Convert { get; set; } = (ex) =>
     {
         IError? innerError = null;
-
         if (ex.InnerException is not null)
         {
             #pragma warning disable CS8602
@@ -21,10 +20,25 @@ public class Error : IError
 
         if (ex is ArgumentException argEx)
         {
-            return new ArgumentError(argEx.Message, innerError) { ParamName = argEx.ParamName, };
+            return new ArgumentError(argEx.Message, innerError)
+            {
+                StackTrace = ex.StackTrace,
+                ParamName = argEx.ParamName,
+                Target = ex.TargetSite is null
+                    ? null
+                    : (ex.TargetSite.DeclaringType?.FullName + "." + ex.TargetSite?.Name) ?? null,
+                Code = ex.GetType().FullName,
+            };
         }
 
-        return new Error(ex.Message, innerError);
+        return new Error(ex.Message, innerError)
+        {
+            StackTrace = ex.StackTrace,
+            Target = ex.TargetSite is null
+                ? null
+                : (ex.TargetSite.DeclaringType?.FullName + "." + ex.TargetSite?.Name) ?? null,
+            Code = ex.GetType().FullName,
+        };
     };
 
     public string Message { get; set; }
@@ -32,6 +46,8 @@ public class Error : IError
     public string? Code { get; set; }
 
     public string? Target { get; set; }
+
+    public string? StackTrace { get; set; }
 
     public IInnerError? InnerError { get; set; }
 

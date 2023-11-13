@@ -7,6 +7,7 @@
         <RepositoryUrl>$(BaseTreeUrl)</RepositoryUrl>
         <SrcDir>$(MSBuildThisFileDirectory)/src</SrcDir>
         <TestDir>$(MSBuildThisFileDirectory)/src</TestDir>
+        <BaseOutputPath>$(ArtifactsDir)/bin/$(MsBuildProjectName)</BaseOutputPath>
         <MinVerDefaultPreReleaseIdentifiers 
             Condition="$(MinVerDefaultPreReleaseIdentifiers) == ''">build</MinVerDefaultPreReleaseIdentifiers>
         <MinVerTagPrefix>testfx-</MinVerTagPrefix>

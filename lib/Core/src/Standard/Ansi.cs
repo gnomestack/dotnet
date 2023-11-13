@@ -1,6 +1,5 @@
-using GnomeStack.Ansi;
-using GnomeStack.Colors;
-using GnomeStack.Extras.Ansi;
+using GnomeStack.Fmt.Ansi;
+using GnomeStack.Fmt.Colors;
 
 namespace GnomeStack.Standard;
 
@@ -278,36 +277,54 @@ public static class Ansi
     [CLSCompliant(false)]
     public static string Rgb8(uint rgb, string text)
     {
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
         return $"\u001b[38;5;{rgb}m{text}\u001b[39m";
     }
 
     [CLSCompliant(false)]
     public static string Rgb(Rgb rgb, string text)
     {
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
         return $"\u001b[38;2;{rgb.R};{rgb.G};{rgb.B}m{text}\u001b[39m";
     }
 
     [CLSCompliant(false)]
     public static string Rgb(uint rgb, string text)
     {
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
         return $"\u001b[38;2;{(rgb >> 16) & 0xFF};{(rgb >> 8) & 0xFF};{rgb & 0xFF}m{text}\u001b[39m";
     }
 
     [CLSCompliant(false)]
     public static string BgRgb8(uint rgb, string text)
     {
-        return $"\u001b[48;2;{(rgb >> 16) & 0xFF};{(rgb >> 8) & 0xFF};{rgb & 0xFF}m{text}\u001b[49m";
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
+        return $"\u001b[48;5;{rgb}m{text}\u001b[49m";
     }
 
     [CLSCompliant(false)]
     public static string BgRgb(uint rgb, string text)
     {
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
         return $"\u001b[48;2;{(rgb >> 16) & 0xFF};{(rgb >> 8) & 0xFF};{rgb & 0xFF}m{text}\u001b[49m";
     }
 
     [CLSCompliant(false)]
     public static string BgRgb(Rgb rgb, string text)
     {
+        if (AnsiSettings.Current.Mode == AnsiMode.None)
+            return text;
+
         return $"\u001b[48;2;{rgb.R};{rgb.G};{rgb.B}m{text}\u001b[49m";
     }
 

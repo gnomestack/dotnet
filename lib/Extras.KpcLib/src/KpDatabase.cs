@@ -7,11 +7,13 @@ using KpResult = GnomeStack.Functional.Result<GnomeStack.Extras.KpcLib.KpDatabas
 
 namespace GnomeStack.Extras.KpcLib;
 
-public class KpDatabase
+public class KpDatabase : IDisposable
 {
     private readonly PwDatabase database;
 
     private readonly Lazy<KpGroup> root;
+
+    private bool disposed;
 
     public KpDatabase()
     {
@@ -31,7 +33,20 @@ public class KpDatabase
         });
     }
 
+    ~KpDatabase()
+    {
+        this.Dispose(false);
+    }
+
     public KpGroup Root => this.root.Value;
+
+    public string Name
+    {
+        get => this.database.Name;
+        set => this.database.Name = value;
+    }
+
+    public string FileName => this.database.IOConnectionInfo.Path;
 
     /// <summary>
     /// Opens the kdbx file and returns the database.
@@ -110,6 +125,12 @@ public class KpDatabase
         {
             return Error.Convert(ex);
         }
+    }
+
+    public void Dispose()
+    {
+       GC.SuppressFinalize(this);
+       this.Dispose(true);
     }
 
     public IEnumerable<string> EnumerateGroupNames()
@@ -218,6 +239,7 @@ public class KpDatabase
     {
         try
         {
+
             this.database.Save(new NullStatusLogger());
             return Nil.Value;
         }
@@ -225,6 +247,33 @@ public class KpDatabase
         {
             return Error.Convert(ex);
         }
+    }
+
+    public Result<Nil, Error> Save(string path)
+    {
+        var ioc = IOConnectionInfo.FromPath(path);
+        try
+        {
+            this.database.SaveAs(ioc, true, new NullStatusLogger());
+            return Nil.Value;
+        }
+        catch (Exception ex)
+        {
+            return Error.Convert(ex);
+        }
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this.disposed)
+            return;
+
+        if (disposing)
+        {
+            this.database.Close();
+        }
+
+        this.disposed = true;
     }
 
     private static void CollectEntryNames(KpGroup target, string empty, List<string> set)

@@ -1,3 +1,4 @@
+<!--suppress MsbuildTargetFrameworkTagInspection -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -11,9 +12,10 @@
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags></PackageTags>
+    <PackageTags>Data GnomeStack Polly Dapper</PackageTags>
     <Description>
-    GnomeStack.Data
+      Provides extension methods for DataRecord and DataReader and includes Dapper
+      and adds additional extension methods for Dapper.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))
@@ -42,6 +44,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\src\GnomeStack.Core.csproj" />
-    <ProjectReference Include="..\..\Extras.Dapper\src\GnomeStack.Extras.Dapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dapper\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Polly" />
   </ItemGroup>
 </Project>

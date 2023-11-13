@@ -1,7 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
+
 using GnomeStack.Standard;
 
 namespace GnomeStack.Functional;
 
+[SuppressMessage("ReSharper", "ParameterHidesMember")]
 public readonly struct Result<TValue, TError> : IResult<TValue, TError>
     where TError : notnull
     where TValue : notnull
@@ -22,6 +25,9 @@ public readonly struct Result<TValue, TError> : IResult<TValue, TError>
     public bool IsOk => this.state == ResultState.Ok;
 
     public bool IsError => this.state == ResultState.Err;
+
+    public static implicit operator Task<Result<TValue, TError>>(Result<TValue, TError> result)
+        => Task.FromResult(result);
 
     public static implicit operator Result<TValue, TError>(TValue value)
         => Result.Ok<TValue, TError>(value);
@@ -95,13 +101,20 @@ public readonly struct Result<TValue, TError> : IResult<TValue, TError>
 
     public void Deconstruct(out TValue value)
     {
-        value = this.ThrowIfError();
+        value = this.ThrowIfError().Unwrap();
     }
 
-    public void Deconstruct(out TValue value, out bool ok)
+    public void Deconstruct(out bool ok, out TValue value)
     {
         value = this.value!;
         ok = this.IsOk;
+    }
+
+    public void Deconstruct(out bool ok, out TValue value, out TError error)
+    {
+        value = this.value!;
+        ok = this.IsOk;
+        error = this.error;
     }
 
     public Option<TError> Error()
@@ -109,12 +122,29 @@ public readonly struct Result<TValue, TError> : IResult<TValue, TError>
 
     public bool Equals(IResult<TValue, TError>? other)
     {
-        throw new NotImplementedException();
+        if (other is null)
+            return false;
+
+        if (this.IsOk != other.IsOk || this.IsError != other.IsError)
+            return false;
+
+        var (ok, v, e) = other;
+
+        if (this.IsOk && ok)
+            return this.value!.Equals(v);
+
+        if (this.IsError)
+            return this.error.Equals(e);
+
+        return false;
     }
 
     public bool Equals(TValue? other)
     {
-        throw new NotImplementedException();
+        if (this.IsOk)
+            return this.value!.Equals(other);
+
+        return false;
     }
 
     public TValue Expect(string message)
@@ -174,11 +204,29 @@ public readonly struct Result<TValue, TError> : IResult<TValue, TError>
     public Option<TValue> Ok()
         => this.IsOk ? this.value : Option.None<TValue>();
 
-    public TValue ThrowIfError()
+    public Result<TOther, TError> Map<TOther>(Func<TValue, TOther> map)
+        where TOther : notnull
+    {
+        if (this.IsError)
+            return this.error;
+
+        return map(this.value!);
+    }
+
+    public Result<TValue, TOtherError> MapError<TOtherError>(Func<TError, TOtherError> map)
+        where TOtherError : notnull
+    {
+        if (this.IsError)
+            return map(this.error);
+
+        return this.value!;
+    }
+
+    public Result<TValue, TError> ThrowIfError()
     {
         ResultException.ThrowIfError(this);
 
-        return this.value;
+        return this;
     }
 
     public TValue Unwrap()

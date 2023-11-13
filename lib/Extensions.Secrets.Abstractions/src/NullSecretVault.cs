@@ -26,24 +26,24 @@ public sealed class NullSecretVault : SecretVault
         // do nothing
     }
 
-    public override void SetSecretValue(string name, string secret)
+    public override void SetSecretValue(string path, string secret)
     {
         // do nothing
     }
 
-    public override ISecretRecord? GetSecret(string name)
+    public override ISecretRecord? GetSecret(string path)
         => null;
 
-    public override string? GetSecretValue(string name)
+    public override string? GetSecretValue(string path)
         => null;
 
-    public override void DeleteSecret(string name)
+    public override void DeleteSecret(string path)
     {
         // do nothing
     }
 
-    public override ISecretRecord CreateRecord(string name)
-        => new NullSecretRecord(name);
+    public override ISecretRecord CreateRecord(string path)
+        => new NullSecretRecord(path);
 
     public class NullSecretRecord : SecretRecord
     {

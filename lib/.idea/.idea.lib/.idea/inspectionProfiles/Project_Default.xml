@@ -2,6 +2,6 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="SqlDialectInspection" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="SqlNoDataSourceInspection" enabled="true" level="SUGGESTION" enabled_by_default="true" editorAttributes="SUGGESTION" />
+    <inspection_tool class="SqlNoDataSourceInspection" enabled="false" level="SUGGESTION" enabled_by_default="false" editorAttributes="SUGGESTION" />
   </profile>
 </component>

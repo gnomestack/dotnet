@@ -1,4 +1,4 @@
-<!--suppress ALL -->
+<!--suppress MsbuildTargetFrameworkTagInspection -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -12,9 +12,9 @@
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags></PackageTags>
+    <PackageTags>Shell Runner Script Bash PowerShell Sh Ruby Deno</PackageTags>
     <Description>
-    GnomeStack.Ps.ShellRunner
+      Provides a simple way to run shell scripts or shell files from C#.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))

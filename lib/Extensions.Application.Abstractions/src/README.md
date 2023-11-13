@@ -1,6 +1,8 @@
 # GnomeStack.Extensions.Application.Abstractions
 
-Provides contracts and abstractions for the ApplicationInfo and ApplicationPaths.
+Provides contracts `IApplicationEnvironment` and `IApplicationPaths`
+that are implemented in `GnomeStack.Extensions.Application`.
+
 
 The ApplicationInfo provides application information and is a lightweight version of
 the HostingEnvironment class without any dependencies on System.Extensions.Hosting and

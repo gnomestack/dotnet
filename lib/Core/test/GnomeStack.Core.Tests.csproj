@@ -38,4 +38,8 @@
   <ItemGroup>
     <ProjectReference Include="..\src\*.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fmt\" />
+  </ItemGroup>
 </Project>

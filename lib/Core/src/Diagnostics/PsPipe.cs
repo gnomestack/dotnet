@@ -6,7 +6,14 @@ public class PsPipe
 {
     private PsChild child;
 
-    public PsPipe(PsCommand command, PsStartInfo? startInfo = null)
+    public PsPipe(PsCommand command)
+    {
+        var ps = command.BuildProcess();
+        ps.WithStdio(Stdio.Piped);
+        this.child = ps.Spawn();
+    }
+
+    public PsPipe(SplattableCommand command, PsStartInfo? startInfo = null)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
@@ -40,7 +47,19 @@ public class PsPipe
         return this;
     }
 
-    public PsPipe Pipe(PsCommand command, PsStartInfo? startInfo)
+    public PsPipe Pipe(PsCommand command)
+    {
+        var ps = command.BuildProcess();
+        ps.WithStdio(Stdio.Piped);
+        var next = ps.Spawn();
+        this.child.PipeTo(next);
+        this.child.Wait();
+        this.child.Dispose();
+        this.child = next;
+        return this;
+    }
+
+    public PsPipe Pipe(SplattableCommand command, PsStartInfo? startInfo)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
@@ -85,7 +104,19 @@ public class PsPipe
         return this;
     }
 
-    public async Task<PsPipe> PipeAsync(PsCommand command, PsStartInfo? startInfo = null, CancellationToken cancellationToken = default)
+    public async Task<PsPipe> PipeAsync(PsCommand command, CancellationToken cancellationToken)
+    {
+        var ps = command.BuildProcess();
+        ps.WithStdio(Stdio.Piped);
+        var next = ps.Spawn();
+        await this.child.PipeToAsync(next, cancellationToken)
+            .NoCap();
+        this.child.Dispose();
+        this.child = next;
+        return this;
+    }
+
+    public async Task<PsPipe> PipeAsync(SplattableCommand command, PsStartInfo? startInfo = null, CancellationToken cancellationToken = default)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);

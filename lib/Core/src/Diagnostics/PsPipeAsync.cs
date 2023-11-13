@@ -7,10 +7,17 @@ public class PsPipeAsync
     private readonly PsChild child;
     private readonly List<Func<PsChild, Task<PsChild>>> steps = new();
 
-    public PsPipeAsync(PsCommand command, PsStartInfo? startInfo = null)
+    public PsPipeAsync(SplattableCommand command, PsStartInfo? startInfo = null)
     {
         var ps = new Ps(command.GetExecutablePath(), startInfo);
         ps.WithArgs(command);
+        ps.WithStdio(Stdio.Piped);
+        this.child = ps.Spawn();
+    }
+
+    public PsPipeAsync(PsCommand command)
+    {
+        var ps = command.BuildProcess();
         ps.WithStdio(Stdio.Piped);
         this.child = ps.Spawn();
     }
@@ -52,7 +59,27 @@ public class PsPipeAsync
         return this;
     }
 
-    public PsPipeAsync Pipe(PsCommand command, PsStartInfo? startInfo, CancellationToken cancellationToken = default)
+    public PsPipeAsync Pipe(PsCommand command, CancellationToken cancellationToken = default)
+    {
+        this.steps.Add(
+            async (child) =>
+            {
+                var ps = command.BuildProcess();
+                ps.WithStdio(Stdio.Piped);
+                var next = ps.Spawn();
+                await child.PipeToAsync(next)
+                    .ConfigureAwait(false);
+                await child.WaitAsync(cancellationToken)
+                    .ConfigureAwait(false);
+                child.Dispose();
+
+                return next;
+            });
+
+        return this;
+    }
+
+    public PsPipeAsync Pipe(SplattableCommand command, PsStartInfo? startInfo, CancellationToken cancellationToken = default)
     {
         this.steps.Add(async (child) =>
         {
