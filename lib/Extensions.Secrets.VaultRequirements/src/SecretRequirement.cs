@@ -14,7 +14,7 @@ public class SecretRequirement
     [Serialization("default")]
     public string? Default { get; set; } = null;
 
-    [Serialization("gen")]
+    [Serialization("generate")]
     public bool Generate { get; set; } = false;
 
     [Serialization("required")]
@@ -26,7 +26,7 @@ public class SecretRequirement
     [Serialization("upper")]
     public bool Upper { get; set; } = true;
 
-    [Serialization("upper")]
+    [Serialization("lower")]
     public bool Lower { get; set; } = true;
 
     [Serialization("number")]

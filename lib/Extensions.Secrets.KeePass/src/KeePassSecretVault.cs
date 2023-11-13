@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace GnomeStack.Extensions.Secrets.KeePass;
 
-public class KeePassSecretVault : SecretVault
+public sealed class KeePassSecretVault : SecretVault, IDisposable
 {
     private readonly KpDatabase database;
 
@@ -80,6 +80,11 @@ public class KeePassSecretVault : SecretVault
             entry.Delete();
             this.database.Save();
         }
+    }
+
+    public void Dispose()
+    {
+        this.database.Dispose();
     }
 
     public override ISecretRecord? GetSecret(string path)

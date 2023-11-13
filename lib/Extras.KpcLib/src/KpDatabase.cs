@@ -7,11 +7,13 @@ using KpResult = GnomeStack.Functional.Result<GnomeStack.Extras.KpcLib.KpDatabas
 
 namespace GnomeStack.Extras.KpcLib;
 
-public class KpDatabase
+public class KpDatabase : IDisposable
 {
     private readonly PwDatabase database;
 
     private readonly Lazy<KpGroup> root;
+
+    private bool disposed;
 
     public KpDatabase()
     {
@@ -29,6 +31,11 @@ public class KpDatabase
 
             return new KpGroup(this.database.RootGroup);
         });
+    }
+
+    ~KpDatabase()
+    {
+        this.Dispose(false);
     }
 
     public KpGroup Root => this.root.Value;
@@ -87,7 +94,7 @@ public class KpDatabase
         if (path.IsNullOrWhiteSpace())
             return new Error("path is empty.");
 
-        path = System.IO.Path.GetFullPath(path);
+        path = Path.GetFullPath(path);
 
         if (!path.EndsWith(".kdbx", StringComparison.OrdinalIgnoreCase))
         {
@@ -118,6 +125,12 @@ public class KpDatabase
         {
             return Error.Convert(ex);
         }
+    }
+
+    public void Dispose()
+    {
+       GC.SuppressFinalize(this);
+       this.Dispose(true);
     }
 
     public IEnumerable<string> EnumerateGroupNames()
@@ -248,6 +261,19 @@ public class KpDatabase
         {
             return Error.Convert(ex);
         }
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this.disposed)
+            return;
+
+        if (disposing)
+        {
+            this.database.Close();
+        }
+
+        this.disposed = true;
     }
 
     private static void CollectEntryNames(KpGroup target, string empty, List<string> set)

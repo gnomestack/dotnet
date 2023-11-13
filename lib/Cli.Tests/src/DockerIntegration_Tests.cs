@@ -31,6 +31,7 @@ public class DockerIntegration_Tests
         foreach (var line in psOut.StdOut)
             writer.WriteLine(line);
 
+        Ps.Exec("docker", PsArgs.From("network", "ls"));
         var ps = Ps.New(new DockerNetworkList());
         writer.WriteLine(ps.FileName);
         foreach (var line in ps.StartInfo.Args)
