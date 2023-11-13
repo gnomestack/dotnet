@@ -228,8 +228,6 @@ public class VaultRequirements
             {
                 throw new InvalidOperationException($"Secret {req.Url} is required but not found.");
             }
-            
-           
         }
     }
 }

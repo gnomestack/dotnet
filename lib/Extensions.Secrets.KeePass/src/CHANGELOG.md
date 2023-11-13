@@ -1,5 +1,5 @@
 # CHANGE LOG
 
-## 0.0.0 initial creation
+## 0.1.2 initial creation
 
-- created.
+- created and implements Extensions.Secrets.Abstractions

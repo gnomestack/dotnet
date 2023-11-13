@@ -3,9 +3,8 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace GnomeStack.Os.Secrets.Win32;
 
-[CLSCompliant(false)]
 [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-public struct NativeCredential
+internal struct NativeCredential
 {
     public int Flags;
     public WinCredType Type;

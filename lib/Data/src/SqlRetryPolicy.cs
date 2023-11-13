@@ -10,6 +10,7 @@ public static class SqlRetryPolicy
 {
     private static Lazy<ResiliencePipeline> s_policy = new(() => Create());
 
+    [CLSCompliant(false)]
     public static ResiliencePipeline Default
     {
         get => s_policy.Value;

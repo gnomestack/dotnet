@@ -55,7 +55,7 @@ public class CredentialHandle : Microsoft.Win32.SafeHandles.CriticalHandleMinusO
 
         var native = Marshal.PtrToStructure<NativeCredential>(this.handle);
         var data = new byte[native.CredentialBlobSize];
-        Marshal.Copy(native.CredentialBlob, data, 0, (int)native.CredentialBlobSize);
+        Marshal.Copy(native.CredentialBlob, data, 0, native.CredentialBlobSize);
         return data;
     }
 
@@ -90,11 +90,11 @@ public class CredentialHandle : Microsoft.Win32.SafeHandles.CriticalHandleMinusO
         if (native.CredentialBlobSize > 0)
         {
             data = new byte[native.CredentialBlobSize];
-            Marshal.Copy(native.CredentialBlob, data, 0, (int)native.CredentialBlobSize);
+            Marshal.Copy(native.CredentialBlob, data, 0, native.CredentialBlobSize);
         }
 
         return new WinCredSecret(
-            (WinCredType)native.Type,
+            native.Type,
             native.TargetName,
             native.UserName,
             data != null ? Encoding.Unicode.GetString(data) : null,

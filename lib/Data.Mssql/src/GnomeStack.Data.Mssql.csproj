@@ -8,15 +8,18 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <RootNamespace>GnomeStack.Data.SqlServer</RootNamespace>
-    <!-- TODO: ship icon -->
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>SqlServer Management GnomeStack</PackageTags>
+    <PackageTags>SqlServer Mssql Data Management GnomeStack</PackageTags>
     <Description>
-    GnomeStack.Data.SqlServer
+      Provides Management Sql statements for Sql Server like creating/dropping databases,
+      users, logins, or getting database sizes, info on resource usage, etc.
+
+      The library is built on top of GnomeStack.Data which uses
+      dapper and provides extension methods for `IDbConnection` and Dapper that enables
+      classes or structs that implement `ISqlStatementBuilder` to be executed.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))

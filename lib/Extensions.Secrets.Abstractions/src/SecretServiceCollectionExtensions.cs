@@ -14,7 +14,7 @@ public static class SecretServiceCollectionExtensions
         services.TryAddSingleton(secretVaultFactory);
         return services;
     }
-    
+
     public static IServiceCollection AddSecrets(this IServiceCollection services, SecretVaultOptions options)
     {
         services.TryAddSingleton(typeof(ISecretVault), options.SecretVaultType);

@@ -1,3 +1,4 @@
+<!--suppress MsbuildTargetFrameworkTagInspection -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -11,9 +12,10 @@
 
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags></PackageTags>
+    <PackageTags>Application Paths Environment GnomeStack</PackageTags>
     <Description>
-    GnomeStack.Extensions.Application.Abstractions
+      Provides contracts `IApplicationEnvironment` and `IApplicationPaths`
+      that are implemented in `GnomeStack.Extensions.Application`.
     </Description>
     <PackageReleaseNotes Condition="Exists('$(MSBuildProjectDirectory)/CHANGELOG.md')">
       $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))

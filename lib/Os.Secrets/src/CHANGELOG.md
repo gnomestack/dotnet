@@ -1,5 +1,7 @@
 # CHANGE LOG
 
-## 0.0.0 initial creation
+## 0.1.2 initial creation
 
-- created.
+- Initial creation with basic functionality for Linux, Windows, and MacOS.
+- Implement GetSecret, SetSecret, and DeleteSecret.
+- Attempt to implement basic compatibility with node-keytar.

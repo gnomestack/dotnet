@@ -323,12 +323,16 @@ public static partial class GsDapperExtensions
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
         CommandType? commandType = null,
-        ResiliencePipeline? retryPolicy = null)
+        ResiliencePipeline? retryPolicy = null,
+        CancellationToken cancellationToken = default)
     {
         retryPolicy ??= SqlRetryPolicy.Default;
         try
         {
-            var result = retryPolicy.Execute(() => cnn.Scalar(builder, transaction, commandTimeout, commandType));
+            var result = await retryPolicy.ExecuteAsync(
+                async (_) => await cnn.ScalarAsync(builder, transaction, commandTimeout, commandType),
+                cancellationToken);
+
             if (result is not null)
                 return result;
 

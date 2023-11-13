@@ -2,10 +2,10 @@ using System.Runtime.InteropServices;
 
 namespace GnomeStack.Os.Secrets.Win32;
 
-public static class NativeMethods
+internal static class NativeMethods
 {
     [DllImport("Advapi32.dll", EntryPoint = "CredReadW", CharSet = CharSet.Unicode, SetLastError = true)]
-    public static extern bool ReadCredential([In] string target, [In] WinCredType type, [In] int reservedFlag, out IntPtr credentialPtr);
+    internal static extern bool ReadCredential([In] string target, [In] WinCredType type, [In] int reservedFlag, out IntPtr credentialPtr);
 
     [DllImport("Advapi32.dll", EntryPoint = "CredWriteW", CharSet = CharSet.Unicode, SetLastError = true)]
     internal static extern bool WriteCredential([In] ref NativeCredential userCredential, [In] uint flags);
