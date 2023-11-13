@@ -42,6 +42,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\src\GnomeStack.Core.csproj" />
-    <ProjectReference Include="..\..\Extras.Dapper\src\GnomeStack.Extras.Dapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dapper\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" />
+    <PackageReference Include="Polly" />
   </ItemGroup>
 </Project>

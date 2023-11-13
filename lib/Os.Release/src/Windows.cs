@@ -35,7 +35,7 @@ internal static class Windows
                     if (v.Build >= 20348)
                     {
                         os.Version = "Server 2022";
-                        os.VersionId = "2016";
+                        os.VersionId = "2022";
                     }
                     else if (v.Build >= 17763)
                     {
@@ -127,7 +127,7 @@ internal static class Windows
                 throw new NotSupportedException("Unknown or unsupported Windows version");
         }
 
-        os.PrettyName = $"${os.Name} ${os.Version} (${os.BuildId})";
+        os.PrettyName = $"{os.Name} {os.Version} ({os.BuildId})";
         return os;
     }
 }

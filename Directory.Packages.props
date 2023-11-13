@@ -113,6 +113,7 @@
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.51.0.59060" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageVersion Include="Testcontainers.MsSql" Version="3.6.0" />
     <PackageVersion Include="Text.Analyzers" Version="3.3.4-beta1.22559.1" />
     <PackageVersion Include="XamlNameReferenceGenerator" Version="1.6.1" />
     <PackageVersion Include="xunit.assert" Version="2.4.1" />

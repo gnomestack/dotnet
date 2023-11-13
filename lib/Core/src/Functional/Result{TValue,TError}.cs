@@ -26,6 +26,9 @@ public readonly struct Result<TValue, TError> : IResult<TValue, TError>
 
     public bool IsError => this.state == ResultState.Err;
 
+    public static implicit operator Task<Result<TValue, TError>>(Result<TValue, TError> result)
+        => Task.FromResult(result);
+
     public static implicit operator Result<TValue, TError>(TValue value)
         => Result.Ok<TValue, TError>(value);
 
