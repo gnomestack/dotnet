@@ -31,13 +31,13 @@ public class MssqlCreateDatabase : CreateDatabase
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.Name.AsSpan()))
+        if (!MssqlValidate.Identifier(this.Name.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.Name}");
 
-        if (!this.CopyFromDatabase.IsNullOrWhiteSpace() && !Validate.Identifier(this.CopyFromDatabase.AsSpan()))
+        if (!this.CopyFromDatabase.IsNullOrWhiteSpace() && !MssqlValidate.Identifier(this.CopyFromDatabase.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.CopyFromDatabase}");
 
-        if (!this.ElasticPoolName.IsNullOrWhiteSpace() && !Validate.ElasticPoolName(this.ElasticPoolName.AsSpan()))
+        if (!this.ElasticPoolName.IsNullOrWhiteSpace() && !MssqlValidate.ElasticPoolName(this.ElasticPoolName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid elastic pool name {this.ElasticPoolName}");
 
         var sb = StringBuilderCache.Acquire();

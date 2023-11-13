@@ -17,18 +17,18 @@ public class MssqlGrantStatement : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.UserName(this.UserName.AsSpan()))
+        if (!MssqlValidate.UserName(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name: {this.UserName}");
 
-        if (!this.ObjectType.IsNullOrWhiteSpace() && !Validate.Identifier(this.ObjectName.AsSpan()))
+        if (!this.ObjectType.IsNullOrWhiteSpace() && !MssqlValidate.Identifier(this.ObjectName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid object type: {this.ObjectName}");
 
-        if (!Validate.Identifier(this.ObjectName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.ObjectName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid object name: {this.ObjectName}");
 
         foreach (var permission in this.Permissions)
         {
-            if (!Validate.PermissionName(permission.AsSpan()))
+            if (!MssqlValidate.PermissionName(permission.AsSpan()))
             {
                 return new InvalidDbIdentifierException($"Invalid permission: {permission}");
             }

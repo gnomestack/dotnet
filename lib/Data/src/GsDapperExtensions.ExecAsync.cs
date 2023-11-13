@@ -14,18 +14,18 @@ namespace GnomeStack.Data;
 public static partial class GsDapperExtensions
 {
     public static Task<int> ExecAsync(
-        this DbConnection connection,
+        this IDbConnection cnn,
         string sql,
         object? param = null,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
         CommandType? commandType = null)
     {
-        return connection.ExecuteAsync(sql, param, transaction, commandTimeout, commandType);
+        return cnn.ExecuteAsync(sql, param, transaction, commandTimeout, commandType);
     }
 
     public static Task<int> ExecAsync(
-        this DbConnection connection,
+        this IDbConnection cnn,
         ISqlStatementBuilder builder,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
@@ -36,7 +36,7 @@ public static partial class GsDapperExtensions
             query.ThrowIfError();
 
         var (sql, param) = query.Unwrap();
-        return connection.ExecuteAsync(
+        return cnn.ExecuteAsync(
             sql,
             param,
             transaction,
@@ -45,21 +45,21 @@ public static partial class GsDapperExtensions
     }
 
     public static Task<int> ExecAsync(
-        this DbConnection connection,
+        this IDbConnection cnn,
         CommandDefinition command)
     {
-        return connection.ExecuteAsync(command);
+        return cnn.ExecuteAsync(command);
     }
 
     public static async Task<ExecuteResult> ExecAsResultAsync(
-        this IDbConnection connection,
+        this IDbConnection cnn,
         string sql,
         object? param = null,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
         CommandType? commandType = null)
     {
-        var r = await Result.TryAsync(async () => await connection.ExecuteAsync(
+        var r = await Result.TryAsync(async () => await cnn.ExecuteAsync(
             sql,
             param,
             transaction,
@@ -69,7 +69,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> ExecAsResultAsync(
-        this IDbConnection connection,
+        this IDbConnection cnn,
         ISqlStatementBuilder builder,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
@@ -80,7 +80,7 @@ public static partial class GsDapperExtensions
             return query.UnwrapError();
 
         var (sql, param) = query.Unwrap();
-        return await Result.TryAsync(async () => await connection.ExecuteAsync(
+        return await Result.TryAsync(async () => await cnn.ExecuteAsync(
             sql,
             param,
             transaction,
@@ -89,16 +89,16 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> ExecAsResultAsync(
-        this IDbConnection connection,
+        this IDbConnection cnn,
         CommandDefinition command)
     {
-        var r = await Result.TryAsync(async () => await connection.ExecuteAsync(
+        var r = await Result.TryAsync(async () => await cnn.ExecuteAsync(
             command));
         return r;
     }
 
     public static async Task<ExecuteResult> RetryExecAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         string sql,
         object? param = null,
         IDbTransaction? transaction = null,
@@ -119,7 +119,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> RetryExecAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         ISqlStatementBuilder builder,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
@@ -138,7 +138,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> RetryExecAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         CommandDefinition command,
         ResiliencePipeline? retryPolicy = null,
         CancellationToken cancellationToken = default)
@@ -150,7 +150,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> RetryExecAsResultAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         string sql,
         object? param = null,
         IDbTransaction? transaction = null,
@@ -178,7 +178,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> RetryExecAsResultAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         ISqlStatementBuilder builder,
         IDbTransaction? transaction = null,
         int? commandTimeout = null,
@@ -204,7 +204,7 @@ public static partial class GsDapperExtensions
     }
 
     public static async Task<ExecuteResult> RetryExecAsResultAsync(
-        this DbConnection cnn,
+        this IDbConnection cnn,
         CommandDefinition command,
         ResiliencePipeline? retryPolicy = null,
         CancellationToken cancellationToken = default)

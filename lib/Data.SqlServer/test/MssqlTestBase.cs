@@ -1,3 +1,5 @@
+using DotNet.Testcontainers.Builders;
+
 using Testcontainers.MsSql;
 
 using Xunit.Abstractions;
@@ -13,7 +15,6 @@ public abstract class MssqlTestBase : IAsyncLifetime
         this.Writer = writer;
         this.container = new MsSqlBuilder()
             .WithPortBinding(1433, true)
-            .WithPassword("TEST_SQL_PW")
             .Build();
     }
 

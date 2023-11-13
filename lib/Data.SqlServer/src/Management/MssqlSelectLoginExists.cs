@@ -4,11 +4,20 @@ namespace GnomeStack.Data.SqlServer.Management;
 
 public class MssqlSelectLoginExists : SqlStatementBuilder
 {
+    public MssqlSelectLoginExists()
+    {
+    }
+    
+    public MssqlSelectLoginExists(string loginName)
+    {
+        this.LoginName = loginName;
+    }
+
     public string LoginName { get; set; } = string.Empty;
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.LoginName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.LoginName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid login name {this.LoginName}");
 
         var query = $"""

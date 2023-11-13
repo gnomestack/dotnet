@@ -3,7 +3,7 @@ using GnomeStack.Text;
 
 namespace GnomeStack.Data.SqlServer.Management;
 
-public static class Quote
+public static class MssqlQuote
 {
     public static string Identifier(ReadOnlySpan<char> identifier)
     {

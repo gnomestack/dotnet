@@ -1,14 +1,15 @@
+using GnomeStack.Data.SqlServer.Management;
 using GnomeStack.Functional;
 
 namespace GnomeStack.Data.SqlServer.Management;
 
-public class MssqlDropUser : SqlStatementBuilder
+public class MssqlSelectUserExists : SqlStatementBuilder
 {
-    public MssqlDropUser()
+    public MssqlSelectUserExists()
     {
     }
 
-    public MssqlDropUser(string userName)
+    public MssqlSelectUserExists(string userName)
     {
         this.UserName = userName;
     }
@@ -20,7 +21,13 @@ public class MssqlDropUser : SqlStatementBuilder
         if (!MssqlValidate.UserName(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
-        var sql = $"DROP USER IF EXISTS {MssqlQuote.Identifier(this.UserName.AsSpan())};";
+        var sql = $"""
+                   IF EXISTS(SELECT principal_id FROM sys.database_principals WHERE name = '{this.UserName}')
+                       SELECT 1;
+                   ELSE
+                       SELECT 0;
+                   """;
+
         return (sql, null);
     }
 }

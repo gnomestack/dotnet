@@ -32,7 +32,7 @@ public class MssqlCreateLogin : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.UserName.AsSpan()))
+        if (!MssqlValidate.UserName(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
         if (this.Password.IsNullOrWhiteSpace() && this.GeneratePassword)
@@ -55,7 +55,7 @@ public class MssqlCreateLogin : SqlStatementBuilder
         }
 
         sb.Append("    CREATE LOGIN ")
-            .Append(Quote.Identifier(this.UserName.AsSpan()))
+            .Append(MssqlQuote.Identifier(this.UserName.AsSpan()))
             .Append(" WITH PASSWORD = '")
             .Append(this.Password)
             .Append("';");

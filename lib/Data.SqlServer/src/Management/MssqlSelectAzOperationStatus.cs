@@ -11,12 +11,12 @@ public class MssqlSelectAzOperationStatus : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!this.DatabaseName.IsNullOrWhiteSpace() && !Validate.Identifier(this.DatabaseName.AsSpan()))
+        if (!this.DatabaseName.IsNullOrWhiteSpace() && !MssqlValidate.Identifier(this.DatabaseName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.DatabaseName}");
 
         foreach (var operationName in this.OperationNames)
         {
-            if (!Validate.Identifier(operationName.AsSpan()))
+            if (!MssqlValidate.Identifier(operationName.AsSpan()))
                 return new InvalidDbIdentifierException($"Invalid operation name {operationName}");
         }
 

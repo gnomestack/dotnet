@@ -19,7 +19,7 @@ public class MssqlSelectConcurrentRequests : SqlStatementBuilder
             return (sql, null);
         }
 
-        if (!Validate.Identifier(this.DatabaseName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.DatabaseName.AsSpan()))
         {
             return new InvalidDbIdentifierException($"Invalid database name {this.DatabaseName}");
         }

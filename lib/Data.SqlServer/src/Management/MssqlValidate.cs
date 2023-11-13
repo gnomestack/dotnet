@@ -2,12 +2,12 @@ using System.Text;
 
 namespace GnomeStack.Data.SqlServer.Management;
 
-public static class Validate
+public static class MssqlValidate
 {
     public static bool UserName(ReadOnlySpan<char> name)
     {
         name = name.Trim();
-        if (name.IsEmpty && name.IsWhiteSpace())
+        if (name.IsEmpty || name.IsWhiteSpace())
         {
             return false;
         }
@@ -32,7 +32,7 @@ public static class Validate
 
         foreach (var c in name)
         {
-            if (char.IsLetterOrDigit(c) && c is '_' or '\\' or '-' or '.' or '@')
+            if (char.IsLetterOrDigit(c) || c is '_' or '\\' or '-' or '.' or '@')
             {
                 continue;
             }
@@ -45,7 +45,7 @@ public static class Validate
 
     public static bool ElasticPoolName(ReadOnlySpan<char> name)
     {
-        if (name.IsEmpty && name.IsWhiteSpace())
+        if (name.IsEmpty || name.IsWhiteSpace())
         {
             return false;
         }
@@ -74,7 +74,7 @@ public static class Validate
     public static bool PermissionName(ReadOnlySpan<char> name)
     {
         name = name.Trim();
-        if (name.IsEmpty && name.IsWhiteSpace())
+        if (name.IsEmpty || name.IsWhiteSpace())
         {
             return false;
         }
@@ -103,7 +103,7 @@ public static class Validate
     public static bool OperationName(ReadOnlySpan<char> name)
     {
         name = name.Trim();
-        if (name.IsEmpty && name.IsWhiteSpace())
+        if (name.IsEmpty || name.IsWhiteSpace())
         {
             return false;
         }
@@ -126,7 +126,7 @@ public static class Validate
 
     public static bool GrantIdentifier(ReadOnlySpan<char> identifier)
     {
-        if (identifier.IsEmpty && identifier.IsWhiteSpace())
+        if (identifier.IsEmpty || identifier.IsWhiteSpace())
         {
             return false;
         }
@@ -153,7 +153,7 @@ public static class Validate
     public static bool Identifier(ReadOnlySpan<char> identifier)
     {
         identifier = identifier.Trim();
-        if (identifier.IsEmpty && identifier.IsWhiteSpace())
+        if (identifier.IsEmpty || identifier.IsWhiteSpace())
         {
             return false;
         }

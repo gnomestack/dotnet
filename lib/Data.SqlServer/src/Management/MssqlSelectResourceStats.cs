@@ -13,7 +13,7 @@ public class MssqlSelectResourceStats : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!this.DatabaseName.IsNullOrWhiteSpace() && !Validate.Identifier(this.DatabaseName.AsSpan()))
+        if (!this.DatabaseName.IsNullOrWhiteSpace() && !MssqlValidate.Identifier(this.DatabaseName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.DatabaseName}");
 
         var query = """

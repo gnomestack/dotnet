@@ -7,14 +7,23 @@ namespace GnomeStack.Data.SqlServer.Management;
 /// </summary>
 public class MssqlDropConnections : SqlStatementBuilder
 {
+    public MssqlDropConnections()
+    {
+    }
+
+    public MssqlDropConnections(string databaseName)
+    {
+        this.DatabaseName = databaseName;
+    }
+
     public string DatabaseName { get; set; } = string.Empty;
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.DatabaseName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.DatabaseName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.DatabaseName}");
 
-        var sql = $"ALTER DATABASE {Quote.Identifier(this.DatabaseName.AsSpan())} SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
+        var sql = $"ALTER DATABASE {MssqlQuote.Identifier(this.DatabaseName.AsSpan())} SET SINGLE_USER WITH ROLLBACK IMMEDIATE";
         return (sql, null);
     }
 }

@@ -17,7 +17,7 @@ public class MssqlSelectDbExists : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.DatabaseName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.DatabaseName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.DatabaseName}");
 
         var query = $"""

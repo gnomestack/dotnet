@@ -13,12 +13,12 @@ public class MssqlShrinkDatabase : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.Database.AsSpan()))
+        if (!MssqlValidate.Identifier(this.Database.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid database name {this.Database}");
 
         var sb = StringBuilderCache.Acquire();
         sb.Append("DBCC SHRINKDATABASE (")
-            .Append(Quote.Identifier(this.Database.AsSpan()))
+            .Append(MssqlQuote.Identifier(this.Database.AsSpan()))
             .Append(",")
             .Append(this.ShrinkPercentage);
 

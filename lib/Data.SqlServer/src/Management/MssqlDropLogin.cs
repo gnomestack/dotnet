@@ -20,7 +20,7 @@ public class MssqlDropLogin : SqlStatementBuilder
 
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.UserName(this.LoginName.AsSpan()))
+        if (!MssqlValidate.UserName(this.LoginName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid login name {this.LoginName}");
 
         var sb = StringBuilderCache.Acquire();
@@ -28,18 +28,17 @@ public class MssqlDropLogin : SqlStatementBuilder
         {
             sb.Append("IF EXISTS  (SELECT name FROM master.sys.server_principals WHERE name ='");
             sb.Append(this.LoginName)
-                .Append('\'')
+                .Append("\')")
                 .AppendLine()
-                .Append("BEGIN");
+                .AppendLine("BEGIN");
         }
 
         sb.Append("    DROP LOGIN ")
-            .Append(Quote.Identifier(this.LoginName.AsSpan()));
+            .Append(MssqlQuote.Identifier(this.LoginName.AsSpan()));
 
         if (this.CheckExists)
         {
-            sb.AppendLine()
-                .Append("END");
+            sb.AppendLine().Append("END");
         }
 
         return (StringBuilderCache.GetStringAndRelease(sb), null);

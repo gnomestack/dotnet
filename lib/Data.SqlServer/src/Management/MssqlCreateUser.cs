@@ -8,6 +8,21 @@ namespace GnomeStack.Data.SqlServer.Management;
 
 public class MssqlCreateUser : CreateUser
 {
+    public MssqlCreateUser()
+    {
+    }
+
+    public MssqlCreateUser(string userName)
+    {
+        this.UserName = userName;
+    }
+
+    public MssqlCreateUser(string userName, string login)
+    {
+        this.UserName = userName;
+        this.LoginName = login;
+    }
+
     public string? LoginName { get; set; }
 
     public bool UseFrom { get; set; }
@@ -25,10 +40,10 @@ public class MssqlCreateUser : CreateUser
         if (this.UserName.IsNullOrWhiteSpace())
             return new InvalidDbIdentifierException("User name cannot be empty");
 
-        if (!Validate.Identifier(this.UserName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
-        if (!this.LoginName.IsNullOrWhiteSpace() && !Validate.Identifier(this.LoginName.AsSpan()))
+        if (!this.LoginName.IsNullOrWhiteSpace() && !MssqlValidate.Identifier(this.LoginName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid login name {this.LoginName}");
 
         if (this.CheckExists)
@@ -42,7 +57,7 @@ public class MssqlCreateUser : CreateUser
         }
 
         sb.Append("    CREATE USER ")
-            .Append(Quote.Identifier(this.UserName.AsSpan()));
+            .Append(MssqlQuote.Identifier(this.UserName.AsSpan()));
 
         if (this.UseFromExternalProvider)
         {
@@ -77,12 +92,12 @@ public class MssqlCreateUser : CreateUser
             if (this.UseFrom)
             {
                 sb.Append("    FROM LOGIN ")
-                    .Append(Quote.Identifier(this.LoginName.AsSpan()));
+                    .Append(MssqlQuote.Identifier(this.LoginName.AsSpan()));
             }
             else
             {
                 sb.Append("    FOR LOGIN ")
-                    .Append(Quote.Identifier(this.LoginName.AsSpan()));
+                    .Append(MssqlQuote.Identifier(this.LoginName.AsSpan()));
             }
         }
 
@@ -90,7 +105,7 @@ public class MssqlCreateUser : CreateUser
         {
             sb.AppendLine()
               .Append("    WITH DEFAULT_SCHEMA = ")
-              .Append(Quote.Identifier(this.Schema.AsSpan()));
+              .Append(MssqlQuote.Identifier(this.Schema.AsSpan()));
         }
 
         if (this.CheckExists)

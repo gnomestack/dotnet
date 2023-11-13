@@ -4,19 +4,37 @@ namespace GnomeStack.Data.SqlServer.Management;
 
 public class MssqlDropRoleMember : SqlStatementBuilder
 {
+    public MssqlDropRoleMember()
+    {
+    }
+
+    public MssqlDropRoleMember(string roleName, string userName)
+    {
+        this.RoleName = roleName;
+        this.UserName = userName;
+    }
+
     public string RoleName { get; set; } = string.Empty;
 
     public string UserName { get; set; } = string.Empty;
 
+    public bool UseStoredProc { get; set; } = false;
+
     public override Result<(string, object?), Exception> Build()
     {
-        if (!Validate.Identifier(this.UserName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.UserName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid user name {this.UserName}");
 
-        if (!Validate.Identifier(this.RoleName.AsSpan()))
+        if (!MssqlValidate.Identifier(this.RoleName.AsSpan()))
             return new InvalidDbIdentifierException($"Invalid role name {this.RoleName}");
 
-        var sql = $"ALTER ROLE {Quote.Identifier(this.RoleName.AsSpan())} DROP MEMBER {Quote.Identifier(this.UserName.AsSpan())};";
-        return (sql, null);
+        if (this.UseStoredProc)
+        {
+            var sql = $"EXEC sp_droprolemember {MssqlQuote.Identifier(this.RoleName.AsSpan())}, {MssqlQuote.Identifier(this.UserName.AsSpan())};";
+            return (sql, null);
+        }
+
+        var sql2 = $"ALTER ROLE {MssqlQuote.Identifier(this.RoleName.AsSpan())} DROP MEMBER {MssqlQuote.Identifier(this.UserName.AsSpan())};";
+        return (sql2, null);
     }
 }
