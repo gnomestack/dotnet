@@ -1,5 +1,7 @@
 using DotNet.Testcontainers.Builders;
 
+using GnomeStack.Standard;
+
 using Testcontainers.MsSql;
 
 using Xunit.Abstractions;
@@ -19,6 +21,8 @@ public abstract class MssqlTestBase : IAsyncLifetime
     }
 
     protected string ConnectString => this.container.GetConnectionString();
+
+    protected bool SkipTest => Env.IsWindows && Env.Get("CI") == "true";
 
     protected ITestOutputHelper Writer { get; }
 

@@ -27,6 +27,8 @@ public class MssqlSqlCreation_Tests : MssqlTestBase
     [IntegrationTest]
     public async Task CreateDatabaseAsync()
     {
+        FlexAssert.Default.SkipWhen(this.SkipTest,
+            "Skipping test on Windows CI in Github Actions as it can't find the container");
         using var connection = new SqlConnection(this.ConnectString);
         await connection.ExecAsync(new MssqlCreateDatabase("king_bob"));
 
@@ -44,6 +46,8 @@ public class MssqlSqlCreation_Tests : MssqlTestBase
     [IntegrationTest]
     public async Task CreateLoginAsync()
     {
+        FlexAssert.Default.SkipWhen(this.SkipTest,
+            "Skipping test on Windows CI in Github Actions as it can't find the container");
         using var connection = new SqlConnection(this.ConnectString);
         await connection.ExecAsync(new MssqlCreateLogin("king_bob", "p@ssw0rd"));
 
@@ -62,6 +66,8 @@ public class MssqlSqlCreation_Tests : MssqlTestBase
     [IntegrationTest]
     public async Task CreateUserWithRoleAsync()
     {
+        FlexAssert.Default.SkipWhen(this.SkipTest,
+            "Skipping test on Windows CI in Github Actions as it can't find the container");
         using var connection = new SqlConnection(this.ConnectString);
         await connection.ExecAsync(new MssqlCreateDatabase("king_bob_db"));
         await connection.ExecAsync(new MssqlCreateLogin("king_bob_login", "p@ssw0rd"));
@@ -115,6 +121,8 @@ public class MssqlSqlCreation_Tests : MssqlTestBase
     [IntegrationTest]
     public async Task CreateUserWithRoleUsingSpAsync()
     {
+        FlexAssert.Default.SkipWhen(this.SkipTest,
+            "Skipping test on Windows CI in Github Actions as it can't find the container");
         using var connection = new SqlConnection(this.ConnectString);
         await connection.ExecAsync(new MssqlCreateDatabase("king_bob2_db"));
         await connection.ExecAsync(new MssqlCreateLogin("king_bob2_login", "p@ssw0rd"));
