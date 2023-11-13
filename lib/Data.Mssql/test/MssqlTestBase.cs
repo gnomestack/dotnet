@@ -1,5 +1,3 @@
-using DotNet.Testcontainers.Builders;
-
 using GnomeStack.Standard;
 
 using Testcontainers.MsSql;
@@ -28,14 +26,18 @@ public abstract class MssqlTestBase : IAsyncLifetime
 
     public async Task InitializeAsync()
     {
+        if (this.SkipTest)
+            return;
         this.Writer.WriteLine("Initialize Called");
         await this.container.StartAsync();
-        await Task.Delay(500);
     }
 
-    public Task DisposeAsync()
+    public async Task DisposeAsync()
     {
+        if (this.SkipTest)
+            return;
+
         this.Writer.WriteLine("Dispose Called");
-        return this.container.DisposeAsync().AsTask();
+        await this.container.DisposeAsync().AsTask();
     }
 }
