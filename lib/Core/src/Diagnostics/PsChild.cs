@@ -92,8 +92,6 @@ public sealed class PsChild : IDisposable
         {
             this.process.EnableRaisingEvents = true;
             si.RedirectStandardOutput = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
 
             foreach (var capture in startInfo.StdOutCaptures)
             {
@@ -116,8 +114,6 @@ public sealed class PsChild : IDisposable
             this.IsOutCaptured = true;
             this.process.EnableRaisingEvents = true;
             si.RedirectStandardError = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
             this.process.OutputDataReceived += (_, _) => { };
         }
 
@@ -125,8 +121,6 @@ public sealed class PsChild : IDisposable
         {
             this.process.EnableRaisingEvents = true;
             si.RedirectStandardError = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
             foreach (var capture in startInfo.StdErrorCaptures)
             {
                 capture.OnStart(this.process);
@@ -147,31 +141,23 @@ public sealed class PsChild : IDisposable
         {
             this.IsErrorCaptured = true;
             this.process.EnableRaisingEvents = true;
-            si.RedirectStandardError = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
             this.process.ErrorDataReceived += (_, _) => { };
         }
 
         if (startInfo.StdOut == Stdio.Piped)
-        {
             si.RedirectStandardOutput = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
-        }
 
         if (startInfo.StdErr == Stdio.Piped)
-        {
             si.RedirectStandardError = true;
-            si.UseShellExecute = false;
-            si.CreateNoWindow = true;
-        }
 
         if (startInfo.StdIn == Stdio.Piped)
-        {
             si.RedirectStandardInput = true;
-            si.UseShellExecute = false;
+
+        if (si.RedirectStandardError || si.RedirectStandardOutput
+                                     || this.IsOutCaptured || this.IsErrorCaptured)
+        {
             si.CreateNoWindow = true;
+            si.UseShellExecute = false;
         }
 
         this.process.Start();
