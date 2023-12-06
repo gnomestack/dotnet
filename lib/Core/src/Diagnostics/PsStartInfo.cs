@@ -40,7 +40,7 @@ public class PsStartInfo
 
     public bool LoadUserProfile { get; set; } = false;
 
-    public bool CreateNoWindow { get; set; } = true;
+    public bool CreateNoWindow { get; set; } = false;
 
     public bool UseShellExecute { get; set; } = false;
 
